@@ -4,37 +4,37 @@ namespace CourseSelectionApp.Models
 {
     public class CourseTime
     {
-        public string Sunday 
+        public string[] Sunday 
         { 
             get; set; 
         }
 
-        public string Monday 
+        public string[] Monday 
+        { 
+            get; set;
+        }
+
+        public string[] Tuesday 
         { 
             get; set; 
         }
 
-        public string Tuesday 
+        public string[] Wednesday 
         { 
             get; set; 
         }
 
-        public string Wednesday 
+        public string[] Thursday 
         { 
             get; set; 
         }
 
-        public string Thursday 
+        public string[] Friday 
         { 
             get; set; 
         }
 
-        public string Friday 
-        { 
-            get; set; 
-        }
-
-        public string Saturday 
+        public string[] Saturday 
         { 
             get; set; 
         }

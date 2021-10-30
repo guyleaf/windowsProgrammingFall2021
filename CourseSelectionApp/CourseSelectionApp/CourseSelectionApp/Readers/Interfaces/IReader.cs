@@ -4,12 +4,12 @@ using CourseSelectionApp.Models;
 
 namespace CourseSelectionApp.Readers
 {
-    public interface ICourseTableReader
+    public interface IReader<T>
     {
         /// <summary>
-        /// 取得課程資料
+        /// 取得結構化資料資料
         /// </summary>
         /// <returns></returns>
-        IList<Course> GetCourses();
+        IList<T> GetResults();
     }
 }

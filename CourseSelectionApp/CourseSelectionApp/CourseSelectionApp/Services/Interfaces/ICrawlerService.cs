@@ -8,12 +8,12 @@ using CourseSelectionApp.Models;
 
 namespace CourseSelectionApp.Services.Interfaces
 {
-    public interface ICourseService
+    public interface ICrawlerService<T>
     {
         /// <summary>
         /// 取得所有課程資料
         /// </summary>
         /// <returns></returns>
-        IList<Course> GetAllCourses();
+        IList<T> GetResults(Uri uri);
     }
 }

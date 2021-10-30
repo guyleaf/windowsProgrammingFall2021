@@ -49,29 +49,91 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CourseSelectionPresentationModel.cs" />
-    <Compile Include="CourseSelectionForm.cs">
+    <Compile Include="Attributes\StringValueAttribute.cs" />
+    <Compile Include="CourseSelectionFormPresentationModel.cs" />
+    <Compile Include="CourseSelectionResultFormPresentationModel.cs" />
+    <Compile Include="Extensions\ICollectionExtensions.cs" />
+    <Compile Include="Forms\CourseSelectionResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CourseSelectionForm.Designer.cs">
+    <Compile Include="Forms\CourseSelectionResultForm.Designer.cs">
+      <DependentUpon>CourseSelectionResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseSelectionAppModel.cs" />
+    <Compile Include="Models\Curriculum.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Models\Enums\SelectionErrorCode.cs" />
+    <Compile Include="Readers\BaseReader.cs" />
+    <Compile Include="Readers\ClassReader.cs" />
+    <Compile Include="Services\BaseCrawlerService.cs" />
+    <Compile Include="Services\ClassCrawlerService.cs" />
+    <Compile Include="UserControls\CourseDataGridComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CourseDataGridComponent.Designer.cs">
+      <DependentUpon>CourseDataGridComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseManagementFormPresentationModel.cs" />
+    <Compile Include="Forms\CourseManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CourseManagementForm.Designer.cs">
+      <DependentUpon>CourseManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CourseSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CourseSelectionForm.Designer.cs">
       <DependentUpon>CourseSelectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Dto\CourseSelectionDataDto.cs" />
     <Compile Include="Readers\Enums\CourseNode.cs" />
     <Compile Include="Readers\CourseTableReader.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\CourseInfo.cs" />
-    <Compile Include="Models\CourseSelectionInfo.cs" />
-    <Compile Include="Models\CourseOtherInfo.cs" />
-    <Compile Include="Models\CourseStatus.cs" />
-    <Compile Include="Models\CourseTime.cs" />
-    <Compile Include="Readers\Interfaces\ICourseTableReader.cs" />
+    <Compile Include="Models\Course\Course.cs" />
+    <Compile Include="Models\Course\CourseInfo.cs" />
+    <Compile Include="Models\Course\CourseSelectionInfo.cs" />
+    <Compile Include="Models\Course\CourseOtherInfo.cs" />
+    <Compile Include="Models\Course\CourseStatus.cs" />
+    <Compile Include="Models\Course\CourseTime.cs" />
+    <Compile Include="Readers\Interfaces\IReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CourseService.cs" />
-    <Compile Include="Services\Interfaces\ICourseService.cs" />
-    <EmbeddedResource Include="CourseSelectionForm.resx">
+    <Compile Include="Services\CourseCrawlerService.cs" />
+    <Compile Include="Services\Interfaces\ICrawlerService.cs" />
+    <Compile Include="Forms\StartUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartUpForm.Designer.cs">
+      <DependentUpon>StartUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartUpFormPresentationModel.cs" />
+    <Compile Include="UserControls\CourseSelectionGridComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CourseSelectionGridComponent.Designer.cs">
+      <DependentUpon>CourseSelectionGridComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CourseSelectionResultGridComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CourseSelectionResultGridComponent.Designer.cs">
+      <DependentUpon>CourseSelectionResultGridComponent.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\CourseSelectionResultForm.resx">
+      <DependentUpon>CourseSelectionResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CourseDataGridComponent.resx">
+      <DependentUpon>CourseDataGridComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CourseManagementForm.resx">
+      <DependentUpon>CourseManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CourseSelectionForm.resx">
       <DependentUpon>CourseSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartUpForm.resx">
+      <DependentUpon>StartUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,6 +144,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\CourseSelectionGridComponent.resx">
+      <DependentUpon>CourseSelectionGridComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -9,10 +9,9 @@ using HtmlAgilityPack;
 
 namespace CourseSelectionApp.Readers
 {
-    // TODO: make a builder for course
-
-    public class CourseTableReader : ICourseTableReader
+    public class CourseTableReader : BaseReader<Course>
     {
+        private const char COURSE_TIME_DELIMITER = ' ';
         private const string NODE_URI = "href";
         private readonly HtmlNode _table;
 
@@ -25,7 +24,7 @@ namespace CourseSelectionApp.Readers
         /// 取得課程資料
         /// </summary>
         /// <returns></returns>
-        public IList<Course> GetCourses()
+        public override IList<Course> GetResults()
         {
             HtmlNodeCollection tableRows = _table.ChildNodes;
             // 移除tbody
@@ -38,15 +37,6 @@ namespace CourseSelectionApp.Readers
             RemoveNode(tableRows, tableRows.Count - 1);
 
             return tableRows.Select(row => ReadCourseNode(row)).ToList();
-        }
-
-        /// <summary>
-        /// 移除標籤Node
-        /// </summary>
-        /// <param name="tableRows"></param>
-        private void RemoveNode(HtmlNodeCollection tableRows, int index)
-        {
-            tableRows.RemoveAt(index);
         }
 
         /// <summary>
@@ -65,7 +55,7 @@ namespace CourseSelectionApp.Readers
                 Id = GetNodeText(nodes, (int)CourseNode.Id),
                 Info = ReadCourseInfo(nodes),
                 SelectionInfo = ReadCourseSelectionInfo(nodes),
-                ClassTime = ReadCourseTime(nodes),
+                CourseTime = ReadCourseTime(nodes),
                 Status = ReadCourseStatus(nodes),
                 OtherInfo = ReadCourseOtherInfo(nodes)
             };
@@ -112,14 +102,26 @@ namespace CourseSelectionApp.Readers
         {
             return new CourseTime()
             {
-                Sunday = GetNodeText(nodes, (int)CourseNode.Sunday),
-                Monday = GetNodeText(nodes, (int)CourseNode.Monday),
-                Tuesday = GetNodeText(nodes, (int)CourseNode.Tuesday),
-                Wednesday = GetNodeText(nodes, (int)CourseNode.Wednesday),
-                Thursday = GetNodeText(nodes, (int)CourseNode.Thursday),
-                Friday = GetNodeText(nodes, (int)CourseNode.Friday),
-                Saturday = GetNodeText(nodes, (int)CourseNode.Saturday)
+                Sunday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Sunday)),
+                Monday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Monday)),
+                Tuesday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Tuesday)),
+                Wednesday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Wednesday)),
+                Thursday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Thursday)),
+                Friday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Friday)),
+                Saturday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Saturday))
             };
+        }
+
+        /// <summary>
+        /// 取得切割後資料
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private string[] GetSplittedText(string texts)
+        {
+            return texts.Split(COURSE_TIME_DELIMITER)
+                .Where(text => !string.IsNullOrWhiteSpace(text))
+                .ToArray();
         }
 
         /// <summary>
@@ -159,16 +161,6 @@ namespace CourseSelectionApp.Readers
         }
 
         /// <summary>
-        /// 取得節點文字
-        /// </summary>
-        /// <param name="node"></param>
-        /// <returns></returns>
-        private string GetNodeText(HtmlNodeCollection nodes, int index)
-        {
-            return nodes[index].InnerText.Trim();
-        }
-
-        /// <summary>
         /// 取得節點連結
         /// </summary>
         /// <param name="nodes"></param>
@@ -177,18 +169,6 @@ namespace CourseSelectionApp.Readers
         private string GetNodeUri(HtmlNodeCollection nodes, int index)
         {
             return GetNodeAttributeValue(nodes[index].ChildNodes.FirstOrDefault(), NODE_URI, "");
-        }
-
-        /// <summary>
-        /// 取得節點屬性
-        /// </summary>
-        /// <param name="node"></param>
-        /// <param name="name"></param>
-        /// <param name="defaultValue"></param>
-        /// <returns></returns>
-        private string GetNodeAttributeValue(HtmlNode node, string name, string defaultValue)
-        {
-            return node.GetAttributeValue(name, defaultValue);
         }
     }
 }
