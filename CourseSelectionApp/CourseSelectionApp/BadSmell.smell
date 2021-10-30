@@ -188,109 +188,13 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>Unsuitable naming(名不符實)-EnumExtensions(enum)</SmellType>
-              <HashCode>UnsuitableNaming.CourseSelectionApp.Extensions.EnumExtensions.EnumExtensions</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseSelectionApp</Project>
-              <File>EnumExtensions.cs</File>
-              <Line>10</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>Unsuitable naming(名不符實)-_unselectedCourses(unselected)</SmellType>
-              <HashCode>UnsuitableNaming.CourseSelectionAppModel._unselectedCourses._unselectedCourses</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseSelectionApp</Project>
-              <File>CourseSelectionAppModel.cs</File>
-              <Line>13</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
-              <SmellType>Unsuitable naming(名不符實)-GetUnselectedCoursesByClassName(unselected)</SmellType>
-              <HashCode>UnsuitableNaming.CourseSelectionAppModel.GetUnselectedCoursesByClassName.GetUnselectedCoursesByClassName</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseSelectionApp</Project>
-              <File>CourseSelectionAppModel.cs</File>
-              <Line>56</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>4</Id>
-              <SmellType>Unsuitable naming(名不符實)-GetUnselectedCoursesByCourseIdList(unselected)</SmellType>
-              <HashCode>UnsuitableNaming.CourseSelectionAppModel.GetUnselectedCoursesByCourseIdList.GetUnselectedCoursesByCourseIdList</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseSelectionApp</Project>
-              <File>CourseSelectionAppModel.cs</File>
-              <Line>67</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>5</Id>
-              <SmellType>Unsuitable naming(名不符實)-GetUnselectedCourseByIndex(unselected)</SmellType>
-              <HashCode>UnsuitableNaming.CourseSelectionAppModel.GetUnselectedCourseByIndex.GetUnselectedCourseByIndex</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseSelectionApp</Project>
-              <File>CourseSelectionAppModel.cs</File>
-              <Line>80</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>Unsuitable naming(名不符實)-CourseSelectionApp.Models.Enums(enums)</SmellType>
-              <HashCode>UnsuitableNaming.Root.CourseSelectionApp.Models.Enums.CourseSelectionApp.Models.Enums</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>CourseSelectionApp</Project>
-              <File>SelectionErrorCode.cs</File>
-              <Line>9</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>7</Id>
               <SmellType>ICS(類別宣告-2)</SmellType>
               <HashCode>ClassDeclaration2.CourseSelectionApp.Readers.BaseReader&lt;T&gt;</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>CourseSelectionApp</Project>
               <File>BaseReader.cs</File>
-              <Line>11</Line>
+              <Line>7</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -299,7 +203,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>8</Id>
+              <Id>2</Id>
               <SmellType>ICS(類別宣告-2)</SmellType>
               <HashCode>ClassDeclaration2.CourseSelectionApp.Services.BaseCrawlerService&lt;T&gt;</HashCode>
               <Severity>Red</Severity>
@@ -315,7 +219,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>9</Id>
+              <Id>3</Id>
               <SmellType>Literal constants(字面常數)-False</SmellType>
               <HashCode>LiteralConstants.CourseSelectionGridComponent.False</HashCode>
               <Severity>Red</Severity>
@@ -331,83 +235,83 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>10</Id>
+              <Id>4</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>79 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</HashCode>
+              <HashCode>77 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>CourseSelectionApp</Project>
               <File>F:\Git\WP_Course\CourseSelectionApp\CourseSelectionApp\CourseSelectionApp\Readers\CourseTableReader.cs</File>
-              <Line>79</Line>
-              <StartLine>70</StartLine>
+              <Line>77</Line>
+              <StartLine>68</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>79</EndLine>
+              <EndLine>77</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>11</Id>
+              <Id>5</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>93 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</HashCode>
+              <HashCode>91 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>CourseSelectionApp</Project>
               <File>F:\Git\WP_Course\CourseSelectionApp\CourseSelectionApp\CourseSelectionApp\Readers\CourseTableReader.cs</File>
-              <Line>93</Line>
-              <StartLine>88</StartLine>
+              <Line>91</Line>
+              <StartLine>86</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>93</EndLine>
+              <EndLine>91</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>12</Id>
+              <Id>6</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>139 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</HashCode>
+              <HashCode>137 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>CourseSelectionApp</Project>
               <File>F:\Git\WP_Course\CourseSelectionApp\CourseSelectionApp\CourseSelectionApp\Readers\CourseTableReader.cs</File>
-              <Line>139</Line>
-              <StartLine>134</StartLine>
+              <Line>137</Line>
+              <StartLine>132</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>139</EndLine>
+              <EndLine>137</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>13</Id>
+              <Id>7</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>160 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：1次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</HashCode>
+              <HashCode>158 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：1次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>CourseSelectionApp</Project>
               <File>F:\Git\WP_Course\CourseSelectionApp\CourseSelectionApp\CourseSelectionApp\Readers\CourseTableReader.cs</File>
-              <Line>160</Line>
-              <StartLine>152</StartLine>
+              <Line>158</Line>
+              <StartLine>150</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>160</EndLine>
+              <EndLine>158</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：1次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>14</Id>
+              <Id>8</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>58 目前物件 CourseSelectionApp.Services.CourseCrawlerService，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Models.Course，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Models.Course.OtherInfo 以及 CourseSelectionApp.Models.Course.OtherInfo</HashCode>
+              <HashCode>55 目前物件 CourseSelectionApp.Services.CourseCrawlerService，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Models.CourseObjects.Course，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Models.CourseObjects.Course.OtherInfo 以及 CourseSelectionApp.Models.CourseObjects.Course.OtherInfo</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>CourseSelectionApp</Project>
               <File>F:\Git\WP_Course\CourseSelectionApp\CourseSelectionApp\CourseSelectionApp\Services\CourseCrawlerService.cs</File>
-              <Line>58</Line>
-              <StartLine>57</StartLine>
+              <Line>55</Line>
+              <StartLine>54</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>58</EndLine>
+              <EndLine>55</EndLine>
               <EndCol>0</EndCol>
-              <Comment>目前物件 CourseSelectionApp.Services.CourseCrawlerService，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Models.Course，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Models.Course.OtherInfo 以及 CourseSelectionApp.Models.Course.OtherInfo</Comment>
+              <Comment>目前物件 CourseSelectionApp.Services.CourseCrawlerService，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Models.CourseObjects.Course，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：CourseSelectionApp.Models.CourseObjects.Course.OtherInfo 以及 CourseSelectionApp.Models.CourseObjects.Course.OtherInfo</Comment>
               <Auto>false</Auto>
             </Smell>
           </Reviews>
@@ -416,46 +320,9 @@
             <string>LiteralConstants.CourseSelectionGridComponent.False</string>
             <string>ClassDeclaration2.CourseSelectionApp.Readers.BaseReader&lt;T&gt;</string>
             <string>ClassDeclaration2.CourseSelectionApp.Services.BaseCrawlerService&lt;T&gt;</string>
-            <string>UnsuitableNaming.CourseSelectionAppModel.GetUnselectedCourseByIndex.GetUnselectedCourseByIndex</string>
-            <string>UnsuitableNaming.CourseSelectionAppModel.GetUnselectedCoursesByCourseIdList.GetUnselectedCoursesByCourseIdList</string>
-            <string>UnsuitableNaming.CourseSelectionAppModel._unselectedCourses._unselectedCourses</string>
-            <string>UnsuitableNaming.CourseSelectionAppModel.GetUnselectedCoursesByClassName.GetUnselectedCoursesByClassName</string>
-            <string>UnsuitableNaming.Root.CourseSelectionApp.Models.Enums.CourseSelectionApp.Models.Enums</string>
-            <string>UnsuitableNaming.CourseSelectionApp.Extensions.EnumExtensions.EnumExtensions</string>
-            <string>79 目前物件 CourseSelectionApp.Readers.CourseTableReader，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSelectionApp.Readers.BaseReader&lt;T&gt;，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int) 以及 CourseSelectionApp.Readers.BaseReader&lt;T&gt;.GetNodeText(HtmlAgilityPack.HtmlNodeCollection, int)</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
-              <AnalysisFile>
-                <RelativePath>Attributes\StringValueAttribute.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseManagementFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseSelectionFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseSelectionResultFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Extensions\EnumExtensions.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Extensions\ICollectionExtensions.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Forms\CourseManagementForm.cs</RelativePath>
                 <ProjectName>CourseSelectionApp</ProjectName>
@@ -495,61 +362,6 @@
                 <RelativePath>Forms\StartUpForm.Designer.cs</RelativePath>
                 <ProjectName>CourseSelectionApp</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Class.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Course\Course.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Course\CourseInfo.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Course\CourseOtherInfo.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Course\CourseSelectionInfo.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Course\CourseStatus.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Course\CourseTime.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\CourseSelectionAppModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Curriculum.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Dto\CourseSelectionDataDto.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Models\Enums\SelectionErrorCode.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Program.cs</RelativePath>
@@ -617,11 +429,6 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>StartUpFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>UserControls\CourseDataGridComponent.cs</RelativePath>
                 <ProjectName>CourseSelectionApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -651,9 +458,94 @@
                 <ProjectName>CourseSelectionApp</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Attributes\StringValueAttribute.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CourseObjects\Course.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CourseObjects\CourseInfo.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CourseObjects\CourseOtherInfo.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CourseObjects\CourseSelectionInfo.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CourseObjects\CourseStatus.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CourseObjects\CourseTime.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Enums\SelectionErrorCode.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Extensions\EnumExtensions.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Extensions\ICollectionExtensions.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\CourseManagementFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\CourseSelectionFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\CourseSelectionResultFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>PresentationModels\StartUpFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Class.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CourseSelectionAppModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Curriculum.cs</RelativePath>
+                <ProjectName>CourseSelectionApp.Models</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3026</ProductionLoc>
+          <ProductionLoc>3736</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

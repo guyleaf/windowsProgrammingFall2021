@@ -2,7 +2,8 @@
 using System.ComponentModel;
 using System.Linq;
 
-using CourseSelectionApp.Extensions;
+using CourseSelectionApp.Models.CourseObjects;
+using CourseSelectionApp.Models.Extensions;
 
 namespace CourseSelectionApp.Models
 {

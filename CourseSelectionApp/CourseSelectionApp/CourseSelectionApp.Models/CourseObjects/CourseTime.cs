@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CourseSelectionApp.Models
+﻿namespace CourseSelectionApp.Models.CourseObjects
 {
     public class CourseTime
     {

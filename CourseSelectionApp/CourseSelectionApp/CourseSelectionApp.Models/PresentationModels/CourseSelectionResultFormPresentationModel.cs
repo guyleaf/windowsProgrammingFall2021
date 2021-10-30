@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using CourseSelectionApp.Models;
 
-namespace CourseSelectionApp
+namespace CourseSelectionApp.Models.PresentationModels
 {
     public class CourseSelectionResultFormPresentationModel
     {

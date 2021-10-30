@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using HtmlAgilityPack;
 
 using CourseSelectionApp.Readers;
-using CourseSelectionApp.Models;
-using CourseSelectionApp.Services.Interfaces;
-
-using HtmlAgilityPack;
-using System.Text;
-using System;
-using System.Linq;
+using CourseSelectionApp.Models.CourseObjects;
 
 namespace CourseSelectionApp.Services
 {

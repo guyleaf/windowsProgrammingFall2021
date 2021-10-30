@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 
-using CourseSelectionApp.Models;
+using CourseSelectionApp.Models.CourseObjects;
 using CourseSelectionApp.Models.Enums;
 
-namespace CourseSelectionApp
+namespace CourseSelectionApp.Models.PresentationModels
 {
     public class CourseSelectionFormPresentationModel : INotifyPropertyChanged
     {

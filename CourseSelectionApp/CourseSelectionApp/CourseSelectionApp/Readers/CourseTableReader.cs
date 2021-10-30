@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-
-using CourseSelectionApp.Models;
-using CourseSelectionApp.Readers.NodeFormats;
-
 using HtmlAgilityPack;
+
+using CourseSelectionApp.Models.CourseObjects;
+using CourseSelectionApp.Readers.NodeFormats;
 
 namespace CourseSelectionApp.Readers
 {

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+using CourseSelectionApp.Models.CourseObjects;
+
 namespace CourseSelectionApp.Models
 {
     public class Curriculum

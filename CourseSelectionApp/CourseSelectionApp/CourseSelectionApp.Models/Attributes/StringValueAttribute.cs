@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CourseSelectionApp.Attributes
+namespace CourseSelectionApp.Models.Attributes
 {
     public class StringValueAttribute : Attribute
     {

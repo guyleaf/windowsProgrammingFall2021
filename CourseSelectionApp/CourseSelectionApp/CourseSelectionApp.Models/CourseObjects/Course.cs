@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CourseSelectionApp.Models
+namespace CourseSelectionApp.Models.CourseObjects
 {
     public class Course : IEquatable<Course>
     {
@@ -63,6 +63,16 @@ namespace CourseSelectionApp.Models
         public override int GetHashCode()
         {
             return Id.GetHashCode();
+        }
+
+        /// <summary>
+        /// 覆寫 Equals
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object other)
+        {
+            return Equals(other as Course);
         }
     }
 }

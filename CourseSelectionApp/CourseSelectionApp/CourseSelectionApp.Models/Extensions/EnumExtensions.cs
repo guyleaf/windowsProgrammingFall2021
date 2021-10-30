@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Reflection;
 
-using CourseSelectionApp.Attributes;
+using CourseSelectionApp.Models.Attributes;
 
-namespace CourseSelectionApp.Extensions
+namespace CourseSelectionApp.Models.Extensions
 {
 
     public static class EnumExtensions

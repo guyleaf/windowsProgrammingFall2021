@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using CourseSelectionApp.Forms;
 using CourseSelectionApp.Models;
+using CourseSelectionApp.Models.PresentationModels;
 using CourseSelectionApp.Services;
 
 using HtmlAgilityPack;
@@ -22,27 +23,43 @@ namespace CourseSelectionApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var courseSelectionAppModel = new CourseSelectionAppModel(LoadCurriculumData());
+            // 載入資料
+            const string DEPARTMENT_URI = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-3&year=110&sem=1&code=59";
+            var webClient = new HtmlWeb();
+            var classes = LoadClassData(webClient, DEPARTMENT_URI);
+            var curriculum = LoadCurriculumData(webClient, classes);
 
+            // 初始化 Model
+            var courseSelectionAppModel = new CourseSelectionAppModel(curriculum);
             var startUpPresentationModel = new StartUpFormPresentationModel();
 
             Application.Run(new StartUpForm(startUpPresentationModel, courseSelectionAppModel));
         }
 
         /// <summary>
+        /// 載入班級資料
+        /// </summary>
+        /// <param name="webClient"></param>
+        /// <param name="departmentUrl"></param>
+        /// <returns></returns>
+        private static IList<Class> LoadClassData(HtmlWeb webClient, string departmentUrl)
+        {
+            var classCrawlerService = new ClassCrawlerService(webClient);
+            // 取得班級資料
+            var classes = classCrawlerService.GetResults(new Uri(departmentUrl));
+
+            return classes;
+        }
+
+        /// <summary>
         /// 載入全部課程
         /// </summary>
-        private static IList<Curriculum> LoadCurriculumData()
+        /// <param name="webClient"></param>
+        /// <param name="classes"></param>
+        /// <returns></returns>
+        private static IList<Curriculum> LoadCurriculumData(HtmlWeb webClient, IList<Class> classes)
         {
-            var webClient = new HtmlWeb();
-            var classCrawlerService = new ClassCrawlerService(webClient);
             var courseCrawlerService = new CourseCrawlerService(webClient);
-
-            const string DEPARTMENT_URI = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-3&year=110&sem=1&code=59";
-
-            // 取得班級資料
-            var classes = classCrawlerService.GetResults(new Uri(DEPARTMENT_URI));
-
             // 取得全部課程
             return classes.Select(classInfo => CollectCourses(courseCrawlerService, classInfo)).ToList();
         }

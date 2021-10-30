@@ -1,4 +1,4 @@
-﻿namespace CourseSelectionApp.Models
+﻿namespace CourseSelectionApp.Models.CourseObjects
 {
     public class CourseOtherInfo
     {

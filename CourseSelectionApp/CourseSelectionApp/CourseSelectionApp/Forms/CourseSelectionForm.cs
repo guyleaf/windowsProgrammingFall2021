@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-using CourseSelectionApp.Extensions;
+using CourseSelectionApp.Models.Extensions;
 using CourseSelectionApp.Models;
 using CourseSelectionApp.Models.Enums;
 using CourseSelectionApp.UserControls;
+using CourseSelectionApp.Models.PresentationModels;
 
 namespace CourseSelectionApp.Forms
 {

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 
 using CourseSelectionApp.Models;
+using CourseSelectionApp.Models.PresentationModels;
 
 namespace CourseSelectionApp.Forms
 {
