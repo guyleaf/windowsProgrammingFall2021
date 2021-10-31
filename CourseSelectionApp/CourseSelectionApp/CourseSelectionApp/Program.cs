@@ -27,13 +27,14 @@ namespace CourseSelectionApp
             const string DEPARTMENT_URI = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-3&year=110&sem=1&code=59";
             var webClient = new HtmlWeb();
             var classes = LoadClassData(webClient, DEPARTMENT_URI);
-            var curriculum = LoadCurriculumData(webClient, classes);
+            var curriculums = LoadCurriculumData(webClient, classes);
 
             // 初始化 Model
-            var courseSelectionAppModel = new CourseSelectionAppModel(curriculum);
+            var courseManagementModel = new CourseManagementModel(classes, curriculums);
+            var courseSelectionModel = new CourseSelectionModel(classes, curriculums);
             var startUpPresentationModel = new StartUpFormPresentationModel();
 
-            Application.Run(new StartUpForm(startUpPresentationModel, courseSelectionAppModel));
+            Application.Run(new StartUpForm(startUpPresentationModel, courseSelectionModel, courseManagementModel));
         }
 
         /// <summary>
@@ -74,13 +75,9 @@ namespace CourseSelectionApp
             CourseCrawlerService service, Class classInfo)
         {
             var result = service.GetResults(new Uri(classInfo.CoursesUri));
-            classInfo.CourseIdList = result.Select(course => course.Id).ToHashSet();
+            classInfo.CourseSet = result.ToHashSet();
 
-            return new Curriculum()
-            {
-                Class = classInfo,
-                Courses = result
-            };
+            return new Curriculum(result, classInfo);
         }
     }
 }

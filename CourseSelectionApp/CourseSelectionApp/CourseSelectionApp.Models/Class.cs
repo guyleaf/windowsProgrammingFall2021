@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+using CourseSelectionApp.Models.CourseObjects;
+
 namespace CourseSelectionApp.Models
 {
     public class Class
@@ -19,7 +21,7 @@ namespace CourseSelectionApp.Models
             get; set; 
         }
 
-        public HashSet<string> CourseIdList 
+        public HashSet<Course> CourseSet 
         { 
             get; set; 
         }

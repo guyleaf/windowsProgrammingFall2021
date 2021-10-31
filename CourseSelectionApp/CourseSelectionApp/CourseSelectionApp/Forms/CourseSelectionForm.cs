@@ -18,17 +18,17 @@ namespace CourseSelectionApp.Forms
         private const string MESSAGE_BREAK_LINE_SYMBOL = "\n\n";
         private readonly IDictionary<string, CourseSelectionGridComponent> _gridComponents;
         private readonly CourseSelectionFormPresentationModel _courseSelectionPresentationModel;
-        private readonly CourseSelectionAppModel _courseSelectionAppModel;
+        private readonly CourseSelectionModel _courseSelectionModel;
 
         public CourseSelectionForm(
-            CourseSelectionFormPresentationModel courseSelectionPresentationModel, CourseSelectionAppModel courseSelectionAppModel
+            CourseSelectionFormPresentationModel courseSelectionPresentationModel, CourseSelectionModel courseSelectionModel
         )
         {
             InitializeComponent();
             _gridComponents = new Dictionary<string, CourseSelectionGridComponent>();
 
             _courseSelectionPresentationModel = courseSelectionPresentationModel;
-            _courseSelectionAppModel = courseSelectionAppModel;
+            _courseSelectionModel = courseSelectionModel;
 
             Load += LoadDataSources;
             _courseSubmitButton.DataBindings.Add(
@@ -38,14 +38,14 @@ namespace CourseSelectionApp.Forms
             );
             _courseCheckSelectionResultButton.DataBindings.Add(
                 nameof(_courseCheckSelectionResultButton.Enabled),
-                _courseSelectionAppModel,
-                nameof(_courseSelectionAppModel.IsAnyCoursesSelected)
+                _courseSelectionModel,
+                nameof(_courseSelectionModel.IsAnyCoursesSelected)
             );
             _courseSubmitButton.Click += ListenCourseSubmitButtonOnClick;
             _courseCheckSelectionResultButton.Click += ListenCourseCheckSelectionResultButtonOnClick;
 
             // 生成 TabPages
-            var classNames = _courseSelectionAppModel.ClassNames;
+            var classNames = _courseSelectionModel.ClassNames;
             var pages = classNames.Select(name =>
             {
                 var page = new TabPage(name)
@@ -92,7 +92,7 @@ namespace CourseSelectionApp.Forms
                 var className = page.Name;
 
                 var component = _gridComponents[className];
-                var courses = _courseSelectionAppModel.GetUnselectedCoursesByClassName(className);
+                var courses = _courseSelectionModel.GetUnselectedCoursesByClassName(className);
                 component.DataGridViewDataSource = courses;
             }
         }
@@ -178,8 +178,8 @@ namespace CourseSelectionApp.Forms
         /// <param name="e"></param>
         private void ListenCourseCheckSelectionResultButtonOnClick(object sender, EventArgs e)
         {
-            var courseSelectionResultPresentationModel = new CourseSelectionResultFormPresentationModel(_courseSelectionAppModel);
-            var courseSelectionResultForm = new CourseSelectionResultForm(courseSelectionResultPresentationModel, _courseSelectionAppModel);
+            var courseSelectionResultPresentationModel = new CourseSelectionResultFormPresentationModel(_courseSelectionModel);
+            var courseSelectionResultForm = new CourseSelectionResultForm(courseSelectionResultPresentationModel, _courseSelectionModel);
             courseSelectionResultForm.Show();
         }
     }

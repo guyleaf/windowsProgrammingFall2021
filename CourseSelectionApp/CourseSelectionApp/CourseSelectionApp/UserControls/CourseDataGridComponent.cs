@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -134,9 +135,9 @@ namespace CourseSelectionApp.UserControls
             var type = propertyInfo.PropertyType;
             var value = propertyInfo.GetValue(property);
 
-            if (type.IsArray)
+            if (type == typeof(IList<string>))
             {
-                value = string.Join(ARRAY_OF_STRINGS_SEPARATOR, (object[])value);
+                value = string.Join(ARRAY_OF_STRINGS_SEPARATOR, (IList<string>)value);
             }
 
             return value;

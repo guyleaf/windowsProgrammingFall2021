@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -9,14 +7,13 @@ using CourseSelectionApp.Models.Enums;
 
 namespace CourseSelectionApp.Models.PresentationModels
 {
-    public class CourseSelectionFormPresentationModel : INotifyPropertyChanged
+    public class CourseSelectionFormPresentationModel : NotifyPropertyChangedModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private const string FORMATTED_STRING_FOR_COURSE_INFO = "{0}-{1}";
-        private readonly CourseSelectionAppModel _courseSelectionAppModel;
+        private readonly CourseSelectionModel _courseSelectionAppModel;
         private readonly IDictionary<string, HashSet<string>> _selectedCourses;
 
-        public CourseSelectionFormPresentationModel(CourseSelectionAppModel appModel)
+        public CourseSelectionFormPresentationModel(CourseSelectionModel appModel)
         {
             _selectedCourses = new Dictionary<string, HashSet<string>>();
             _courseSelectionAppModel = appModel;
@@ -58,7 +55,7 @@ namespace CourseSelectionApp.Models.PresentationModels
                 _selectedCourses[SelectedTabPage].Add(courseId);
             }
 
-            Notify(nameof(IsAnyCourseSelected));
+            NotifyOnPropertyChanged(nameof(IsAnyCourseSelected));
         }
 
         /// <summary>
@@ -98,7 +95,7 @@ namespace CourseSelectionApp.Models.PresentationModels
             _selectedCourses
                 .AsParallel()
                 .ForAll(tabCourseIdsDictionary => tabCourseIdsDictionary.Value.Clear());
-            Notify(nameof(IsAnyCourseSelected));
+            NotifyOnPropertyChanged(nameof(IsAnyCourseSelected));
         }
 
         /// <summary>
@@ -317,18 +314,6 @@ namespace CourseSelectionApp.Models.PresentationModels
         private object GetPropertyValue(object target, string propertyName)
         {
             return target.GetType().GetProperty(propertyName).GetValue(target);
-        }
-
-        /// <summary>
-        /// 通知 Property Update
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void Notify(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

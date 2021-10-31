@@ -9,11 +9,13 @@ namespace CourseSelectionApp.Forms
     public partial class StartUpForm : Form
     {
         private readonly StartUpFormPresentationModel _startUpFormPresentationModel;
-        private readonly CourseSelectionAppModel _courseSelectionAppModel;
+        private readonly CourseSelectionModel _courseSelectionModel;
+        private readonly CourseManagementModel _courseManagementModel;
 
         public StartUpForm(
             StartUpFormPresentationModel startUpFormPresentationModel,
-            CourseSelectionAppModel courseSelectionAppModel)
+            CourseSelectionModel courseSelectionModel,
+            CourseManagementModel courseManagementModel)
         {
             InitializeComponent();
 
@@ -22,7 +24,8 @@ namespace CourseSelectionApp.Forms
             _exitButton.Click += ListenExitButtonOnClick;
 
             _startUpFormPresentationModel = startUpFormPresentationModel;
-            _courseSelectionAppModel = courseSelectionAppModel;
+            _courseSelectionModel = courseSelectionModel;
+            _courseManagementModel = courseManagementModel;
 
             _courseSelectionButton.DataBindings.Add(
                 nameof(_courseSelectionButton.Enabled),
@@ -55,7 +58,7 @@ namespace CourseSelectionApp.Forms
         {
             _startUpFormPresentationModel.ClickCourseSelectionButton();
             var courseSelectionForm = new CourseSelectionForm(
-                new CourseSelectionFormPresentationModel(_courseSelectionAppModel), _courseSelectionAppModel
+                new CourseSelectionFormPresentationModel(_courseSelectionModel), _courseSelectionModel
             );
             courseSelectionForm.FormClosed += ListenCourseSelectionFormOnFormClosed;
             courseSelectionForm.Show();
@@ -69,7 +72,7 @@ namespace CourseSelectionApp.Forms
         private void ListenCourseManagementButtonOnClick(object sender, EventArgs e)
         {
             _startUpFormPresentationModel.ClickCourseManagementButton();
-            var courseManagementForm = new CourseManagementForm(new CourseManagementFormPresentationModel());
+            var courseManagementForm = new CourseManagementForm(new CourseManagementFormPresentationModel(), _courseManagementModel);
             courseManagementForm.FormClosed += ListenCourseManagementFormOnFormClosed;
             courseManagementForm.Show();
         }

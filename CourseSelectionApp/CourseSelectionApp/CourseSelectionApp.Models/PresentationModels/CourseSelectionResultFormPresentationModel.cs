@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using CourseSelectionApp.Models;
+﻿using System.Diagnostics;
 
 namespace CourseSelectionApp.Models.PresentationModels
 {
     public class CourseSelectionResultFormPresentationModel
     {
-        private readonly CourseSelectionAppModel _courseSelectionAppModel;
+        private readonly CourseSelectionModel _courseSelectionAppModel;
 
-        public CourseSelectionResultFormPresentationModel(CourseSelectionAppModel courseSelectionAppModel)
+        public CourseSelectionResultFormPresentationModel(CourseSelectionModel courseSelectionAppModel)
         {
             _courseSelectionAppModel = courseSelectionAppModel;
         }

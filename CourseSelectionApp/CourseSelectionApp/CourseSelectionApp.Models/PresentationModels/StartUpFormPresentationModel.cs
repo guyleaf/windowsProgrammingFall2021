@@ -2,10 +2,8 @@
 
 namespace CourseSelectionApp.Models.PresentationModels
 {
-    public class StartUpFormPresentationModel : INotifyPropertyChanged
+    public class StartUpFormPresentationModel : NotifyPropertyChangedModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        
         private bool _isCourseSelectionButtonEnabled;
         private bool _isCourseManagementButtonEnabled;
 
@@ -69,7 +67,7 @@ namespace CourseSelectionApp.Models.PresentationModels
         private void SetIsCourseSelectionButtonEnabled(bool status)
         {
             _isCourseSelectionButtonEnabled = status;
-            Notify(nameof(IsCourseSelectionButtonEnabled));
+            NotifyOnPropertyChanged(nameof(IsCourseSelectionButtonEnabled));
         }
 
         /// <summary>
@@ -79,19 +77,7 @@ namespace CourseSelectionApp.Models.PresentationModels
         private void SetIsCourseManagementButtonEnabled(bool status)
         {
             _isCourseManagementButtonEnabled = status;
-            Notify(nameof(IsCourseManagementButtonEnabled));
-        }
-
-        /// <summary>
-        /// 通知 Property Update
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void Notify(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            NotifyOnPropertyChanged(nameof(IsCourseManagementButtonEnabled));
         }
     }
 }

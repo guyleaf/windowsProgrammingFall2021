@@ -29,22 +29,21 @@ namespace CourseSelectionApp.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._tabControl = new System.Windows.Forms.TabControl();
             this._courseManagementPage = new System.Windows.Forms.TabPage();
             this._horizontalSplitContainer = new System.Windows.Forms.SplitContainer();
             this._verticalSplitContainer = new System.Windows.Forms.SplitContainer();
             this._courseList = new System.Windows.Forms.ListBox();
             this._courseEditor = new System.Windows.Forms.GroupBox();
-            this._classManagementPage = new System.Windows.Forms.TabPage();
-            this._classHintLabel = new System.Windows.Forms.Label();
-            this._newCourseButton = new System.Windows.Forms.Button();
-            this._saveCourseButton = new System.Windows.Forms.Button();
             this._courseEditorSplitContainer = new System.Windows.Forms.SplitContainer();
             this._courseEditorFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this._courseEditorLine1 = new System.Windows.Forms.FlowLayoutPanel();
             this._courseActivateComboBox = new System.Windows.Forms.ComboBox();
             this._courseIdLabel = new System.Windows.Forms.Label();
+            this._courseIdTextBox = new System.Windows.Forms.TextBox();
             this._courseNameLabel = new System.Windows.Forms.Label();
+            this._courseNameTextBox = new System.Windows.Forms.TextBox();
             this._courseEditorLine2 = new System.Windows.Forms.FlowLayoutPanel();
             this._courseStageLabel = new System.Windows.Forms.Label();
             this._courseStageTextBox = new System.Windows.Forms.TextBox();
@@ -68,8 +67,11 @@ namespace CourseSelectionApp.Forms
             this._classLabel = new System.Windows.Forms.Label();
             this._classComboBox = new System.Windows.Forms.ComboBox();
             this._courseTimeSelectionGrid = new System.Windows.Forms.DataGridView();
-            this._courseIdTextBox = new System.Windows.Forms.TextBox();
-            this._courseNameTextBox = new System.Windows.Forms.TextBox();
+            this._createOrSaveCourseButton = new System.Windows.Forms.Button();
+            this._newCourseButton = new System.Windows.Forms.Button();
+            this._classManagementPage = new System.Windows.Forms.TabPage();
+            this._classHintLabel = new System.Windows.Forms.Label();
+            this._courseEditorErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this._courseSectionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._courseSundayColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this._courseMondayColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -89,7 +91,6 @@ namespace CourseSelectionApp.Forms
             this._verticalSplitContainer.Panel2.SuspendLayout();
             this._verticalSplitContainer.SuspendLayout();
             this._courseEditor.SuspendLayout();
-            this._classManagementPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._courseEditorSplitContainer)).BeginInit();
             this._courseEditorSplitContainer.Panel1.SuspendLayout();
             this._courseEditorSplitContainer.Panel2.SuspendLayout();
@@ -101,6 +102,8 @@ namespace CourseSelectionApp.Forms
             this._courseEditorLine4.SuspendLayout();
             this._courseEditorLine5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._courseTimeSelectionGrid)).BeginInit();
+            this._classManagementPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._courseEditorErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // _tabControl
@@ -138,7 +141,7 @@ namespace CourseSelectionApp.Forms
             // 
             // _horizontalSplitContainer.Panel2
             // 
-            this._horizontalSplitContainer.Panel2.Controls.Add(this._saveCourseButton);
+            this._horizontalSplitContainer.Panel2.Controls.Add(this._createOrSaveCourseButton);
             this._horizontalSplitContainer.Panel2.Controls.Add(this._newCourseButton);
             this._horizontalSplitContainer.Panel2.Padding = new System.Windows.Forms.Padding(0, 3, 5, 0);
             this._horizontalSplitContainer.Size = new System.Drawing.Size(1041, 561);
@@ -185,49 +188,6 @@ namespace CourseSelectionApp.Forms
             this._courseEditor.TabIndex = 0;
             this._courseEditor.TabStop = false;
             this._courseEditor.Text = "編輯課程";
-            // 
-            // _classManagementPage
-            // 
-            this._classManagementPage.Controls.Add(this._classHintLabel);
-            this._classManagementPage.Location = new System.Drawing.Point(4, 25);
-            this._classManagementPage.Name = "_classManagementPage";
-            this._classManagementPage.Padding = new System.Windows.Forms.Padding(3);
-            this._classManagementPage.Size = new System.Drawing.Size(1051, 571);
-            this._classManagementPage.TabIndex = 1;
-            this._classManagementPage.Text = "班級管理";
-            this._classManagementPage.UseVisualStyleBackColor = true;
-            // 
-            // _classHintLabel
-            // 
-            this._classHintLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._classHintLabel.Font = new System.Drawing.Font("微軟正黑體", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this._classHintLabel.Location = new System.Drawing.Point(3, 3);
-            this._classHintLabel.Name = "_classHintLabel";
-            this._classHintLabel.Size = new System.Drawing.Size(1045, 565);
-            this._classHintLabel.TabIndex = 0;
-            this._classHintLabel.Text = "Comming Soon";
-            this._classHintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // _newCourseButton
-            // 
-            this._newCourseButton.AutoSize = true;
-            this._newCourseButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this._newCourseButton.Location = new System.Drawing.Point(0, 3);
-            this._newCourseButton.Name = "_newCourseButton";
-            this._newCourseButton.Size = new System.Drawing.Size(248, 59);
-            this._newCourseButton.TabIndex = 0;
-            this._newCourseButton.Text = "新增課程";
-            this._newCourseButton.UseVisualStyleBackColor = true;
-            // 
-            // _saveCourseButton
-            // 
-            this._saveCourseButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this._saveCourseButton.Location = new System.Drawing.Point(863, 3);
-            this._saveCourseButton.Name = "_saveCourseButton";
-            this._saveCourseButton.Size = new System.Drawing.Size(173, 59);
-            this._saveCourseButton.TabIndex = 1;
-            this._saveCourseButton.Text = "儲存";
-            this._saveCourseButton.UseVisualStyleBackColor = true;
             // 
             // _courseEditorSplitContainer
             // 
@@ -281,7 +241,9 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseActivateComboBox
             // 
+            this._courseActivateComboBox.CausesValidation = false;
             this._courseActivateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._courseActivateComboBox.Enabled = false;
             this._courseActivateComboBox.FormattingEnabled = true;
             this._courseActivateComboBox.Location = new System.Drawing.Point(3, 3);
             this._courseActivateComboBox.Name = "_courseActivateComboBox";
@@ -301,6 +263,16 @@ namespace CourseSelectionApp.Forms
             this._courseIdLabel.Text = "課號(*)";
             this._courseIdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // _courseIdTextBox
+            // 
+            this._courseIdTextBox.CausesValidation = false;
+            this._courseIdTextBox.Enabled = false;
+            this._courseEditorErrorProvider.SetIconAlignment(this._courseIdTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+            this._courseIdTextBox.Location = new System.Drawing.Point(166, 3);
+            this._courseIdTextBox.Name = "_courseIdTextBox";
+            this._courseIdTextBox.Size = new System.Drawing.Size(183, 23);
+            this._courseIdTextBox.TabIndex = 21;
+            // 
             // _courseNameLabel
             // 
             this._courseNameLabel.AutoSize = true;
@@ -313,6 +285,16 @@ namespace CourseSelectionApp.Forms
             this._courseNameLabel.TabIndex = 10;
             this._courseNameLabel.Text = "課程名稱(*)";
             this._courseNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _courseNameTextBox
+            // 
+            this._courseNameTextBox.CausesValidation = false;
+            this._courseNameTextBox.Enabled = false;
+            this._courseEditorErrorProvider.SetIconAlignment(this._courseNameTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+            this._courseNameTextBox.Location = new System.Drawing.Point(430, 3);
+            this._courseNameTextBox.Name = "_courseNameTextBox";
+            this._courseNameTextBox.Size = new System.Drawing.Size(346, 23);
+            this._courseNameTextBox.TabIndex = 22;
             // 
             // _courseEditorLine2
             // 
@@ -348,6 +330,9 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseStageTextBox
             // 
+            this._courseStageTextBox.CausesValidation = false;
+            this._courseStageTextBox.Enabled = false;
+            this._courseEditorErrorProvider.SetIconAlignment(this._courseStageTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this._courseStageTextBox.Location = new System.Drawing.Point(69, 3);
             this._courseStageTextBox.Name = "_courseStageTextBox";
             this._courseStageTextBox.Size = new System.Drawing.Size(115, 23);
@@ -368,6 +353,9 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseCreditTextBox
             // 
+            this._courseCreditTextBox.CausesValidation = false;
+            this._courseCreditTextBox.Enabled = false;
+            this._courseEditorErrorProvider.SetIconAlignment(this._courseCreditTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this._courseCreditTextBox.Location = new System.Drawing.Point(256, 3);
             this._courseCreditTextBox.Name = "_courseCreditTextBox";
             this._courseCreditTextBox.Size = new System.Drawing.Size(131, 23);
@@ -388,6 +376,9 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseTeacherTextBox
             // 
+            this._courseTeacherTextBox.CausesValidation = false;
+            this._courseTeacherTextBox.Enabled = false;
+            this._courseEditorErrorProvider.SetIconAlignment(this._courseTeacherTextBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this._courseTeacherTextBox.Location = new System.Drawing.Point(459, 3);
             this._courseTeacherTextBox.Name = "_courseTeacherTextBox";
             this._courseTeacherTextBox.Size = new System.Drawing.Size(131, 23);
@@ -408,8 +399,11 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseElectiveComboBox
             // 
+            this._courseElectiveComboBox.CausesValidation = false;
             this._courseElectiveComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._courseElectiveComboBox.Enabled = false;
             this._courseElectiveComboBox.FormattingEnabled = true;
+            this._courseEditorErrorProvider.SetIconAlignment(this._courseElectiveComboBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this._courseElectiveComboBox.Location = new System.Drawing.Point(662, 3);
             this._courseElectiveComboBox.Name = "_courseElectiveComboBox";
             this._courseElectiveComboBox.Size = new System.Drawing.Size(114, 24);
@@ -445,6 +439,8 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseTeachingAssistantTextBox
             // 
+            this._courseTeachingAssistantTextBox.CausesValidation = false;
+            this._courseTeachingAssistantTextBox.Enabled = false;
             this._courseTeachingAssistantTextBox.Location = new System.Drawing.Point(84, 3);
             this._courseTeachingAssistantTextBox.Name = "_courseTeachingAssistantTextBox";
             this._courseTeachingAssistantTextBox.Size = new System.Drawing.Size(303, 23);
@@ -465,6 +461,8 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseLanguageTextBox
             // 
+            this._courseLanguageTextBox.CausesValidation = false;
+            this._courseLanguageTextBox.Enabled = false;
             this._courseLanguageTextBox.Location = new System.Drawing.Point(459, 3);
             this._courseLanguageTextBox.Name = "_courseLanguageTextBox";
             this._courseLanguageTextBox.Size = new System.Drawing.Size(317, 23);
@@ -498,6 +496,8 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseNoteTextBox
             // 
+            this._courseNoteTextBox.CausesValidation = false;
+            this._courseNoteTextBox.Enabled = false;
             this._courseNoteTextBox.Location = new System.Drawing.Point(69, 3);
             this._courseNoteTextBox.Name = "_courseNoteTextBox";
             this._courseNoteTextBox.Size = new System.Drawing.Size(707, 23);
@@ -533,8 +533,11 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseHoursComboBox
             // 
+            this._courseHoursComboBox.CausesValidation = false;
             this._courseHoursComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._courseHoursComboBox.Enabled = false;
             this._courseHoursComboBox.FormattingEnabled = true;
+            this._courseEditorErrorProvider.SetIconAlignment(this._courseHoursComboBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this._courseHoursComboBox.Location = new System.Drawing.Point(69, 3);
             this._courseHoursComboBox.Name = "_courseHoursComboBox";
             this._courseHoursComboBox.Size = new System.Drawing.Size(91, 24);
@@ -555,8 +558,11 @@ namespace CourseSelectionApp.Forms
             // 
             // _classComboBox
             // 
+            this._classComboBox.CausesValidation = false;
             this._classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._classComboBox.Enabled = false;
             this._classComboBox.FormattingEnabled = true;
+            this._courseEditorErrorProvider.SetIconAlignment(this._classComboBox, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this._classComboBox.Location = new System.Drawing.Point(232, 3);
             this._classComboBox.Name = "_classComboBox";
             this._classComboBox.Size = new System.Drawing.Size(91, 24);
@@ -564,6 +570,8 @@ namespace CourseSelectionApp.Forms
             // 
             // _courseTimeSelectionGrid
             // 
+            this._courseTimeSelectionGrid.AllowUserToAddRows = false;
+            this._courseTimeSelectionGrid.AllowUserToDeleteRows = false;
             this._courseTimeSelectionGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._courseTimeSelectionGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._courseTimeSelectionGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -583,24 +591,58 @@ namespace CourseSelectionApp.Forms
             this._courseTimeSelectionGrid.Size = new System.Drawing.Size(783, 277);
             this._courseTimeSelectionGrid.TabIndex = 26;
             // 
-            // _courseIdTextBox
+            // _createOrSaveCourseButton
             // 
-            this._courseIdTextBox.Location = new System.Drawing.Point(166, 3);
-            this._courseIdTextBox.Name = "_courseIdTextBox";
-            this._courseIdTextBox.Size = new System.Drawing.Size(183, 23);
-            this._courseIdTextBox.TabIndex = 21;
+            this._createOrSaveCourseButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this._createOrSaveCourseButton.Location = new System.Drawing.Point(863, 3);
+            this._createOrSaveCourseButton.Name = "_createOrSaveCourseButton";
+            this._createOrSaveCourseButton.Size = new System.Drawing.Size(173, 59);
+            this._createOrSaveCourseButton.TabIndex = 1;
+            this._createOrSaveCourseButton.Text = "儲存";
+            this._createOrSaveCourseButton.UseVisualStyleBackColor = true;
             // 
-            // _courseNameTextBox
+            // _newCourseButton
             // 
-            this._courseNameTextBox.Location = new System.Drawing.Point(430, 3);
-            this._courseNameTextBox.Name = "_courseNameTextBox";
-            this._courseNameTextBox.Size = new System.Drawing.Size(346, 23);
-            this._courseNameTextBox.TabIndex = 22;
+            this._newCourseButton.AutoSize = true;
+            this._newCourseButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this._newCourseButton.Location = new System.Drawing.Point(0, 3);
+            this._newCourseButton.Name = "_newCourseButton";
+            this._newCourseButton.Size = new System.Drawing.Size(248, 59);
+            this._newCourseButton.TabIndex = 0;
+            this._newCourseButton.Text = "新增課程";
+            this._newCourseButton.UseVisualStyleBackColor = true;
+            // 
+            // _classManagementPage
+            // 
+            this._classManagementPage.Controls.Add(this._classHintLabel);
+            this._classManagementPage.Location = new System.Drawing.Point(4, 25);
+            this._classManagementPage.Name = "_classManagementPage";
+            this._classManagementPage.Padding = new System.Windows.Forms.Padding(3);
+            this._classManagementPage.Size = new System.Drawing.Size(1051, 571);
+            this._classManagementPage.TabIndex = 1;
+            this._classManagementPage.Text = "班級管理";
+            this._classManagementPage.UseVisualStyleBackColor = true;
+            // 
+            // _classHintLabel
+            // 
+            this._classHintLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._classHintLabel.Font = new System.Drawing.Font("微軟正黑體", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this._classHintLabel.Location = new System.Drawing.Point(3, 3);
+            this._classHintLabel.Name = "_classHintLabel";
+            this._classHintLabel.Size = new System.Drawing.Size(1045, 565);
+            this._classHintLabel.TabIndex = 0;
+            this._classHintLabel.Text = "Comming Soon";
+            this._classHintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _courseEditorErrorProvider
+            // 
+            this._courseEditorErrorProvider.ContainerControl = this;
             // 
             // _courseSectionColumn
             // 
             this._courseSectionColumn.HeaderText = "節數";
             this._courseSectionColumn.Name = "_courseSectionColumn";
+            this._courseSectionColumn.ReadOnly = true;
             // 
             // _courseSundayColumn
             // 
@@ -685,7 +727,6 @@ namespace CourseSelectionApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this._verticalSplitContainer)).EndInit();
             this._verticalSplitContainer.ResumeLayout(false);
             this._courseEditor.ResumeLayout(false);
-            this._classManagementPage.ResumeLayout(false);
             this._courseEditorSplitContainer.Panel1.ResumeLayout(false);
             this._courseEditorSplitContainer.Panel1.PerformLayout();
             this._courseEditorSplitContainer.Panel2.ResumeLayout(false);
@@ -704,6 +745,8 @@ namespace CourseSelectionApp.Forms
             this._courseEditorLine5.ResumeLayout(false);
             this._courseEditorLine5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._courseTimeSelectionGrid)).EndInit();
+            this._classManagementPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._courseEditorErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -717,7 +760,7 @@ namespace CourseSelectionApp.Forms
         private System.Windows.Forms.SplitContainer _horizontalSplitContainer;
         private System.Windows.Forms.SplitContainer _verticalSplitContainer;
         private System.Windows.Forms.GroupBox _courseEditor;
-        private System.Windows.Forms.Button _saveCourseButton;
+        private System.Windows.Forms.Button _createOrSaveCourseButton;
         private System.Windows.Forms.Button _newCourseButton;
         private System.Windows.Forms.SplitContainer _courseEditorSplitContainer;
         private System.Windows.Forms.FlowLayoutPanel _courseEditorLine1;
@@ -746,8 +789,12 @@ namespace CourseSelectionApp.Forms
         private System.Windows.Forms.ComboBox _courseHoursComboBox;
         private System.Windows.Forms.Label _classLabel;
         private System.Windows.Forms.ComboBox _classComboBox;
-        private System.Windows.Forms.TextBox _courseIdTextBox;
         private System.Windows.Forms.TextBox _courseNameTextBox;
+        private System.Windows.Forms.ListBox _courseList;
+        private System.Windows.Forms.DataGridView _courseTimeSelectionGrid;
+        private System.Windows.Forms.FlowLayoutPanel _courseEditorFlowLayoutPanel;
+        private System.Windows.Forms.TextBox _courseIdTextBox;
+        private System.Windows.Forms.ErrorProvider _courseEditorErrorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn _courseSectionColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn _courseSundayColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn _courseMondayColumn;
@@ -756,8 +803,5 @@ namespace CourseSelectionApp.Forms
         private System.Windows.Forms.DataGridViewCheckBoxColumn _courseThursdayColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn _courseFridayColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn _courseSaturdayColumn;
-        private System.Windows.Forms.ListBox _courseList;
-        private System.Windows.Forms.DataGridView _courseTimeSelectionGrid;
-        private System.Windows.Forms.FlowLayoutPanel _courseEditorFlowLayoutPanel;
     }
 }

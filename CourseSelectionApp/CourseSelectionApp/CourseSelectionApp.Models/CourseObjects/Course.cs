@@ -4,6 +4,16 @@ namespace CourseSelectionApp.Models.CourseObjects
 {
     public class Course : IEquatable<Course>
     {
+        public Course()
+        {
+            Id = string.Empty;
+            Info = new CourseInfo();
+            SelectionInfo = new CourseSelectionInfo();
+            CourseTime = new CourseTime();
+            Status = new CourseStatus();
+            OtherInfo = new CourseOtherInfo();
+        }
+
         public string Id
         {
             get; set;
@@ -73,6 +83,25 @@ namespace CourseSelectionApp.Models.CourseObjects
         public override bool Equals(object other)
         {
             return Equals(other as Course);
+        }
+
+        /// <summary>
+        /// 複製 Course 資料
+        /// </summary>
+        /// <returns></returns>
+        public Course Clone()
+        {
+            var course = new Course()
+            {
+                Id = Id,
+                Info = Info.Clone(),
+                SelectionInfo = SelectionInfo.Clone(),
+                Status = Status.Clone(),
+                CourseTime = CourseTime.Clone(),
+                OtherInfo = OtherInfo.Clone()
+            };
+
+            return course;
         }
     }
 }

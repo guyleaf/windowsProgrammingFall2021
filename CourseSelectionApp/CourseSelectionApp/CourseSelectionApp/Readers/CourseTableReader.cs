@@ -115,11 +115,11 @@ namespace CourseSelectionApp.Readers
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        private string[] GetSplittedText(string texts)
+        private IList<string> GetSplittedText(string texts)
         {
             return texts.Split(COURSE_TIME_DELIMITER)
                 .Where(text => !string.IsNullOrWhiteSpace(text))
-                .ToArray();
+                .ToList();
         }
 
         /// <summary>

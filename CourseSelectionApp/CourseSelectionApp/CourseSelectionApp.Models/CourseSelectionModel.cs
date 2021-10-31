@@ -4,23 +4,23 @@ using System.Linq;
 
 using CourseSelectionApp.Models.CourseObjects;
 using CourseSelectionApp.Models.Extensions;
+using CourseSelectionApp.Models.PresentationModels;
 
 namespace CourseSelectionApp.Models
 {
-    public class CourseSelectionAppModel : INotifyPropertyChanged
+    public class CourseSelectionModel : NotifyPropertyChangedModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        private readonly IList<Curriculum> _curriculums;
+        private readonly IList<Class> _classes;
         private readonly IDictionary<string, BindingList<Course>> _unselectedCourses;
         private readonly BindingList<Course> _selectedCourses;
 
-        public CourseSelectionAppModel(IList<Curriculum> curriculums)
+        public CourseSelectionModel(IList<Class> classes, IList<Curriculum> curriculums)
         {
-            _curriculums = curriculums;
+            _classes = classes;
             _selectedCourses = new BindingList<Course>();
             _unselectedCourses = new Dictionary<string, BindingList<Course>>();
 
-            _curriculums
+            curriculums
                 .ToList()
                 .ForEach(curriculum => _unselectedCourses.Add(curriculum.Class.Name, new BindingList<Course>(curriculum.Courses)));
         }
@@ -37,7 +37,7 @@ namespace CourseSelectionApp.Models
         {
             get
             {
-                return _curriculums.Select(curriculum => curriculum.Class.Name).ToList();
+                return _classes.Select(item => item.Name).ToList();
             }
         }
 
@@ -105,7 +105,7 @@ namespace CourseSelectionApp.Models
             _selectedCourses.AddRange(courses);
             _unselectedCourses[className].RemoveRange(courses);
 
-            Notify(nameof(IsAnyCoursesSelected));
+            NotifyOnPropertyChanged(nameof(IsAnyCoursesSelected));
         }
 
         /// <summary>
@@ -117,22 +117,10 @@ namespace CourseSelectionApp.Models
             var course = _selectedCourses[rowIndex];
             _selectedCourses.RemoveAt(rowIndex);
 
-            var className = _curriculums.First(curriculum => curriculum.Class.CourseIdList.Contains(course.Id)).Class.Name;
+            var className = _classes.First(item => item.CourseSet.Contains(course)).Name;
             _unselectedCourses[className].Add(course);
 
-            Notify(nameof(IsAnyCoursesSelected));
-        }
-
-        /// <summary>
-        /// 通知訂閱者
-        /// </summary>
-        /// <param name="propertyName"></param>
-        private void Notify(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            NotifyOnPropertyChanged(nameof(IsAnyCoursesSelected));
         }
     }
 }

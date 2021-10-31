@@ -9,17 +9,17 @@ namespace CourseSelectionApp.Forms
     public partial class CourseSelectionResultForm : Form
     {
         private readonly CourseSelectionResultFormPresentationModel _courseSelectionResultFormPresentationModel;
-        private readonly CourseSelectionAppModel _courseSelectionAppModel;
+        private readonly CourseSelectionModel _courseSelectionModel;
 
         public CourseSelectionResultForm(
-            CourseSelectionResultFormPresentationModel courseSelectionResultFormPresentationModel, CourseSelectionAppModel courseSelectionAppModel)
+            CourseSelectionResultFormPresentationModel courseSelectionResultFormPresentationModel, CourseSelectionModel courseSelectionModel)
         {
             InitializeComponent();
             Load += LoadDataSource;
             _courseSelectionResultGridComponent.DataGridViewCellContentClick += ListenDataGridViewOnCellContentClick;
 
             _courseSelectionResultFormPresentationModel = courseSelectionResultFormPresentationModel;
-            _courseSelectionAppModel = courseSelectionAppModel;
+            _courseSelectionModel = courseSelectionModel;
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace CourseSelectionApp.Forms
         /// </summary>
         private void LoadDataSource(object sender, EventArgs e)
         {
-            _courseSelectionResultGridComponent.DataGridViewDataSource = _courseSelectionAppModel.SelectedCourses;
+            _courseSelectionResultGridComponent.DataGridViewDataSource = _courseSelectionModel.SelectedCourses;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace CourseSelectionApp.Forms
             // 點擊退選按鈕的 Event
             if (grid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex != -1)
             {
-                _courseSelectionAppModel.DropCourse(e.RowIndex);
+                _courseSelectionModel.DropCourse(e.RowIndex);
             }
             // 點擊 Syllabus 連結的 Event
             else if (grid.Columns[e.ColumnIndex] is DataGridViewLinkColumn && e.RowIndex != -1)
