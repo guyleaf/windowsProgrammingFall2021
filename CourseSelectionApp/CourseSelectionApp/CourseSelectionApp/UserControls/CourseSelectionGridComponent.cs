@@ -1,5 +1,7 @@
 ﻿using System.Windows.Forms;
 
+using CourseSelectionApp.Commons;
+
 namespace CourseSelectionApp.UserControls
 {
     public partial class CourseSelectionGridComponent : CourseDataGridComponent
@@ -9,7 +11,7 @@ namespace CourseSelectionApp.UserControls
         private const int WIDTH_OF_CHECK_BOX_COLUMN = 35;
         protected DataGridViewCheckBoxColumn _courseCheckBox;
 
-        public CourseSelectionGridComponent() : base()
+        public CourseSelectionGridComponent() : base(new ControlCommons())
         {
             InitializeComponent();
             _courseDataGridView.AutoGenerateColumns = false;

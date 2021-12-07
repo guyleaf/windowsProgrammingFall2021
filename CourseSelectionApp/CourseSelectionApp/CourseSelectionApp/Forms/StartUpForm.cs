@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 using CourseSelectionApp.Models;
 using CourseSelectionApp.Models.PresentationModels;
+using CourseSelectionApp.Commons;
 
 namespace CourseSelectionApp.Forms
 {
@@ -11,11 +12,13 @@ namespace CourseSelectionApp.Forms
         private readonly StartUpFormPresentationModel _startUpFormPresentationModel;
         private readonly CourseSelectionModel _courseSelectionModel;
         private readonly CourseManagementModel _courseManagementModel;
+        private readonly ControlCommons _controlCommons;
 
         public StartUpForm(
             StartUpFormPresentationModel startUpFormPresentationModel,
             CourseSelectionModel courseSelectionModel,
-            CourseManagementModel courseManagementModel)
+            CourseManagementModel courseManagementModel,
+            ControlCommons controlCommons)
         {
             InitializeComponent();
 
@@ -26,6 +29,7 @@ namespace CourseSelectionApp.Forms
             _startUpFormPresentationModel = startUpFormPresentationModel;
             _courseSelectionModel = courseSelectionModel;
             _courseManagementModel = courseManagementModel;
+            _controlCommons = controlCommons;
 
             _courseSelectionButton.DataBindings.Add(
                 nameof(_courseSelectionButton.Enabled),
@@ -58,8 +62,7 @@ namespace CourseSelectionApp.Forms
         {
             _startUpFormPresentationModel.ClickCourseSelectionButton();
             var courseSelectionForm = new CourseSelectionForm(
-                new CourseSelectionFormPresentationModel(_courseSelectionModel), _courseSelectionModel
-            );
+                new CourseSelectionFormPresentationModel(_courseSelectionModel), _courseSelectionModel);
             courseSelectionForm.FormClosed += ListenCourseSelectionFormOnFormClosed;
             courseSelectionForm.Show();
         }
@@ -72,7 +75,8 @@ namespace CourseSelectionApp.Forms
         private void ListenCourseManagementButtonOnClick(object sender, EventArgs e)
         {
             _startUpFormPresentationModel.ClickCourseManagementButton();
-            var courseManagementForm = new CourseManagementForm(new CourseManagementFormPresentationModel(), _courseManagementModel);
+            var courseManagementForm = new CourseManagementForm(
+                new CourseManagementFormPresentationModel(_courseManagementModel), _courseManagementModel, _controlCommons);
             courseManagementForm.FormClosed += ListenCourseManagementFormOnFormClosed;
             courseManagementForm.Show();
         }

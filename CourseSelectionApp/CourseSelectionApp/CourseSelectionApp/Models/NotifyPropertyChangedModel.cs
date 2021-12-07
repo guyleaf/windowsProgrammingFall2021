@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace CourseSelectionApp.Models.PresentationModels
+namespace CourseSelectionApp.Models
 {
     public class NotifyPropertyChangedModel : INotifyPropertyChanged
     {

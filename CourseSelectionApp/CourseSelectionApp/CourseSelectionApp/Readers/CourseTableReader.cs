@@ -4,6 +4,7 @@ using HtmlAgilityPack;
 
 using CourseSelectionApp.Models.CourseObjects;
 using CourseSelectionApp.Readers.NodeFormats;
+using CourseSelectionApp.Models.Extensions;
 
 namespace CourseSelectionApp.Readers
 {
@@ -98,16 +99,15 @@ namespace CourseSelectionApp.Readers
         /// <returns></returns>
         private CourseTime ReadCourseTime(HtmlNodeCollection nodes)
         {
-            return new CourseTime()
-            {
-                Sunday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Sunday)),
-                Monday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Monday)),
-                Tuesday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Tuesday)),
-                Wednesday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Wednesday)),
-                Thursday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Thursday)),
-                Friday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Friday)),
-                Saturday = GetSplittedText(GetNodeText(nodes, (int)CourseNode.Saturday))
-            };
+            var courseTime = new CourseTime();
+            courseTime.Sunday.AddRange(GetSplittedText(GetNodeText(nodes, (int)CourseNode.Sunday)));
+            courseTime.Monday.AddRange(GetSplittedText(GetNodeText(nodes, (int)CourseNode.Monday)));
+            courseTime.Tuesday.AddRange(GetSplittedText(GetNodeText(nodes, (int)CourseNode.Tuesday)));
+            courseTime.Wednesday.AddRange(GetSplittedText(GetNodeText(nodes, (int)CourseNode.Wednesday)));
+            courseTime.Thursday.AddRange(GetSplittedText(GetNodeText(nodes, (int)CourseNode.Thursday)));
+            courseTime.Friday.AddRange(GetSplittedText(GetNodeText(nodes, (int)CourseNode.Friday)));
+            courseTime.Saturday.AddRange(GetSplittedText(GetNodeText(nodes, (int)CourseNode.Saturday)));
+            return courseTime;
         }
 
         /// <summary>
@@ -167,6 +167,16 @@ namespace CourseSelectionApp.Readers
         private string GetNodeUri(HtmlNodeCollection nodes, int index)
         {
             return GetNodeAttributeValue(nodes[index].ChildNodes.FirstOrDefault(), NODE_URI, "");
+        }
+
+        /// <summary>
+        /// 取得節點文字
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        private new string GetNodeText(HtmlNodeCollection nodes, int index)
+        {
+            return base.GetNodeText(nodes, index);
         }
     }
 }

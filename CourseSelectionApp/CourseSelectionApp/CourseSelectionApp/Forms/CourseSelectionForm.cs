@@ -8,6 +8,7 @@ using CourseSelectionApp.Models;
 using CourseSelectionApp.Models.Enums;
 using CourseSelectionApp.UserControls;
 using CourseSelectionApp.Models.PresentationModels;
+using CourseSelectionApp.Commons;
 
 namespace CourseSelectionApp.Forms
 {

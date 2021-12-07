@@ -191,12 +191,12 @@ namespace CourseSelectionApp.Models.PresentationModels
         {
             var error = coursesForWeek
                 .AsParallel()
-                .Where(courses => courses.Value.Count != 0)
+                .Where(courses => courses.Value.Any())
                 .Select(courses => courses.Value)
                 .SelectMany(courses => courses.Values)
                 .Distinct()
                 .ToList();
-            if (error.Count != 0)
+            if (error.Any())
             {
                 errors.Add(SelectionErrorCode.Time, error);
             }

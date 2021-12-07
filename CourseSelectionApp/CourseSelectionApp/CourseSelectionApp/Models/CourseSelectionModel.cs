@@ -22,14 +22,14 @@ namespace CourseSelectionApp.Models
 
             curriculums
                 .ToList()
-                .ForEach(curriculum => _unselectedCourses.Add(curriculum.Class.Name, new BindingList<Course>(curriculum.Courses)));
+                .ForEach(curriculum => _unselectedCourses.Add(curriculum.Class.Name, curriculum.Courses));
         }
 
         public bool IsAnyCoursesSelected
         {
             get
             {
-                return _selectedCourses.Count != 0;
+                return _selectedCourses.Any();
             }
         }
 

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
 
 using CourseSelectionApp.Models.CourseObjects;
 
@@ -9,7 +9,7 @@ namespace CourseSelectionApp.Models
     {
         public Curriculum(IList<Course> courses, Class classInfo)
         {
-            Courses = courses;
+            Courses = new BindingList<Course>(courses);
             Class = classInfo;
         }
 
@@ -18,7 +18,7 @@ namespace CourseSelectionApp.Models
             get;
         }
 
-        public IList<Course> Courses
+        public BindingList<Course> Courses
         {
             get;
         }

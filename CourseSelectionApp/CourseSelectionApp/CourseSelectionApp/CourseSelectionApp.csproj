@@ -49,12 +49,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\CourseManagementForm\CourseManagementForm.Initialization.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\CourseSelectionResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CourseSelectionResultForm.Designer.cs">
       <DependentUpon>CourseSelectionResultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Attributes\StringValueAttribute.cs" />
+    <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\CourseManagementModel.cs" />
+    <Compile Include="Models\CourseObjects\Course.cs" />
+    <Compile Include="Models\CourseObjects\CourseInfo.cs" />
+    <Compile Include="Models\CourseObjects\CourseOtherInfo.cs" />
+    <Compile Include="Models\CourseObjects\CourseSelectionInfo.cs" />
+    <Compile Include="Models\CourseObjects\CourseStatus.cs" />
+    <Compile Include="Models\CourseObjects\CourseTime.cs" />
+    <Compile Include="Models\CourseSelectionModel.cs" />
+    <Compile Include="Models\Curriculum.cs" />
+    <Compile Include="Models\Dto\ClassListItem.cs" />
+    <Compile Include="Models\Dto\CourseListItem.cs" />
+    <Compile Include="Models\Dto\CourseTimeRow.cs" />
+    <Compile Include="Models\Dto\CourseWithActivateAndClass.cs" />
+    <Compile Include="Models\Enums\CourseEditMode.cs" />
+    <Compile Include="Models\Enums\SelectionErrorCode.cs" />
+    <Compile Include="Models\Extensions\EnumExtensions.cs" />
+    <Compile Include="Models\Extensions\ICollectionExtensions.cs" />
+    <Compile Include="Models\PresentationModels\CourseManagementFormPresentationModel\CourseManagementFormPresentationModel.cs" />
+    <Compile Include="Models\PresentationModels\CourseManagementFormPresentationModel\CourseManagementFormPresentationModel.Course.cs" />
+    <Compile Include="Models\PresentationModels\CourseSelectionFormPresentationModel.cs" />
+    <Compile Include="Models\PresentationModels\CourseSelectionResultFormPresentationModel.cs" />
+    <Compile Include="Models\NotifyPropertyChangedModel.cs" />
+    <Compile Include="Models\PresentationModels\StartUpFormPresentationModel.cs" />
     <Compile Include="Readers\BaseReader.cs" />
     <Compile Include="Readers\ClassReader.cs" />
     <Compile Include="Services\BaseCrawlerService.cs" />
@@ -65,10 +93,10 @@
     <Compile Include="UserControls\CourseDataGridComponent.Designer.cs">
       <DependentUpon>CourseDataGridComponent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CourseManagementForm.cs">
+    <Compile Include="Forms\CourseManagementForm\CourseManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CourseManagementForm.Designer.cs">
+    <Compile Include="Forms\CourseManagementForm\CourseManagementForm.Designer.cs">
       <DependentUpon>CourseManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CourseSelectionForm.cs">
@@ -102,13 +130,14 @@
     <Compile Include="UserControls\CourseSelectionResultGridComponent.Designer.cs">
       <DependentUpon>CourseSelectionResultGridComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Commons\ControlCommons.cs" />
     <EmbeddedResource Include="Forms\CourseSelectionResultForm.resx">
       <DependentUpon>CourseSelectionResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CourseDataGridComponent.resx">
       <DependentUpon>CourseDataGridComponent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CourseManagementForm.resx">
+    <EmbeddedResource Include="Forms\CourseManagementForm\CourseManagementForm.resx">
       <DependentUpon>CourseManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CourseSelectionForm.resx">
@@ -142,12 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CourseSelectionApp.Models\CourseSelectionApp.Models.csproj">
-      <Project>{9c241ae0-ee62-4025-b2d0-988da7af607e}</Project>
-      <Name>CourseSelectionApp.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

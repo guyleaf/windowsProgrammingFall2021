@@ -37,7 +37,7 @@ namespace CourseSelectionApp.Services
         /// <returns></returns>
         private Course DoPostProcess(Uri uri, Course course)
         {
-            course.OtherInfo.Syllabus = ProcessSyllabusUri(uri, course);
+            course.OtherInfo.Syllabus = ProcessSyllabusUri(uri, course.OtherInfo.Syllabus);
             return course;
         }
 
@@ -47,9 +47,8 @@ namespace CourseSelectionApp.Services
         /// <param name="uri"></param>
         /// <param name="course"></param>
         /// <returns></returns>
-        private string ProcessSyllabusUri(Uri uri, Course course)
+        private string ProcessSyllabusUri(Uri uri, string syllabusUri)
         {
-            var syllabusUri = course.OtherInfo.Syllabus;
             if (syllabusUri != string.Empty)
             {
                 return CombineUri(uri.Scheme, uri.Host, uri.AbsolutePath.Replace(uri.Segments.Last(), syllabusUri));

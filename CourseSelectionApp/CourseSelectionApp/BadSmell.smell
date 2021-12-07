@@ -185,20 +185,243 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews />
+          <Reviews>
+            <Smell>
+              <Id>1</Id>
+              <SmellType>ICS(類別宣告-2)</SmellType>
+              <HashCode>ClassDeclaration2.CourseSelectionApp.Readers.BaseReader&lt;T&gt;</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp</Project>
+              <File>BaseReader.cs</File>
+              <Line>7</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(類別宣告-2) 類別名稱首字母大寫，若由多個單字組成，每個單字的第一個字母大寫，其餘小寫。不以底線區隔單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>ICS(類別宣告-2)</SmellType>
+              <HashCode>ClassDeclaration2.CourseSelectionApp.Services.BaseCrawlerService&lt;T&gt;</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp</Project>
+              <File>BaseCrawlerService.cs</File>
+              <Line>11</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(類別宣告-2) 類別名稱首字母大寫，若由多個單字組成，每個單字的第一個字母大寫，其餘小寫。不以底線區隔單字</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Literal constants(字面常數)-False</SmellType>
+              <HashCode>LiteralConstants.CourseSelectionGridComponent.False</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp</Project>
+              <File>CourseSelectionGridComponent.cs</File>
+              <Line>25</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Unresolved warnings(忽視警告)-使欄位唯讀</SmellType>
+              <HashCode>CourseSelectionApp\CourseSelectionApp.CourseManagementFormPresentationModel.cs.Unresolved warnings(忽視警告)-使欄位唯讀.19</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp\CourseSelectionApp</Project>
+              <File>CourseManagementFormPresentationModel.cs</File>
+              <Line>19</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>Unresolved warnings(忽視警告)-函式 InsertCourse 缺乏註解</SmellType>
+              <HashCode>CourseSelectionApp\CourseSelectionApp.CourseManagementModel.cs.Unresolved warnings(忽視警告)-函式 InsertCourse 缺乏註解.60</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp\CourseSelectionApp</Project>
+              <File>CourseManagementModel.cs</File>
+              <Line>60</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>Unresolved warnings(忽視警告)-函式 UpdateCourse 缺乏註解</SmellType>
+              <HashCode>CourseSelectionApp\CourseSelectionApp.CourseManagementModel.cs.Unresolved warnings(忽視警告)-函式 UpdateCourse 缺乏註解.55</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp\CourseSelectionApp</Project>
+              <File>CourseManagementModel.cs</File>
+              <Line>55</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
+              <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
+              <HashCode>CourseSelectionApp\CourseSelectionApp.CourseDataGridComponent.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.59</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp\CourseSelectionApp</Project>
+              <File>CourseDataGridComponent.cs</File>
+              <Line>59</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
+              <HashCode>CourseSelectionApp\CourseSelectionApp.CourseDataGridComponent.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.72</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp\CourseSelectionApp</Project>
+              <File>CourseDataGridComponent.cs</File>
+              <Line>72</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>9</Id>
+              <SmellType>Unresolved warnings(忽視警告)-未使用 Private 成員 'CourseManagementFormPresentationModel.IsCourseTimeGridModified'</SmellType>
+              <HashCode>CourseSelectionApp\CourseSelectionApp.CourseManagementFormPresentationModel.cs.Unresolved warnings(忽視警告)-未使用 Private 成員 'CourseManagementFormPresentationModel.IsCourseTimeGridModified'.25</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp\CourseSelectionApp</Project>
+              <File>CourseManagementFormPresentationModel.cs</File>
+              <Line>25</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>10</Id>
+              <SmellType>Unresolved warnings(忽視警告)-集合初始化可簡化</SmellType>
+              <HashCode>CourseSelectionApp\CourseSelectionApp.CourseManagementForm.Initialization.cs.Unresolved warnings(忽視警告)-集合初始化可簡化.80</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp\CourseSelectionApp</Project>
+              <File>CourseManagementForm.Initialization.cs</File>
+              <Line>80</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>11</Id>
+              <SmellType>Unresolved warnings(忽視警告)-集合初始化可簡化</SmellType>
+              <HashCode>CourseSelectionApp\CourseSelectionApp.CourseManagementForm.Initialization.cs.Unresolved warnings(忽視警告)-集合初始化可簡化.104</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp\CourseSelectionApp</Project>
+              <File>CourseManagementForm.Initialization.cs</File>
+              <Line>104</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>12</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>55 CourseSelectionApp.Models.CourseManagementModel.UpdateCourse(CourseSelectionApp.Models.Dto.CourseWithActivateAndClass, CourseSelectionApp.Models.Dto.CourseWithActivateAndClass)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp</Project>
+              <File>CourseManagementModel.cs</File>
+              <Line>55</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>CourseSelectionApp.Models.CourseManagementModel.UpdateCourse(CourseSelectionApp.Models.Dto.CourseWithActivateAndClass, CourseSelectionApp.Models.Dto.CourseWithActivateAndClass)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>60 CourseSelectionApp.Models.CourseManagementModel.InsertCourse(CourseSelectionApp.Models.Dto.CourseWithActivateAndClass)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>CourseSelectionApp</Project>
+              <File>CourseManagementModel.cs</File>
+              <Line>60</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>CourseSelectionApp.Models.CourseManagementModel.InsertCourse(CourseSelectionApp.Models.Dto.CourseWithActivateAndClass)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+          </Reviews>
           <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList />
+          <HashCodeRequestIgnoreList>
+            <string>ClassDeclaration2.CourseSelectionApp.Readers.BaseReader&lt;T&gt;</string>
+            <string>ClassDeclaration2.CourseSelectionApp.Services.BaseCrawlerService&lt;T&gt;</string>
+            <string>LiteralConstants.CourseSelectionGridComponent.False</string>
+          </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
-                <RelativePath>Forms\CourseManagementForm.cs</RelativePath>
+                <RelativePath>Commons\ControlCommons.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Forms\CourseManagementForm\CourseManagementForm.cs</RelativePath>
                 <ProjectName>CourseSelectionApp</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Forms\CourseManagementForm.Designer.cs</RelativePath>
+                <RelativePath>Forms\CourseManagementForm\CourseManagementForm.Designer.cs</RelativePath>
                 <ProjectName>CourseSelectionApp</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Forms\CourseManagementForm\CourseManagementForm.Initialization.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Forms\CourseSelectionForm.cs</RelativePath>
@@ -229,6 +452,131 @@
                 <RelativePath>Forms\StartUpForm.Designer.cs</RelativePath>
                 <ProjectName>CourseSelectionApp</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Attributes\StringValueAttribute.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Class.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\CourseManagementModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\CourseObjects\Course.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\CourseObjects\CourseInfo.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\CourseObjects\CourseOtherInfo.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\CourseObjects\CourseSelectionInfo.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\CourseObjects\CourseStatus.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\CourseObjects\CourseTime.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\CourseSelectionModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Curriculum.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Dto\ClassListItem.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Dto\CourseListItem.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Dto\CourseTimeRow.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Dto\CourseWithActivateAndClass.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Enums\CourseEditMode.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Enums\SelectionErrorCode.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Extensions\EnumExtensions.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\Extensions\ICollectionExtensions.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\NotifyPropertyChangedModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Unknown</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\PresentationModels\CourseManagementFormPresentationModel\CourseManagementFormPresentationModel.Course.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\PresentationModels\CourseManagementFormPresentationModel\CourseManagementFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\PresentationModels\CourseSelectionFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\PresentationModels\CourseSelectionResultFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\PresentationModels\StartUpFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSelectionApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Program.cs</RelativePath>
@@ -325,109 +673,9 @@
                 <ProjectName>CourseSelectionApp</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Attributes\StringValueAttribute.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseObjects\Course.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseObjects\CourseInfo.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseObjects\CourseOtherInfo.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseObjects\CourseSelectionInfo.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseObjects\CourseStatus.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseObjects\CourseTime.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Dto\CourseListItem.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Enums\SelectionErrorCode.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Extensions\EnumExtensions.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Extensions\ICollectionExtensions.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModels\CourseManagementFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModels\CourseSelectionFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModels\CourseSelectionResultFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModels\NotifyPropertyChangedModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>PresentationModels\StartUpFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Class.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseManagementModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>CourseSelectionModel.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Curriculum.cs</RelativePath>
-                <ProjectName>CourseSelectionApp.Models</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>0</ProductionLoc>
+          <ProductionLoc>5247</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

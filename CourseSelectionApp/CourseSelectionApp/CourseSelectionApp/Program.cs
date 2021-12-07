@@ -7,6 +7,7 @@ using CourseSelectionApp.Forms;
 using CourseSelectionApp.Models;
 using CourseSelectionApp.Models.PresentationModels;
 using CourseSelectionApp.Services;
+using CourseSelectionApp.Commons;
 
 using HtmlAgilityPack;
 
@@ -22,19 +23,19 @@ namespace CourseSelectionApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             // 載入資料
             const string DEPARTMENT_URI = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-3&year=110&sem=1&code=59";
             var webClient = new HtmlWeb();
             var classes = LoadClassData(webClient, DEPARTMENT_URI);
             var curriculums = LoadCurriculumData(webClient, classes);
-
             // 初始化 Model
             var courseManagementModel = new CourseManagementModel(classes, curriculums);
             var courseSelectionModel = new CourseSelectionModel(classes, curriculums);
             var startUpPresentationModel = new StartUpFormPresentationModel();
+            // 初始化 Commons
+            var controlUtils = new ControlCommons();
 
-            Application.Run(new StartUpForm(startUpPresentationModel, courseSelectionModel, courseManagementModel));
+            Application.Run(new StartUpForm(startUpPresentationModel, courseSelectionModel, courseManagementModel, controlUtils));
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace CourseSelectionApp
             // 取得班級資料
             var classes = classCrawlerService.GetResults(new Uri(departmentUrl));
 
-            return classes;
+            return classes.OrderBy(classInfo => classInfo.Name).ToList();
         }
 
         /// <summary>

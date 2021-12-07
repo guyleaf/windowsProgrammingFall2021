@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+
+using CourseSelectionApp.Commons;
 
 namespace CourseSelectionApp.UserControls
 {
@@ -11,7 +14,7 @@ namespace CourseSelectionApp.UserControls
         private const string DATA_PROPERTY_SEPARATOR = ".";
         private const string ARRAY_OF_STRINGS_SEPARATOR = " ";
 
-        public CourseDataGridComponent()
+        public CourseDataGridComponent(ControlCommons controlCommons)
         {
             InitializeComponent();
             _courseDataGridView.CellFormatting += MapCellDataToPropertyValue;
@@ -20,9 +23,7 @@ namespace CourseSelectionApp.UserControls
             _courseDataGridView.RowHeadersVisible = false;
 
             // 設定 DataGridView DoubleBuffered
-            var gridType = _courseDataGridView.GetType();
-            var propertyInfo = gridType.GetProperty(nameof(DoubleBuffered), BindingFlags.Instance | BindingFlags.NonPublic);
-            propertyInfo.SetValue(_courseDataGridView, true, null);
+            controlCommons.SetDoubleBuffered(_courseDataGridView, true);
         }
 
         public DataGridViewCellEventHandler DataGridViewCellValueChanged
@@ -135,9 +136,9 @@ namespace CourseSelectionApp.UserControls
             var type = propertyInfo.PropertyType;
             var value = propertyInfo.GetValue(property);
 
-            if (type == typeof(IList<string>))
+            if (type.IsSubclassOf(typeof(Collection<string>)))
             {
-                value = string.Join(ARRAY_OF_STRINGS_SEPARATOR, (IList<string>)value);
+                value = string.Join(ARRAY_OF_STRINGS_SEPARATOR, (Collection<string>)value);
             }
 
             return value;

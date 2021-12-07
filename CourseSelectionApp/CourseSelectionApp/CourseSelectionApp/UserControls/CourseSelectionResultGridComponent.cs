@@ -1,5 +1,7 @@
 ﻿using System.Windows.Forms;
 
+using CourseSelectionApp.Commons;
+
 namespace CourseSelectionApp.UserControls
 {
     public partial class CourseSelectionResultGridComponent : CourseDataGridComponent
@@ -10,7 +12,7 @@ namespace CourseSelectionApp.UserControls
         private const int WIDTH_OF_DROP_BUTTON_COLUMN = 40;
         protected DataGridViewButtonColumn _courseDropButton;
 
-        public CourseSelectionResultGridComponent() : base()
+        public CourseSelectionResultGridComponent() : base(new ControlCommons())
         {
             InitializeComponent();
             _courseDataGridView.AutoGenerateColumns = false;
