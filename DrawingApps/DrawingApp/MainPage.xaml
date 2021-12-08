@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="DrawingApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DrawingApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Button x:Name="_rectangleDrawingButton" Content="Rectangle" Margin="66,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.226,0.5" Grid.ColumnSpan="2" Height="40" Width="120" HorizontalAlignment="Left"/>
+        <Button x:Name="_ellipseDrawingButton" Content="Ellipse" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Center" Height="40" Width="120"/>
+        <Button x:Name="_clearButton" Content="Clear" Margin="0,28,66,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="1" Height="40" Width="120" RenderTransformOrigin="0.065,0.625"/>
+        <Canvas x:Name="_canvas" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,100,0,0" RequestedTheme="Default" Background="#FFFCFFBD"/>
+
+    </Grid>
+</Page>
