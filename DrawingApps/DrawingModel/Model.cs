@@ -8,6 +8,8 @@ namespace DrawingModel
 {
     public class Model : IModel
     {
+        private const string DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE = "Drawing Shape Type should be chosen before drawing.";
+
         public event Action _modelChanged;
 
         private bool _isPressed;
@@ -30,12 +32,12 @@ namespace DrawingModel
         /// <param name="locationY"></param>
         public void PressPointer(double locationX, double locationY)
         {
+            EnsureDrawingShapeTypeIsChosen();
             if (locationX > 0 && locationY > 0)
             {
                 _drawingShape.X1 = locationX;
                 _drawingShape.Y1 = locationY;
                 _isPressed = true;
-                NotifyModelChanged();
             }
         }
 
@@ -46,6 +48,7 @@ namespace DrawingModel
         /// <param name="locationY"></param>
         public void MovePointer(double locationX, double locationY)
         {
+            EnsureDrawingShapeTypeIsChosen();
             if (_isPressed)
             {
                 _drawingShape.X2 = locationX;
@@ -62,6 +65,7 @@ namespace DrawingModel
         /// <param name="mode"></param>
         public void ReleasePointer(double locationX, double locationY)
         {
+            EnsureDrawingShapeTypeIsChosen();
             if (_isPressed)
             {
                 IShape shape = ShapesFactory.CreateShape(_drawingShapeType);
@@ -109,6 +113,8 @@ namespace DrawingModel
         {
             _shapes.Clear();
             _isPressed = false;
+            _drawingShape = null;
+            _drawingShapeType = ShapeType.Unknown;
             NotifyModelChanged();
         }
 
@@ -120,6 +126,17 @@ namespace DrawingModel
             if (_modelChanged != null)
             {
                 _modelChanged();
+            }
+        }
+
+        /// <summary>
+        /// 檢查 _drawingShapeType 是否已設置
+        /// </summary>
+        private void EnsureDrawingShapeTypeIsChosen()
+        {
+            if (_drawingShapeType == ShapeType.Unknown)
+            {
+                throw new Exception(DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
             }
         }
     }
