@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DrawingModel\DrawingModel.csproj">
-      <Project>{8d5ce87a-e043-4e32-a1ff-99f5c7420230}</Project>
+      <Project>{b09aee85-55c9-41a2-a02f-1dc02ba41503}</Project>
       <Name>DrawingModel</Name>
     </ProjectReference>
   </ItemGroup>

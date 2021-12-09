@@ -12,7 +12,7 @@
     <DefaultLanguage>zh-TW</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -116,27 +116,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\DrawingModel\Attributes\ShapeTargetAttribute.cs">
-      <Link>Attributes\ShapeTargetAttribute.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Enums\ShapeType.cs">
-      <Link>Enums\ShapeType.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Interfaces\IGraphics.cs">
-      <Link>Models\IGraphics.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Interfaces\IModel.cs">
-      <Link>Models\IModel.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Interfaces\IShape.cs">
-      <Link>Models\IShape.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Shapes\Ellipse.cs">
-      <Link>Models\Shapes\Ellipse.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Shapes\Rectangle.cs">
-      <Link>Models\Shapes\Rectangle.cs</Link>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -177,7 +156,12 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DrawingModel\DrawingModel.csproj">
+      <Project>{b09aee85-55c9-41a2-a02f-1dc02ba41503}</Project>
+      <Name>DrawingModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

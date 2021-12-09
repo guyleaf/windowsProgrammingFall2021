@@ -46,27 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\DrawingModel\Attributes\ShapeTargetAttribute.cs">
-      <Link>Attributes\ShapeTargetAttribute.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Enums\ShapeType.cs">
-      <Link>Enums\ShapeType.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Interfaces\IGraphics.cs">
-      <Link>Models\IGraphics.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Interfaces\IModel.cs">
-      <Link>Models\IModel.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Interfaces\IShape.cs">
-      <Link>Models\IShape.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Shapes\Ellipse.cs">
-      <Link>Models\Shapes\Ellipse.cs</Link>
-    </Compile>
-    <Compile Include="..\DrawingModel\Shapes\Rectangle.cs">
-      <Link>Models\Shapes\Rectangle.cs</Link>
-    </Compile>
     <Compile Include="Canvas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DrawingModel\DrawingModel.csproj">
+      <Project>{b09aee85-55c9-41a2-a02f-1dc02ba41503}</Project>
+      <Name>DrawingModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
