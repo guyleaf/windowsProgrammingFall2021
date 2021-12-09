@@ -9,12 +9,12 @@ using System;
 namespace DrawingModelTest
 {
     /// <summary>
-    /// ShapesFactoryUnitTest 的摘要說明
+    /// ShapesFactoryTest 的摘要說明
     /// </summary>
     [TestClass]
-    public class ShapesFactoryUnitTest
+    public class ShapesFactoryTest
     {
-        public ShapesFactoryUnitTest()
+        public ShapesFactoryTest()
         {
         }
 
@@ -30,6 +30,16 @@ namespace DrawingModelTest
         {
             var result = ShapesFactory.CreateShape(shapeType);
             Assert.AreEqual(implementType, result.GetType());
+        }
+
+        /// <summary>
+        /// 測試當 ShapeType 為 Unknown 時，需發生例外
+        /// </summary>
+        [TestMethod()]
+        [ExpectedException(typeof(Exception), "Unknown shape type.")]
+        public void RaiseExceptionIfShapeTypeIsUnknown()
+        {
+            _ = ShapesFactory.CreateShape(ShapeType.Unknown);
         }
     }
 }
