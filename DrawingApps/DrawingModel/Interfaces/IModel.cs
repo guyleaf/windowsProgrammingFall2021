@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DrawingModel.Enums;
+
+using System;
 
 namespace DrawingModel.Interfaces
 {
@@ -26,7 +28,13 @@ namespace DrawingModel.Interfaces
         /// <param name="locationX"></param>
         /// <param name="locationY"></param>
         /// <param name="mode"></param>
-        void ReleasePointer(double locationX, double locationY, DrawingMode mode);
+        void ReleasePointer(double locationX, double locationY);
+
+        /// <summary>
+        /// 設置圖形種類
+        /// </summary>
+        /// <param name="shapeType"></param>
+        void SetShapeType(ShapeType shapeType);
 
         /// <summary>
         /// 清除所有畫布

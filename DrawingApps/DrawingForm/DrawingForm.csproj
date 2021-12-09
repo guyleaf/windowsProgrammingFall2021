@@ -46,8 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\DrawingModel\DrawingMode.cs">
-      <Link>Models\DrawingMode.cs</Link>
+    <Compile Include="..\DrawingModel\Attributes\ShapeTargetAttribute.cs">
+      <Link>Attributes\ShapeTargetAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\DrawingModel\Enums\ShapeType.cs">
+      <Link>Enums\ShapeType.cs</Link>
     </Compile>
     <Compile Include="..\DrawingModel\Interfaces\IGraphics.cs">
       <Link>Models\IGraphics.cs</Link>
@@ -58,12 +61,19 @@
     <Compile Include="..\DrawingModel\Interfaces\IShape.cs">
       <Link>Models\IShape.cs</Link>
     </Compile>
+    <Compile Include="..\DrawingModel\Shapes\Ellipse.cs">
+      <Link>Models\Shapes\Ellipse.cs</Link>
+    </Compile>
+    <Compile Include="..\DrawingModel\Shapes\Rectangle.cs">
+      <Link>Models\Shapes\Rectangle.cs</Link>
+    </Compile>
     <Compile Include="Canvas.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Canvas.Designer.cs">
       <DependentUpon>Canvas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DrawingMode.cs" />
     <Compile Include="Models\FormPresentationModel.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

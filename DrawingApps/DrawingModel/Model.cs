@@ -1,5 +1,5 @@
-﻿using DrawingModel.Interfaces;
-using DrawingModel.Shapes;
+﻿using DrawingModel.Enums;
+using DrawingModel.Interfaces;
 
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ namespace DrawingModel
         private readonly DrawingPoint _endHintPoint;
 
         private bool _isPressed;
+        private ShapeType _shapeType;
         private readonly IList<IShape> _shapes;
 
         public Model()
@@ -61,19 +62,29 @@ namespace DrawingModel
         /// <param name="locationX"></param>
         /// <param name="locationY"></param>
         /// <param name="mode"></param>
-        public void ReleasePointer(double locationX, double locationY, DrawingMode mode)
+        public void ReleasePointer(double locationX, double locationY)
         {
             if (_isPressed)
             {
-                var endPoint = new DrawingPoint
-                { 
-                    X = locationX, Y = locationY };
+                IShape shape = ShapesFactory.CreateShape(_shapeType);
+                shape.X1 = _startHintPoint.X;
+                shape.Y1 = _startHintPoint.Y;
+                shape.X2 = locationX;
+                shape.Y2 = locationY;
 
-                IShape shape = CreateShape(_startHintPoint, endPoint, mode);
                 _shapes.Add(shape);
                 _isPressed = false;
                 NotifyModelChanged();
             }
+        }
+
+        /// <summary>
+        /// 設置圖形種類
+        /// </summary>
+        /// <param name="shapeType"></param>
+        public void SetShapeType(ShapeType shapeType)
+        {
+            _shapeType = shapeType;
         }
 
         /// <summary>
@@ -84,28 +95,6 @@ namespace DrawingModel
             _shapes.Clear();
             _isPressed = false;
             NotifyModelChanged();
-        }
-        
-        /// <summary>
-        /// 建立圖形
-        /// </summary>
-        /// <param name="x1"></param>
-        /// <param name="y1"></param>
-        /// <param name="x2"></param>
-        /// <param name="y2"></param>
-        /// <param name="mode"></param>
-        /// <returns></returns>
-        private IShape CreateShape(DrawingPoint startPoint, DrawingPoint endPoint, DrawingMode mode)
-        {
-            switch (mode)
-            {
-                case DrawingMode.Rectangle:
-                    return new Rectangle(startPoint.X, startPoint.Y, endPoint.X, endPoint.Y);
-                case DrawingMode.Ellipse:
-                    return new Ellipse(startPoint.X, startPoint.Y, endPoint.X, endPoint.Y);
-                default:
-                    return null;
-            }
         }
 
         /// <summary>

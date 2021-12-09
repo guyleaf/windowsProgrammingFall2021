@@ -116,8 +116,11 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\DrawingModel\DrawingMode.cs">
-      <Link>Models\DrawingMode.cs</Link>
+    <Compile Include="..\DrawingModel\Attributes\ShapeTargetAttribute.cs">
+      <Link>Attributes\ShapeTargetAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\DrawingModel\Enums\ShapeType.cs">
+      <Link>Enums\ShapeType.cs</Link>
     </Compile>
     <Compile Include="..\DrawingModel\Interfaces\IGraphics.cs">
       <Link>Models\IGraphics.cs</Link>
@@ -128,6 +131,12 @@
     <Compile Include="..\DrawingModel\Interfaces\IShape.cs">
       <Link>Models\IShape.cs</Link>
     </Compile>
+    <Compile Include="..\DrawingModel\Shapes\Ellipse.cs">
+      <Link>Models\Shapes\Ellipse.cs</Link>
+    </Compile>
+    <Compile Include="..\DrawingModel\Shapes\Rectangle.cs">
+      <Link>Models\Shapes\Rectangle.cs</Link>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -135,6 +144,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\DrawingMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +177,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

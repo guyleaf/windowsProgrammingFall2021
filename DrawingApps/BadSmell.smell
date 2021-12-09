@@ -189,12 +189,12 @@
             <Smell>
               <Id>1</Id>
               <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
-              <HashCode>.IModel.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.7</HashCode>
+              <HashCode>.IModel.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project />
               <File>IModel.cs</File>
-              <Line>7</Line>
+              <Line>9</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -205,12 +205,12 @@
             <Smell>
               <Id>2</Id>
               <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
-              <HashCode>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.118</HashCode>
+              <HashCode>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.107</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingModel\DrawingModel</Project>
               <File>Model.cs</File>
-              <Line>118</Line>
+              <Line>107</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -813,22 +813,6 @@
             <Smell>
               <Id>40</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>20 DrawingApp.Program.Main(string[])</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>App.g.i.cs</File>
-              <Line>20</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.Program.Main(string[])</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>41</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
               <HashCode>53 DrawingApp.MainPage.GetBindingConnector(int, object)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
@@ -843,31 +827,38 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>42</Id>
+              <Id>41</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>10 DrawingModelTest.UnitTest1.TestMethod1()</HashCode>
+              <HashCode>20 DrawingApp.Program.Main(string[])</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>DrawingModelTest</Project>
-              <File>UnitTest1.cs</File>
-              <Line>10</Line>
+              <Project>DrawingApp</Project>
+              <File>App.g.i.cs</File>
+              <Line>20</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment>DrawingModelTest.UnitTest1.TestMethod1()</Comment>
+              <Comment>DrawingApp.Program.Main(string[])</Comment>
               <Auto>false</Auto>
             </Smell>
           </Reviews>
           <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList>
-            <string>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.118</string>
-            <string>.IModel.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.7</string>
-          </HashCodeRequestIgnoreList>
+          <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
                 <RelativePath>App.xaml.cs</RelativePath>
+                <ProjectName>DrawingApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\DrawingModel\Attributes\ShapeTargetAttribute.cs</RelativePath>
+                <ProjectName>DrawingApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\DrawingModel\Enums\ShapeType.cs</RelativePath>
                 <ProjectName>DrawingApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -882,7 +873,7 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>..\DrawingModel\DrawingMode.cs</RelativePath>
+                <RelativePath>Models\DrawingMode.cs</RelativePath>
                 <ProjectName>DrawingApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -898,6 +889,16 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>..\DrawingModel\Interfaces\IShape.cs</RelativePath>
+                <ProjectName>DrawingApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\DrawingModel\Shapes\Ellipse.cs</RelativePath>
+                <ProjectName>DrawingApp</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>..\DrawingModel\Shapes\Rectangle.cs</RelativePath>
                 <ProjectName>DrawingApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -925,6 +926,11 @@
                 <RelativePath>MainForm.Designer.cs</RelativePath>
                 <ProjectName>DrawingForm</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Models\DrawingMode.cs</RelativePath>
+                <ProjectName>DrawingForm</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Models\FormPresentationModel.cs</RelativePath>
@@ -967,12 +973,7 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Shapes\Ellipse.cs</RelativePath>
-                <ProjectName>DrawingModel</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>Shapes\Rectangle.cs</RelativePath>
+                <RelativePath>ShapesFactory.cs</RelativePath>
                 <ProjectName>DrawingModel</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -982,14 +983,14 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>UnitTest1.cs</RelativePath>
+                <RelativePath>ShapesFactoryUnitTest.cs</RelativePath>
                 <ProjectName>DrawingModelTest</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
+                <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>807</ProductionLoc>
-          <TestLoc>0</TestLoc>
+          <ProductionLoc>938</ProductionLoc>
+          <TestLoc>54</TestLoc>
         </CodeReview>
       </Data>
     </div>
