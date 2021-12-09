@@ -10,19 +10,17 @@ namespace DrawingModel
     {
         public event Action _modelChanged;
 
-        private readonly DrawingPoint _startHintPoint;
-        private readonly DrawingPoint _endHintPoint;
-
         private bool _isPressed;
-        private ShapeType _shapeType;
+        private ShapeType _drawingShapeType;
+
+        private IShape _drawingShape;
         private readonly IList<IShape> _shapes;
 
         public Model()
         {
-            _startHintPoint = new DrawingPoint();
-            _endHintPoint = new DrawingPoint();
             _shapes = new List<IShape>();
             _isPressed = false;
+            _drawingShapeType = ShapeType.Unknown;
         }
 
         /// <summary>
@@ -34,8 +32,8 @@ namespace DrawingModel
         {
             if (locationX > 0 && locationY > 0)
             {
-                _startHintPoint.X = locationX;
-                _startHintPoint.Y = locationY;
+                _drawingShape.X1 = locationX;
+                _drawingShape.Y1 = locationY;
                 _isPressed = true;
                 NotifyModelChanged();
             }
@@ -50,8 +48,8 @@ namespace DrawingModel
         {
             if (_isPressed)
             {
-                _endHintPoint.X = locationX;
-                _endHintPoint.Y = locationY;
+                _drawingShape.X2 = locationX;
+                _drawingShape.Y2 = locationY;
                 NotifyModelChanged();
             }
         }
@@ -66,9 +64,9 @@ namespace DrawingModel
         {
             if (_isPressed)
             {
-                IShape shape = ShapesFactory.CreateShape(_shapeType);
-                shape.X1 = _startHintPoint.X;
-                shape.Y1 = _startHintPoint.Y;
+                IShape shape = ShapesFactory.CreateShape(_drawingShapeType);
+                shape.X1 = _drawingShape.X1;
+                shape.Y1 = _drawingShape.Y1;
                 shape.X2 = locationX;
                 shape.Y2 = locationY;
 
@@ -84,7 +82,24 @@ namespace DrawingModel
         /// <param name="shapeType"></param>
         public void SetShapeType(ShapeType shapeType)
         {
-            _shapeType = shapeType;
+            _drawingShapeType = shapeType;
+            _drawingShape = ShapesFactory.CreateShape(shapeType);
+        }
+
+        /// <summary>
+        /// 渲染/繪圖
+        /// </summary>
+        /// <param name="graphics"></param>
+        public void Draw(IGraphics graphics)
+        {
+            foreach (var shape in _shapes)
+            {
+                shape.Draw(graphics);
+            }
+            if (_isPressed)
+            {
+                _drawingShape.Draw(graphics);
+            }
         }
 
         /// <summary>

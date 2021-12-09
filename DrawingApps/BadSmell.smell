@@ -188,13 +188,13 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
-              <HashCode>.IModel.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.9</HashCode>
+              <SmellType>Unresolved warnings(忽視警告)-從未指派欄位 'Model._drawingShape'，會持續使用其預設值 null</SmellType>
+              <HashCode>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-從未指派欄位 'Model._drawingShape'，會持續使用其預設值 null.16</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project />
-              <File>IModel.cs</File>
-              <Line>9</Line>
+              <Project>DrawingModel\DrawingModel</Project>
+              <File>Model.cs</File>
+              <Line>16</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -204,13 +204,13 @@
             </Smell>
             <Smell>
               <Id>2</Id>
-              <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
-              <HashCode>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.107</HashCode>
+              <SmellType>Unresolved warnings(忽視警告)-使欄位唯讀</SmellType>
+              <HashCode>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-使欄位唯讀.16</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingModel\DrawingModel</Project>
               <File>Model.cs</File>
-              <Line>107</Line>
+              <Line>16</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -220,13 +220,45 @@
             </Smell>
             <Smell>
               <Id>3</Id>
+              <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
+              <HashCode>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.120</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingModel\DrawingModel</Project>
+              <File>Model.cs</File>
+              <Line>120</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>58 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByType(System.Type)</HashCode>
+              <HashCode>44 DrawingApp.MainPage.UnloadObject(Windows.UI.Xaml.DependencyObject)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingApp</Project>
+              <File>MainPage.g.i.cs</File>
+              <Line>44</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>DrawingApp.MainPage.UnloadObject(Windows.UI.Xaml.DependencyObject)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>129 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByType(System.Type)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingApp</Project>
               <File>XamlTypeInfo.g.cs</File>
-              <Line>58</Line>
+              <Line>129</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -235,14 +267,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>4</Id>
+              <Id>6</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>78 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByName(string)</HashCode>
+              <HashCode>134 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByName(string)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingApp</Project>
               <File>XamlTypeInfo.g.cs</File>
-              <Line>78</Line>
+              <Line>134</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -251,583 +283,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>5</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>102 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetMemberByLongName(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>102</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetMemberByLongName(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>133 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.InitTypeTables()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>133</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.InitTypeTables()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
               <Id>7</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>146 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.LookupTypeIndexByName(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>146</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.LookupTypeIndexByName(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>8</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>162 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.LookupTypeIndexByType(System.Type)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>162</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.LookupTypeIndexByType(System.Type)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>9</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>178 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.Activate_0_MainPage()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>178</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.Activate_0_MainPage()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>10</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>180 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.CreateXamlType(int)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>180</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.CreateXamlType(int)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>11</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>210 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.CreateXamlMember(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>210</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.CreateXamlMember(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>12</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>243 DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.GetMember(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>243</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.GetMember(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>13</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>254 DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.ActivateInstance()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>254</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.ActivateInstance()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>14</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>255 DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.AddToMap(object, object, object)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>255</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.AddToMap(object, object, object)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>15</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>256 DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.AddToVector(object, object)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>256</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.AddToVector(object, object)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>16</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>257 DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.RunInitializer()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>257</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.RunInitializer()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>17</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>258 DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.CreateFromString(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>258</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlSystemBaseType.CreateFromString(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>18</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>317 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.GetMember(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>317</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.GetMember(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>19</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>331 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.ActivateInstance()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>331</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.ActivateInstance()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>20</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>336 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.AddToMap(object, object, object)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>336</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.AddToMap(object, object, object)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>21</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>341 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.AddToVector(object, object)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>341</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.AddToVector(object, object)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>22</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>346 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.RunInitializer()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>346</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.RunInitializer()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>23</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>351 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.CreateFromString(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>351</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.CreateFromString(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>24</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>409 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetContentPropertyName(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>409</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetContentPropertyName(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>25</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>414 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsArray()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>414</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsArray()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>26</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>419 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsMarkupExtension()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>419</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsMarkupExtension()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>27</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>424 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsBindable()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>424</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsBindable()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>28</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>429 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsReturnTypeStub()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>429</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsReturnTypeStub()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>29</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>434 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsLocalType()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>434</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetIsLocalType()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>30</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>439 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetItemTypeName(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>439</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetItemTypeName(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>31</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>444 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetKeyTypeName(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>444</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.SetKeyTypeName(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>32</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>449 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.AddMemberName(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>449</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.AddMemberName(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>33</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>458 DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.AddEnumValue(string, object)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>458</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlUserType.AddEnumValue(string, object)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>34</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>498 DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetTargetTypeName(string)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>498</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetTargetTypeName(string)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>35</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>507 DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetIsAttachable()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>507</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetIsAttachable()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>36</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>510 DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetIsDependencyProperty()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>510</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetIsDependencyProperty()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>37</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>513 DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetIsReadOnly()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>513</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetIsReadOnly()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>38</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>517 DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.GetValue(object)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>517</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.GetValue(object)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>39</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>526 DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetValue(object, object)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>XamlTypeInfo.g.cs</File>
-              <Line>526</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.DrawingApp_XamlTypeInfo.XamlMember.SetValue(object, object)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>40</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>53 DrawingApp.MainPage.GetBindingConnector(int, object)</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>MainPage.g.cs</File>
-              <Line>53</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.MainPage.GetBindingConnector(int, object)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>41</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
               <HashCode>20 DrawingApp.Program.Main(string[])</HashCode>
               <Severity>Red</Severity>
@@ -842,6 +298,22 @@
               <Comment>DrawingApp.Program.Main(string[])</Comment>
               <Auto>false</Auto>
             </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>4 AutoGeneratedProgram.Main(string[])</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingModelTests</Project>
+              <File>Microsoft.NET.Test.Sdk.Program.cs</File>
+              <Line>4</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>AutoGeneratedProgram.Main(string[])</Comment>
+              <Auto>false</Auto>
+            </Smell>
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
@@ -849,16 +321,6 @@
             <AnalysisFiles>
               <AnalysisFile>
                 <RelativePath>App.xaml.cs</RelativePath>
-                <ProjectName>DrawingApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>..\DrawingModel\Attributes\ShapeTargetAttribute.cs</RelativePath>
-                <ProjectName>DrawingApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>..\DrawingModel\Enums\ShapeType.cs</RelativePath>
                 <ProjectName>DrawingApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -874,31 +336,6 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Models\DrawingMode.cs</RelativePath>
-                <ProjectName>DrawingApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>..\DrawingModel\Interfaces\IGraphics.cs</RelativePath>
-                <ProjectName>DrawingApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>..\DrawingModel\Interfaces\IModel.cs</RelativePath>
-                <ProjectName>DrawingApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>..\DrawingModel\Interfaces\IShape.cs</RelativePath>
-                <ProjectName>DrawingApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>..\DrawingModel\Shapes\Ellipse.cs</RelativePath>
-                <ProjectName>DrawingApp</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
-                <RelativePath>..\DrawingModel\Shapes\Rectangle.cs</RelativePath>
                 <ProjectName>DrawingApp</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -958,6 +395,41 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Attributes\ShapeTargetAttribute.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Enums\ShapeType.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Interfaces\IGraphics.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Interfaces\IModel.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Interfaces\IShape.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Shapes\Ellipse.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Shapes\Rectangle.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>DrawingPoint.cs</RelativePath>
                 <ProjectName>DrawingModel</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -968,29 +440,19 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
-                <ProjectName>DrawingModel</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>ShapesFactory.cs</RelativePath>
                 <ProjectName>DrawingModel</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
-                <ProjectName>DrawingModelTest</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>ShapesFactoryUnitTest.cs</RelativePath>
-                <ProjectName>DrawingModelTest</ProjectName>
+                <ProjectName>DrawingModelTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>938</ProductionLoc>
-          <TestLoc>54</TestLoc>
+          <ProductionLoc>896</ProductionLoc>
+          <TestLoc>35</TestLoc>
         </CodeReview>
       </Data>
     </div>
