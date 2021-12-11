@@ -35,14 +35,22 @@ namespace DrawingModel.Shapes
         /// <param name="graphics"></param>
         public void Draw(IGraphics graphics)
         {
-            if (X1 <= X2)
+            var topLeftX = X1;
+            var topLeftY = Y1;
+            var rightBottomX = X2;
+            var rightBottomY = Y2;
+
+            if (X1 > X2)
             {
-                graphics.DrawEllipse(X1, Y1, X2, Y2);
+                (topLeftX, rightBottomX) = (rightBottomX, topLeftX);
             }
-            else
+
+            if (Y1 > Y2)
             {
-                graphics.DrawEllipse(X2, Y2, X1, Y1);
+                (topLeftY, rightBottomY) = (rightBottomY, topLeftY);
             }
+
+            graphics.DrawEllipse(topLeftX, topLeftY, rightBottomX, rightBottomY);
         }
     }
 }

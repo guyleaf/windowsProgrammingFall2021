@@ -9,7 +9,7 @@ namespace DrawingModelTests
             get; private set;
         }
 
-        public int CountForDrawEllipise
+        public int CountForDrawEllipse
         {
             get; private set;
         }
@@ -31,7 +31,7 @@ namespace DrawingModelTests
         {
             get
             {
-                return CountForDrawEllipise > 0;
+                return CountForDrawEllipse > 0;
             }
         }
         
@@ -76,7 +76,7 @@ namespace DrawingModelTests
         /// </summary>
         public void DrawEllipse(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY)
         {
-            CountForDrawEllipise++;
+            CountForDrawEllipse++;
             TopLeftX = topLeftX;
             TopLeftY = topLeftY;
             BottomRightX = bottomRightX;

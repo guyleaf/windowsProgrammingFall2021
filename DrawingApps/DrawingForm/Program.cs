@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DrawingForm.Models;
+
+using DrawingModel;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +18,12 @@ namespace DrawingForm
         [STAThread]
         static void Main()
         {
+            var model = new Model();
+            var formPresentationModel = new FormPresentationModel(model);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new MainForm(formPresentationModel, model));
         }
     }
 }

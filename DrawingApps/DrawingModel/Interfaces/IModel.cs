@@ -8,6 +8,11 @@ namespace DrawingModel.Interfaces
     {
         event Action _modelChanged;
 
+        ShapeType CurrentDrawingShapeType
+        {
+            get; set;
+        }
+
         /// <summary>
         /// 常壓滑鼠
         /// </summary>
@@ -29,12 +34,6 @@ namespace DrawingModel.Interfaces
         /// <param name="locationY"></param>
         /// <param name="mode"></param>
         void ReleasePointer(double locationX, double locationY);
-
-        /// <summary>
-        /// 設置圖形種類
-        /// </summary>
-        /// <param name="shapeType"></param>
-        void SetShapeType(ShapeType shapeType);
 
         /// <summary>
         /// 渲染/繪圖

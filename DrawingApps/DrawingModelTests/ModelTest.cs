@@ -40,8 +40,8 @@ namespace DrawingModelTests
         /// <param name="target"></param>
         [DataTestMethod]
         [DataRow("_isPressed", false, DisplayName = "Test _isPressed should be false")]
-        [DataRow("_drawingShapeType", ShapeType.None, DisplayName = "Test _drawingShapeType should be ShapeType.None")]
-        [DataRow("_drawingShape", null, DisplayName = "Test _drawingShape should be null")]
+        [DataRow("_currentDrawingShapeType", ShapeType.None, DisplayName = "Test _currentDrawingShapeType should be ShapeType.None")]
+        [DataRow("_currentDrawingShape", null, DisplayName = "Test _currentDrawingShape should be null")]
         public void CheckInitialModelState(string fieldName, object target)
         {
             var result = _privateModel.GetField(fieldName);
@@ -63,8 +63,8 @@ namespace DrawingModelTests
         /// </summary>
         private void SetUpForSettingRectangle()
         {
-            _privateModel.SetField("_drawingShapeType", ShapeType.Rectangle);
-            _privateModel.SetField("_drawingShape", new Rectangle());
+            _privateModel.SetField("_currentDrawingShapeType", ShapeType.Rectangle);
+            _privateModel.SetField("_currentDrawingShape", new Rectangle());
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace DrawingModelTests
             SetUpForSettingRectangle();
             _model.PressPointer(x, y);
 
-            var shape = _privateModel.GetField("_drawingShape") as IShape;
+            var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
             Assert.AreEqual(x, shape.X1, 0.0001);
             Assert.AreEqual(y, shape.Y1, 0.0001);
         }
@@ -134,7 +134,7 @@ namespace DrawingModelTests
 
             _model.PressPointer(x, y);
 
-            var shape = _privateModel.GetField("_drawingShape") as IShape;
+            var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
             var isPressed = (bool)_privateModel.GetField("_isPressed");
 
             Assert.AreEqual(0, shape.X1, 0.0001);
@@ -193,7 +193,7 @@ namespace DrawingModelTests
 
             _model.MovePointer(x, y);
 
-            var shape = _privateModel.GetField("_drawingShape") as IShape;
+            var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
             Assert.AreEqual(x, shape.X2, 0.0001);
             Assert.AreEqual(y, shape.Y2, 0.0001);
         }
@@ -217,7 +217,7 @@ namespace DrawingModelTests
 
             _model.MovePointer(x, y);
 
-            var shape = _privateModel.GetField("_drawingShape") as IShape;
+            var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
             Assert.AreEqual(0, shape.X2, 0.0001);
             Assert.AreEqual(0, shape.Y2, 0.0001);
         }
@@ -230,7 +230,6 @@ namespace DrawingModelTests
         {
             Assert.ThrowsException<Exception>(() => _model.MovePointer(100, 100), DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
         }
-
 
         /// <summary>
         /// 測試 MovePointer 應正確地觸發 modelChanged 事件
@@ -342,31 +341,31 @@ namespace DrawingModelTests
         }
         #endregion
 
-        #region SetShapeType 相關測試
+        #region CurrentDrawingShapeType 相關測試
         /// <summary>
-        /// 測試 SetShapeType 輸入 ShapeType 應建構對應物件
+        /// 測試 CurrentDrawingShapeType 輸入 ShapeType 應建構對應物件
         /// </summary>
         [DataTestMethod]
         [DataRow(ShapeType.Ellipse)]
         [DataRow(ShapeType.Rectangle)]
-        public void TestSetShapeTypeShouldStoreCorrectShapeObject(ShapeType shapeType)
+        public void TestCurrentDrawingShapeTypeShouldStoreCorrectShapeObject(ShapeType shapeType)
         {
-            _model.SetShapeType(shapeType);
+            _model.CurrentDrawingShapeType = shapeType;
 
-            var shape = _privateModel.GetField("_drawingShape") as IShape;
-            var drawingShapeType = (ShapeType)_privateModel.GetField("_drawingShapeType");
+            var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
+            var drawingShapeType = (ShapeType)_privateModel.GetField("_currentDrawingShapeType");
 
             Assert.AreEqual(shapeType, drawingShapeType);
             Assert.AreEqual(GetShapeClassType(shapeType), shape.GetType());
         }
 
         /// <summary>
-        /// 測試 SetShapeType 應正確地觸發 modelChanged 事件
+        /// 測試 CurrentDrawingShapeType 應正確地觸發 modelChanged 事件
         /// </summary>
         [DataTestMethod]
         [DataRow(ShapeType.Ellipse, DisplayName = "When shapeType is Rectangle")]
         [DataRow(ShapeType.Rectangle, DisplayName = "When shapeType is Ellipse")]
-        public void TestSetShapeTypeShouldBeAlwaysTriggerModelChangedEvent(ShapeType shapeType)
+        public void TestCurrentDrawingShapeTypeShouldBeAlwaysTriggerModelChangedEvent(ShapeType shapeType)
         {
             var isTriggered = false;
             _model._modelChanged += () =>
@@ -374,9 +373,26 @@ namespace DrawingModelTests
                 isTriggered = true;
             };
 
-            _model.SetShapeType(shapeType);
+            _model.CurrentDrawingShapeType = shapeType;
 
             Assert.IsTrue(isTriggered);
+        }
+
+        /// <summary>
+        /// 測試 CurrentDrawingShapeType 應取得目前所設定之 shape type
+        /// </summary>
+        /// <param name="shapeType"></param>
+        [DataTestMethod]
+        [DataRow(ShapeType.Ellipse)]
+        [DataRow(ShapeType.Rectangle)]
+        [DataRow(ShapeType.None)]
+        public void TestCurrentDrawingShapeTypeShouldGetCorrespondingShapeType(ShapeType shapeType)
+        {
+            _privateModel.SetField("_currentDrawingShapeType", shapeType);
+
+            var correspondingShapeType = _model.CurrentDrawingShapeType;
+
+            Assert.AreEqual(shapeType, correspondingShapeType);
         }
         #endregion
 
@@ -393,8 +409,8 @@ namespace DrawingModelTests
 
             _model.Clear();
 
-            var shape = _privateModel.GetField("_drawingShape") as IShape;
-            var shapeType = (ShapeType)_privateModel.GetField("_drawingShapeType");
+            var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
+            var shapeType = (ShapeType)_privateModel.GetField("_currentDrawingShapeType");
             var isPressed = (bool)_privateModel.GetField("_isPressed");
             Assert.IsNull(shape);
             Assert.AreEqual(ShapeType.None, shapeType);
@@ -450,7 +466,7 @@ namespace DrawingModelTests
 
             Assert.IsTrue(graphics.IsDrawEllipseTriggered);
             Assert.IsTrue(graphics.IsDrawRectangleTriggered);
-            Assert.AreEqual(1, graphics.CountForDrawEllipise);
+            Assert.AreEqual(1, graphics.CountForDrawEllipse);
             Assert.AreEqual(1, graphics.CountForDrawRectangle);
         }
 
@@ -480,7 +496,7 @@ namespace DrawingModelTests
         {
             var graphics = new FakeGraphics();
             _privateModel.SetField("_isPressed", true);
-            _privateModel.SetField("_drawingShape", Activator.CreateInstance(shapeType));
+            _privateModel.SetField("_currentDrawingShape", Activator.CreateInstance(shapeType));
 
             _model.Draw(graphics);
 

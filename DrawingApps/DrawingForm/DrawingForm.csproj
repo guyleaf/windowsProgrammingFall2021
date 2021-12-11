@@ -52,6 +52,7 @@
     <Compile Include="Canvas.Designer.cs">
       <DependentUpon>Canvas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGraphicsAdapter.cs" />
     <Compile Include="Models\DrawingMode.cs" />
     <Compile Include="Models\FormPresentationModel.cs" />
     <Compile Include="MainForm.cs">
