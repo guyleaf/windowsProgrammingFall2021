@@ -148,7 +148,7 @@ namespace DrawingModel
         /// <summary>
         /// 畫虛線
         /// </summary>
-        /// TODO: Consider moving to seperate DashedLine Object
+        /// TODO: Consider moving to seperated Object
         private void DrawDashedLines(IGraphics graphics)
         {
             graphics.DrawDashedLine(

@@ -4,13 +4,13 @@ using System.Drawing;
 
 namespace DrawingForm
 {
-    public class FormGraphicsAdapter : IGraphics
+    public class AppGraphicsAdapter : IGraphics
     {
         private readonly Graphics _graphics;
         private const float DASHED_LINE_WIDTH = 1.8F;
         private const float DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE = 1.2F;
 
-        public FormGraphicsAdapter(Graphics graphics)
+        public AppGraphicsAdapter(Graphics graphics)
         {
             _graphics = graphics;
         }
