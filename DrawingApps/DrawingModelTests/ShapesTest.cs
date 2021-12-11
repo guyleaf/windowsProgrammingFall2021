@@ -90,10 +90,10 @@ namespace DrawingModelTests
 
             _rectangle.Draw(graphics);
 
-            Assert.AreEqual(x2, graphics.TopLeftX);
-            Assert.AreEqual(y2, graphics.TopLeftY);
-            Assert.AreEqual(x1, graphics.BottomRightX);
-            Assert.AreEqual(y1, graphics.BottomRightY);
+            Assert.AreEqual(x2, graphics.X1);
+            Assert.AreEqual(y2, graphics.Y1);
+            Assert.AreEqual(x1, graphics.X2);
+            Assert.AreEqual(y1, graphics.Y2);
         }
 
         /// <summary>
@@ -114,10 +114,10 @@ namespace DrawingModelTests
 
             _ellipse.Draw(graphics);
 
-            Assert.AreEqual(x2, graphics.TopLeftX);
-            Assert.AreEqual(y2, graphics.TopLeftY);
-            Assert.AreEqual(x1, graphics.BottomRightX);
-            Assert.AreEqual(y1, graphics.BottomRightY);
+            Assert.AreEqual(x2, graphics.X1);
+            Assert.AreEqual(y2, graphics.Y1);
+            Assert.AreEqual(x1, graphics.X2);
+            Assert.AreEqual(y1, graphics.Y2);
         }
     }
 }

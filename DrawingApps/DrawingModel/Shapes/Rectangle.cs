@@ -48,15 +48,26 @@ namespace DrawingModel.Shapes
 
             if (X1 > X2)
             {
-                (topLeftX, rightBottomX) = (rightBottomX, topLeftX);
+                Swap(ref topLeftX, ref rightBottomX);
             }
-
             if (Y1 > Y2)
             {
-                (topLeftY, rightBottomY) = (rightBottomY, topLeftY);
+                Swap(ref topLeftY, ref rightBottomY);
             }
 
             graphics.DrawRectangle(topLeftX, topLeftY, rightBottomX, rightBottomY);
+        }
+        
+        /// <summary>
+        /// 交換數值
+        /// </summary>
+        /// <param name="value1"></param>
+        /// <param name="value2"></param>
+        private void Swap(ref double value1, ref double value2)
+        {
+            double value = value1;
+            value1 = value2;
+            value2 = value;
         }
     }
 }

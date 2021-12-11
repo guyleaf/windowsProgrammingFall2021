@@ -503,6 +503,21 @@ namespace DrawingModelTests
             Assert.AreEqual(isDrawEllipseTriggered, graphics.IsDrawEllipseTriggered);
             Assert.AreEqual(isDrawRectangleTriggered, graphics.IsDrawRectangleTriggered);
         }
+
+        /// <summary>
+        /// 測試 Draw 當 IsPressed 為 true 時，應該呼叫 Dashed Line
+        /// </summary>
+        [TestMethod]
+        public void TestDrawShouldTriggerDrawDashedLineIfIsPressedIsTrue()
+        {
+            var graphics = new FakeGraphics();
+            _privateModel.SetField("_isPressed", true);
+            _privateModel.SetField("_currentDrawingShape", Activator.CreateInstance(typeof(Rectangle)));
+
+            _model.Draw(graphics);
+
+            Assert.IsTrue(graphics.IsDrawDashedLineTriggered);
+        }
         #endregion
     }
 }

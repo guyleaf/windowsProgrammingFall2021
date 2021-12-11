@@ -107,6 +107,7 @@ namespace DrawingModel
             if (_isPressed)
             {
                 _currentDrawingShape.Draw(graphics);
+                DrawDashedLines(graphics);
             }
         }
 
@@ -142,6 +143,22 @@ namespace DrawingModel
             {
                 throw new Exception(DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
             }
+        }
+
+        /// <summary>
+        /// 畫虛線
+        /// </summary>
+        /// TODO: Consider moving to seperate DashedLine Object
+        private void DrawDashedLines(IGraphics graphics)
+        {
+            graphics.DrawDashedLine(
+                _currentDrawingShape.X1, _currentDrawingShape.Y1, _currentDrawingShape.X2, _currentDrawingShape.Y1);
+            graphics.DrawDashedLine(
+                _currentDrawingShape.X1, _currentDrawingShape.Y1, _currentDrawingShape.X1, _currentDrawingShape.Y2);
+            graphics.DrawDashedLine(
+                _currentDrawingShape.X1, _currentDrawingShape.Y2, _currentDrawingShape.X2, _currentDrawingShape.Y2);
+            graphics.DrawDashedLine(
+                _currentDrawingShape.X2, _currentDrawingShape.Y1, _currentDrawingShape.X2, _currentDrawingShape.Y2);
         }
     }
 }

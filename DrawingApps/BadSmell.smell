@@ -189,12 +189,12 @@
             <Smell>
               <Id>1</Id>
               <SmellType>Unresolved warnings(忽視警告)-函式 HandleRectangleButtonOnClick 缺乏註解</SmellType>
-              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleRectangleButtonOnClick 缺乏註解.47</HashCode>
+              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleRectangleButtonOnClick 缺乏註解.46</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>47</Line>
+              <Line>46</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -205,12 +205,12 @@
             <Smell>
               <Id>2</Id>
               <SmellType>Unresolved warnings(忽視警告)-函式 HandleEllipseButtonOnClick 缺乏註解</SmellType>
-              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleEllipseButtonOnClick 缺乏註解.52</HashCode>
+              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleEllipseButtonOnClick 缺乏註解.51</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>52</Line>
+              <Line>51</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -221,12 +221,12 @@
             <Smell>
               <Id>3</Id>
               <SmellType>Unresolved warnings(忽視警告)-函式 HandleClearButtonOnClick 缺乏註解</SmellType>
-              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleClearButtonOnClick 缺乏註解.57</HashCode>
+              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleClearButtonOnClick 缺乏註解.56</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>57</Line>
+              <Line>56</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -237,12 +237,12 @@
             <Smell>
               <Id>4</Id>
               <SmellType>Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseDown 缺乏註解</SmellType>
-              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseDown 缺乏註解.62</HashCode>
+              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseDown 缺乏註解.61</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>62</Line>
+              <Line>61</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -253,12 +253,12 @@
             <Smell>
               <Id>5</Id>
               <SmellType>Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseUp 缺乏註解</SmellType>
-              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseUp 缺乏註解.67</HashCode>
+              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseUp 缺乏註解.66</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>67</Line>
+              <Line>66</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -269,12 +269,12 @@
             <Smell>
               <Id>6</Id>
               <SmellType>Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseMove 缺乏註解</SmellType>
-              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseMove 缺乏註解.72</HashCode>
+              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleCanvasOnMouseMove 缺乏註解.71</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>72</Line>
+              <Line>71</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -285,12 +285,12 @@
             <Smell>
               <Id>7</Id>
               <SmellType>Unresolved warnings(忽視警告)-函式 HandleCanvasOnPaint 缺乏註解</SmellType>
-              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleCanvasOnPaint 缺乏註解.77</HashCode>
+              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleCanvasOnPaint 缺乏註解.76</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>77</Line>
+              <Line>76</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -301,12 +301,12 @@
             <Smell>
               <Id>8</Id>
               <SmellType>Unresolved warnings(忽視警告)-函式 HandleModelOnModelChanged 缺乏註解</SmellType>
-              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleModelOnModelChanged 缺乏註解.82</HashCode>
+              <HashCode>DrawingForm\DrawingForm.MainForm.cs.Unresolved warnings(忽視警告)-函式 HandleModelOnModelChanged 缺乏註解.81</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm\DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>82</Line>
+              <Line>81</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -316,13 +316,13 @@
             </Smell>
             <Smell>
               <Id>9</Id>
-              <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
-              <HashCode>DrawingForm\DrawingForm.FormPresentationModel.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.106</HashCode>
+              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
+              <HashCode>DrawingModel\DrawingModel.IModel.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.9</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>DrawingForm\DrawingForm</Project>
-              <File>FormPresentationModel.cs</File>
-              <Line>106</Line>
+              <Project>DrawingModel\DrawingModel</Project>
+              <File>IModel.cs</File>
+              <Line>9</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -332,13 +332,93 @@
             </Smell>
             <Smell>
               <Id>10</Id>
+              <SmellType>Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'</SmellType>
+              <HashCode>DrawingModel\DrawingModel.IModel.cs.Unresolved warnings(忽視警告)-違反命名規則: 不應為前置詞 '_'.9</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingModel\DrawingModel</Project>
+              <File>IModel.cs</File>
+              <Line>9</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>11</Id>
+              <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
+              <HashCode>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.133</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingModel\DrawingModel</Project>
+              <File>Model.cs</File>
+              <Line>133</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>12</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>47 DrawingForm.MainForm.HandleRectangleButtonOnClick(object, System.EventArgs)</HashCode>
+              <HashCode>44 DrawingForm.Models.FormPresentationModel.PressPointer(double, double)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingForm</Project>
+              <File>FormPresentationModel.cs</File>
+              <Line>44</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>DrawingForm.Models.FormPresentationModel.PressPointer(double, double)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>52 DrawingForm.Models.FormPresentationModel.MovePointer(double, double)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingForm</Project>
+              <File>FormPresentationModel.cs</File>
+              <Line>52</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>DrawingForm.Models.FormPresentationModel.MovePointer(double, double)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>14</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>60 DrawingForm.Models.FormPresentationModel.ReleasePointer(double, double)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>DrawingForm</Project>
+              <File>FormPresentationModel.cs</File>
+              <Line>60</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>DrawingForm.Models.FormPresentationModel.ReleasePointer(double, double)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>15</Id>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>46 DrawingForm.MainForm.HandleRectangleButtonOnClick(object, System.EventArgs)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>47</Line>
+              <Line>46</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -347,14 +427,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>11</Id>
+              <Id>16</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>52 DrawingForm.MainForm.HandleEllipseButtonOnClick(object, System.EventArgs)</HashCode>
+              <HashCode>51 DrawingForm.MainForm.HandleEllipseButtonOnClick(object, System.EventArgs)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>52</Line>
+              <Line>51</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -363,14 +443,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>12</Id>
+              <Id>17</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>57 DrawingForm.MainForm.HandleClearButtonOnClick(object, System.EventArgs)</HashCode>
+              <HashCode>56 DrawingForm.MainForm.HandleClearButtonOnClick(object, System.EventArgs)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>57</Line>
+              <Line>56</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -379,14 +459,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>13</Id>
+              <Id>18</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>62 DrawingForm.MainForm.HandleCanvasOnMouseDown(object, System.Windows.Forms.MouseEventArgs)</HashCode>
+              <HashCode>61 DrawingForm.MainForm.HandleCanvasOnMouseDown(object, System.Windows.Forms.MouseEventArgs)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>62</Line>
+              <Line>61</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -395,14 +475,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>14</Id>
+              <Id>19</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>67 DrawingForm.MainForm.HandleCanvasOnMouseUp(object, System.Windows.Forms.MouseEventArgs)</HashCode>
+              <HashCode>66 DrawingForm.MainForm.HandleCanvasOnMouseUp(object, System.Windows.Forms.MouseEventArgs)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>67</Line>
+              <Line>66</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -411,14 +491,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>15</Id>
+              <Id>20</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>72 DrawingForm.MainForm.HandleCanvasOnMouseMove(object, System.Windows.Forms.MouseEventArgs)</HashCode>
+              <HashCode>71 DrawingForm.MainForm.HandleCanvasOnMouseMove(object, System.Windows.Forms.MouseEventArgs)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>72</Line>
+              <Line>71</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -427,14 +507,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>16</Id>
+              <Id>21</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>77 DrawingForm.MainForm.HandleCanvasOnPaint(object, System.Windows.Forms.PaintEventArgs)</HashCode>
+              <HashCode>76 DrawingForm.MainForm.HandleCanvasOnPaint(object, System.Windows.Forms.PaintEventArgs)</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>77</Line>
+              <Line>76</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -443,14 +523,14 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>17</Id>
+              <Id>22</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>82 DrawingForm.MainForm.HandleModelOnModelChanged()</HashCode>
+              <HashCode>81 DrawingForm.MainForm.HandleModelOnModelChanged()</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>DrawingForm</Project>
               <File>MainForm.cs</File>
-              <Line>82</Line>
+              <Line>81</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -459,7 +539,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>18</Id>
+              <Id>23</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
               <HashCode>129 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByType(System.Type)</HashCode>
               <Severity>Red</Severity>
@@ -475,7 +555,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>19</Id>
+              <Id>24</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
               <HashCode>134 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByName(string)</HashCode>
               <Severity>Red</Severity>
@@ -491,7 +571,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>20</Id>
+              <Id>25</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
               <HashCode>44 DrawingApp.MainPage.UnloadObject(Windows.UI.Xaml.DependencyObject)</HashCode>
               <Severity>Red</Severity>
@@ -507,7 +587,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>21</Id>
+              <Id>26</Id>
               <SmellType>Lack of comments(缺乏註解)</SmellType>
               <HashCode>20 DrawingApp.Program.Main(string[])</HashCode>
               <Severity>Red</Severity>
@@ -570,7 +650,7 @@
               <AnalysisFile>
                 <RelativePath>FormGraphicsAdapter.cs</RelativePath>
                 <ProjectName>DrawingForm</ProjectName>
-                <AnalysisFileType>Unknown</AnalysisFileType>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>MainForm.cs</RelativePath>
@@ -684,8 +764,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1184</ProductionLoc>
-          <TestLoc>691</TestLoc>
+          <ProductionLoc>1368</ProductionLoc>
+          <TestLoc>690</TestLoc>
         </CodeReview>
       </Data>
     </div>

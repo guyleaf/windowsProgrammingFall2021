@@ -19,6 +19,11 @@ namespace DrawingModelTests
             get; private set;
         }
 
+        public int CountForDrawDashedLine
+        {
+            get; private set;
+        }
+
         public bool IsClearAllTriggered
         {
             get
@@ -43,22 +48,30 @@ namespace DrawingModelTests
             }
         }
 
-        public double TopLeftX
+        public bool IsDrawDashedLineTriggered
+        {
+            get
+            {
+                return CountForDrawDashedLine > 0;
+            }
+        }
+
+        public double X1
         {
             get; private set;
         }
 
-        public double TopLeftY
+        public double Y1
         {
             get; private set;
         }
 
-        public double BottomRightX
+        public double X2
         {
             get; private set;
         }
 
-        public double BottomRightY
+        public double Y2
         {
             get; private set;
         }
@@ -77,10 +90,22 @@ namespace DrawingModelTests
         public void DrawEllipse(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY)
         {
             CountForDrawEllipse++;
-            TopLeftX = topLeftX;
-            TopLeftY = topLeftY;
-            BottomRightX = bottomRightX;
-            BottomRightY = bottomRightY;
+            X1 = topLeftX;
+            Y1 = topLeftY;
+            X2 = bottomRightX;
+            Y2 = bottomRightY;
+        }
+
+        /// <summary>
+        /// 畫線
+        /// </summary>
+        public void DrawDashedLine(double x1, double y1, double x2, double y2)
+        {
+            CountForDrawDashedLine++;
+            X1 = x1;
+            Y1 = y1;
+            X2 = x2;
+            Y2 = y2;
         }
 
         /// <summary>
@@ -89,10 +114,10 @@ namespace DrawingModelTests
         public void DrawRectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY)
         {
             CountForDrawRectangle++;
-            TopLeftX = topLeftX;
-            TopLeftY = topLeftY;
-            BottomRightX = bottomRightX;
-            BottomRightY = bottomRightY;
+            X1 = topLeftX;
+            Y1 = topLeftY;
+            X2 = bottomRightX;
+            Y2 = bottomRightY;
         }
     }
 }

@@ -41,6 +41,11 @@ namespace DrawingForm.Models
             }
         }
 
+        /// <summary>
+        /// 常壓滑鼠
+        /// </summary>
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
         public void PressPointer(double locationX, double locationY)
         {
             if (IsCurrentDrawingModeEqualTo(DrawingMode.Drawing))
@@ -49,6 +54,11 @@ namespace DrawingForm.Models
             }
         }
 
+        /// <summary>
+        /// 移動滑鼠
+        /// </summary>
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
         public void MovePointer(double locationX, double locationY)
         {
             if (IsCurrentDrawingModeEqualTo(DrawingMode.Drawing))
@@ -57,6 +67,11 @@ namespace DrawingForm.Models
             }
         }
 
+        /// <summary>
+        /// 釋放滑鼠
+        /// </summary>
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
         public void ReleasePointer(double locationX, double locationY)
         {
             if (IsCurrentDrawingModeEqualTo(DrawingMode.Drawing))
