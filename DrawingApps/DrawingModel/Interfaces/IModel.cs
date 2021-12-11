@@ -37,6 +37,12 @@ namespace DrawingModel.Interfaces
         void SetShapeType(ShapeType shapeType);
 
         /// <summary>
+        /// 渲染/繪圖
+        /// </summary>
+        /// <param name="graphics"></param>
+        void Draw(IGraphics graphics);
+
+        /// <summary>
         /// 清除所有畫布
         /// </summary>
         void Clear();

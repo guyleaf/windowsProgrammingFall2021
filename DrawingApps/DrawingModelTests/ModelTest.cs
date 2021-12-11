@@ -1,4 +1,5 @@
 ﻿using DrawingModel;
+using DrawingModel.Attributes;
 using DrawingModel.Enums;
 using DrawingModel.Interfaces;
 using DrawingModel.Shapes;
@@ -39,7 +40,7 @@ namespace DrawingModelTests
         /// <param name="target"></param>
         [DataTestMethod]
         [DataRow("_isPressed", false, DisplayName = "Test _isPressed should be false")]
-        [DataRow("_drawingShapeType", ShapeType.Unknown, DisplayName = "Test _drawingShapeType should be ShapeType.Unknown")]
+        [DataRow("_drawingShapeType", ShapeType.None, DisplayName = "Test _drawingShapeType should be ShapeType.None")]
         [DataRow("_drawingShape", null, DisplayName = "Test _drawingShape should be null")]
         public void CheckInitialModelState(string fieldName, object target)
         {
@@ -60,10 +61,24 @@ namespace DrawingModelTests
         /// <summary>
         /// 供先決條件測試，設定 DrawingShape
         /// </summary>
-        private void SetUpForSettingDrawingShape()
+        private void SetUpForSettingRectangle()
         {
             _privateModel.SetField("_drawingShapeType", ShapeType.Rectangle);
             _privateModel.SetField("_drawingShape", new Rectangle());
+        }
+
+        /// <summary>
+        /// 取得 ShapeTargetAttribute 的指定 Type
+        /// </summary>
+        /// <param name="shapeType"></param>
+        /// <returns></returns>
+        private Type GetShapeClassType(ShapeType shapeType)
+        {
+            var attribute = shapeType.GetType().GetMember(shapeType.ToString())
+                .First()
+                .GetCustomAttributes(typeof(ShapeTargetAttribute), false)
+                .FirstOrDefault() as ShapeTargetAttribute;
+            return attribute.ShapeClassType;
         }
 
         #region PressPointer 相關單元測試
@@ -76,9 +91,9 @@ namespace DrawingModelTests
         [DataRow(100, 100)]
         [DataRow(1, 50)]
         [DataRow(50, 1)]
-        public void TestPressPointerShouldStoreStartPoint(double x, double y)
+        public void TestPressPointerShouldStoreStartPointInDrawingShape(double x, double y)
         {
-            SetUpForSettingDrawingShape();
+            SetUpForSettingRectangle();
             _model.PressPointer(x, y);
 
             var shape = _privateModel.GetField("_drawingShape") as IShape;
@@ -92,7 +107,7 @@ namespace DrawingModelTests
         [TestMethod]
         public void TestPressPointerShouldTriggerIsPressedToTrue()
         {
-            SetUpForSettingDrawingShape();
+            SetUpForSettingRectangle();
             _model.PressPointer(100, 100);
 
             var isPressed = _privateModel.GetField("_isPressed");
@@ -113,17 +128,18 @@ namespace DrawingModelTests
         [DataRow(-1, -1)]
         [DataRow(-10, -1)]
         [DataRow(-1, -10)]
-        public void TestPressPointerShouldNotBeChangedIfPointIsLessThanOne(double x, double y)
+        public void TestPressPointerShouldNotChangeDrawingShapeIfPointIsLessThanOne(double x, double y)
         {
-            SetUpForSettingDrawingShape();
+            SetUpForSettingRectangle();
+
             _model.PressPointer(x, y);
 
             var shape = _privateModel.GetField("_drawingShape") as IShape;
-            var isPressed = _privateModel.GetField("_isPressed");
+            var isPressed = (bool)_privateModel.GetField("_isPressed");
 
             Assert.AreEqual(0, shape.X1, 0.0001);
             Assert.AreEqual(0, shape.Y1, 0.0001);
-            Assert.AreEqual(false, isPressed);
+            Assert.IsFalse(isPressed);
         }
 
         /// <summary>
@@ -133,6 +149,27 @@ namespace DrawingModelTests
         public void RaiseExceptionWhenCallingPressPointerBeforeSettingShapeType()
         {
             Assert.ThrowsException<Exception>(() => _model.PressPointer(100, 100), DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
+        }
+
+        /// <summary>
+        /// 測試 PressPointer 不應觸發 model changed 事件
+        /// </summary>
+        [DataTestMethod]
+        [DataRow(0, 0, false)]
+        [DataRow(50, 50, false)]
+        public void TestPressPointerShouldNotTriggerModelChangedEvent(double x, double y, bool shouldTrigged)
+        {
+            SetUpForSettingRectangle();
+
+            var isTriggered = false;
+            _model._modelChanged += () =>
+            {
+                isTriggered = true;
+            };
+
+            _model.PressPointer(x, y);
+
+            Assert.AreEqual(shouldTrigged, isTriggered);
         }
         #endregion
 
@@ -149,9 +186,9 @@ namespace DrawingModelTests
         [DataRow(-50, 1)]
         [DataRow(1, -50)]
         [DataRow(-1, -1)]
-        public void TestMovePointerShouldStoreEndPoint(double x, double y)
+        public void TestMovePointerShouldStoreEndPointInDrawingShape(double x, double y)
         {
-            SetUpForSettingDrawingShape();
+            SetUpForSettingRectangle();
             _privateModel.SetField("_isPressed", true);
 
             _model.MovePointer(x, y);
@@ -173,9 +210,9 @@ namespace DrawingModelTests
         [DataRow(-50, 1)]
         [DataRow(1, -50)]
         [DataRow(-1, -1)]
-        public void TestMovePointerShouldNotBeChangedIfIsPressedIsFalse(double x, double y)
+        public void TestMovePointerShouldNotChangeDrawingShapeIfIsPressedIsFalse(double x, double y)
         {
-            SetUpForSettingDrawingShape();
+            SetUpForSettingRectangle();
             _privateModel.SetField("_isPressed", false);
 
             _model.MovePointer(x, y);
@@ -193,6 +230,29 @@ namespace DrawingModelTests
         {
             Assert.ThrowsException<Exception>(() => _model.MovePointer(100, 100), DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
         }
+
+
+        /// <summary>
+        /// 測試 MovePointer 應正確地觸發 modelChanged 事件
+        /// </summary>
+        [DataTestMethod]
+        [DataRow(false, false, DisplayName = "When isPressed is false, the event should not be triggered")]
+        [DataRow(true, true, DisplayName = "When isPressed is true, the event should be triggered")]
+        public void TestMovePointerShouldTriggerModelChangedEventCorrectly(bool isPressed, bool shouldTrigged)
+        {
+            SetUpForSettingRectangle();
+            _privateModel.SetField("_isPressed", isPressed);
+
+            var isTriggered = false;
+            _model._modelChanged += () =>
+            {
+                isTriggered = true;
+            };
+
+            _model.MovePointer(100, 100);
+
+            Assert.AreEqual(shouldTrigged, isTriggered);
+        }
         #endregion
 
         #region ReleasePointer 相關單元測試
@@ -202,30 +262,22 @@ namespace DrawingModelTests
         [TestMethod]
         public void TestReleasePointerShouldStoreNewShapeInShapesList()
         {
-            SetUpForSettingDrawingShape();
+            SetUpForSettingRectangle();
             _privateModel.SetField("_isPressed", true);
+            var releasedPointX = 100;
+            var releasedPointY = 80;
 
-            _model.ReleasePointer(100, 100);
+            _model.ReleasePointer(releasedPointX, releasedPointY);
 
             var shapes = _privateModel.GetField("_shapes") as IList<IShape>;
             Assert.AreEqual(1, shapes.Count);
 
-            var drawingShape = _privateModel.GetField("_drawingShape") as IShape;
             var shape = shapes.First();
-            Assert.AreEqual(drawingShape.GetType(), shape.GetType());
-            Assert.AreEqual(drawingShape.X1, shape.X1);
-            Assert.AreEqual(drawingShape.Y1, shape.Y1);
-            Assert.AreEqual(100, shape.X2);
-            Assert.AreEqual(100, shape.Y2);
-        }
-
-        /// <summary>
-        /// 測試 ReleasePointer 建立 IShape 物件時，應該使用 released point 作為終點
-        /// </summary>
-        [TestMethod]
-        public void TestReleasePointerShouldUseReleasedPointAsNewShapeEndPoint()
-        {
-            
+            Assert.AreEqual(typeof(Rectangle), shape.GetType());
+            Assert.AreEqual(0, shape.X1, 0.0001);
+            Assert.AreEqual(0, shape.Y1, 0.0001);
+            Assert.AreEqual(releasedPointX, shape.X2, 0.0001);
+            Assert.AreEqual(releasedPointY, shape.Y2, 0.0001);
         }
 
         /// <summary>
@@ -234,15 +286,206 @@ namespace DrawingModelTests
         [TestMethod]
         public void TestReleasePointerShouldTriggerIsPressedToFalse()
         {
+            SetUpForSettingRectangle();
+            _privateModel.SetField("_isPressed", true);
 
+            _model.ReleasePointer(100, 100);
+
+            var isPressed = (bool)_privateModel.GetField("_isPressed");
+            Assert.IsFalse(isPressed);
         }
 
         /// <summary>
-        /// 測試 MovePointer 當 IsPressed 為否時，應不儲存 new shape 至 shapes list
+        /// 測試 ReleasePointer 當 IsPressed 為否時，應不儲存 new shape 至 shapes list
         /// </summary>
         [TestMethod]
         public void TestReleasePointerShouldNotStoreNewShapeInShapesListIfIsPressedIsFalse()
         {
+            SetUpForSettingRectangle();
+            _privateModel.SetField("_isPressed", false);
+
+            _model.ReleasePointer(100, 100);
+
+            var shapes = _privateModel.GetField("_shapes") as IList<IShape>;
+            Assert.AreEqual(0, shapes.Count);
+        }
+
+        /// <summary>
+        /// 測試 ReleasePointer 當未設定 ShapeType 時應發生 Exception
+        /// </summary>
+        [TestMethod]
+        public void RaiseExceptionWhenCallingReleasePointerBeforeSettingShapeType()
+        {
+            Assert.ThrowsException<Exception>(() => _model.ReleasePointer(100, 100), DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
+        }
+
+        /// <summary>
+        /// 測試 ReleasePointer 應正確地觸發 modelChanged 事件
+        /// </summary>
+        [DataTestMethod]
+        [DataRow(false, false, DisplayName = "When isPressed is false, the event should not be triggered")]
+        [DataRow(true, true, DisplayName = "When isPressed is true, the event should be triggered")]
+        public void TestReleasePointerShouldTriggerModelChangedEventCorrectly(bool isPressed, bool shouldTrigged)
+        {
+            SetUpForSettingRectangle();
+            _privateModel.SetField("_isPressed", isPressed);
+
+            var isTriggered = false;
+            _model._modelChanged += () =>
+            {
+                isTriggered = true;
+            };
+
+            _model.MovePointer(100, 100);
+
+            Assert.AreEqual(shouldTrigged, isTriggered);
+        }
+        #endregion
+
+        #region SetShapeType 相關測試
+        /// <summary>
+        /// 測試 SetShapeType 輸入 ShapeType 應建構對應物件
+        /// </summary>
+        [DataTestMethod]
+        [DataRow(ShapeType.Ellipse)]
+        [DataRow(ShapeType.Rectangle)]
+        public void TestSetShapeTypeShouldStoreCorrectShapeObject(ShapeType shapeType)
+        {
+            _model.SetShapeType(shapeType);
+
+            var shape = _privateModel.GetField("_drawingShape") as IShape;
+            var drawingShapeType = (ShapeType)_privateModel.GetField("_drawingShapeType");
+
+            Assert.AreEqual(shapeType, drawingShapeType);
+            Assert.AreEqual(GetShapeClassType(shapeType), shape.GetType());
+        }
+
+        /// <summary>
+        /// 測試 SetShapeType 應正確地觸發 modelChanged 事件
+        /// </summary>
+        [DataTestMethod]
+        [DataRow(ShapeType.Ellipse, DisplayName = "When shapeType is Rectangle")]
+        [DataRow(ShapeType.Rectangle, DisplayName = "When shapeType is Ellipse")]
+        public void TestSetShapeTypeShouldBeAlwaysTriggerModelChangedEvent(ShapeType shapeType)
+        {
+            var isTriggered = false;
+            _model._modelChanged += () =>
+            {
+                isTriggered = true;
+            };
+
+            _model.SetShapeType(shapeType);
+
+            Assert.IsTrue(isTriggered);
+        }
+        #endregion
+
+        #region Clear 相關測試
+        /// <summary>
+        /// 測試 Clear 應清除所有資料
+        /// </summary>
+        [TestMethod]
+        public void TestClearShouldWorkAsExpected()
+        {
+            SetUpForSettingRectangle();
+            _privateModel.SetField("_isPressed", true);
+            _privateModel.SetField("_shapes", new List<IShape>() { new Rectangle(), new Ellipse() });
+
+            _model.Clear();
+
+            var shape = _privateModel.GetField("_drawingShape") as IShape;
+            var shapeType = (ShapeType)_privateModel.GetField("_drawingShapeType");
+            var isPressed = (bool)_privateModel.GetField("_isPressed");
+            Assert.IsNull(shape);
+            Assert.AreEqual(ShapeType.None, shapeType);
+            Assert.IsFalse(isPressed);
+
+            var shapes = _privateModel.GetField("_shapes") as IList<IShape>;
+            Assert.AreEqual(0, shapes.Count);
+        }
+
+        /// <summary>
+        /// 測試 Clear 應正確地觸發 modelChanged 事件
+        /// </summary>
+        [TestMethod]
+        public void TestClearShouldBeAlwaysTriggerModelChangedEvent()
+        {
+            var isTriggered = false;
+            _model._modelChanged += () =>
+            {
+                isTriggered = true;
+            };
+
+            _model.Clear();
+
+            Assert.IsTrue(isTriggered);
+        }
+        #endregion
+
+        #region Draw 相關測試
+        /// <summary>
+        /// 測試 Draw 應正確地呼叫 graphics.ClearAll
+        /// </summary>
+        [TestMethod]
+        public void TestDrawShouldTriggerClearAll()
+        {
+            var graphics = new FakeGraphics();
+
+            _model.Draw(graphics);
+
+            Assert.IsTrue(graphics.IsClearAllTriggered);
+        }
+
+        /// <summary>
+        /// 測試 Draw 當 shapes list 有 Rectangle 與 Ellipse 應正確地呼叫 Draw graphics
+        /// </summary>
+        [TestMethod]
+        public void TestDrawWithNonEmptyShapesListShouldTriggerDrawGraphics()
+        {
+            var graphics = new FakeGraphics();
+            _privateModel.SetField("_isPressed", false);
+            _privateModel.SetField("_shapes", new List<IShape>() { new Rectangle(), new Ellipse() });
+
+            _model.Draw(graphics);
+
+            Assert.IsTrue(graphics.IsDrawEllipseTriggered);
+            Assert.IsTrue(graphics.IsDrawRectangleTriggered);
+            Assert.AreEqual(1, graphics.CountForDrawEllipise);
+            Assert.AreEqual(1, graphics.CountForDrawRectangle);
+        }
+
+        /// <summary>
+        /// 測試 Draw 當 shapes list 為空時，應不呼叫任何 Draw graphics
+        /// </summary>
+        [TestMethod]
+        public void TestDrawWithEmptyShapesListShouldNotTriggerAnyDrawGraphics()
+        {
+            var graphics = new FakeGraphics();
+            _privateModel.SetField("_isPressed", false);
+            _privateModel.SetField("_shapes", new List<IShape>());
+
+            _model.Draw(graphics);
+
+            Assert.IsFalse(graphics.IsDrawEllipseTriggered);
+            Assert.IsFalse(graphics.IsDrawRectangleTriggered);
+        }
+
+        /// <summary>
+        /// 測試 Draw 當 IsPressed 為 true 時，應正確地呼叫對應 Draw graphics
+        /// </summary>
+        [DataTestMethod]
+        [DataRow(typeof(Rectangle), false, true)]
+        [DataRow(typeof(Ellipse), true, false)]
+        public void TestDrawShouldTriggerDrawGraphicIfIsPressedIsTrue(Type shapeType, bool isDrawEllipseTriggered, bool isDrawRectangleTriggered)
+        {
+            var graphics = new FakeGraphics();
+            _privateModel.SetField("_isPressed", true);
+            _privateModel.SetField("_drawingShape", Activator.CreateInstance(shapeType));
+
+            _model.Draw(graphics);
+
+            Assert.AreEqual(isDrawEllipseTriggered, graphics.IsDrawEllipseTriggered);
+            Assert.AreEqual(isDrawRectangleTriggered, graphics.IsDrawRectangleTriggered);
         }
         #endregion
     }

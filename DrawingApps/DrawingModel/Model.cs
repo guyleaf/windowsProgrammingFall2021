@@ -22,7 +22,7 @@ namespace DrawingModel
         {
             _shapes = new List<IShape>();
             _isPressed = false;
-            _drawingShapeType = ShapeType.Unknown;
+            _drawingShapeType = ShapeType.None;
         }
 
         /// <summary>
@@ -88,6 +88,7 @@ namespace DrawingModel
         {
             _drawingShapeType = shapeType;
             _drawingShape = ShapesFactory.CreateShape(shapeType);
+            NotifyModelChanged();
         }
 
         /// <summary>
@@ -96,6 +97,7 @@ namespace DrawingModel
         /// <param name="graphics"></param>
         public void Draw(IGraphics graphics)
         {
+            graphics.ClearAll();
             foreach (var shape in _shapes)
             {
                 shape.Draw(graphics);
@@ -114,7 +116,7 @@ namespace DrawingModel
             _shapes.Clear();
             _isPressed = false;
             _drawingShape = null;
-            _drawingShapeType = ShapeType.Unknown;
+            _drawingShapeType = ShapeType.None;
             NotifyModelChanged();
         }
 
@@ -134,7 +136,7 @@ namespace DrawingModel
         /// </summary>
         private void EnsureDrawingShapeTypeIsChosen()
         {
-            if (_drawingShapeType == ShapeType.Unknown)
+            if (_drawingShapeType == ShapeType.None)
             {
                 throw new Exception(DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
             }

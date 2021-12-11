@@ -10,7 +10,7 @@ namespace DrawingModel
 {
     public static class ShapesFactory
     {
-        private const string ERROR_MESSAGE = "Unknown shape type.";
+        private const string ERROR_MESSAGE = "None shape type.";
 
         /// <summary>
         /// 依 ShapeType 建構對應 Shape 物件

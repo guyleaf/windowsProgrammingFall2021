@@ -47,13 +47,13 @@ namespace DrawingModelTests
         }
 
         /// <summary>
-        /// 測試當 ShapeType 為 Unknown 時，需發生例外
+        /// 測試當 ShapeType 為 None 時，需發生例外
         /// </summary>
         [TestMethod]
         public void RaiseExceptionIfShapeTypeIsUnknown()
         {
-            var shapeType = ShapeType.Unknown;
-            Assert.ThrowsException<Exception>(() => ShapesFactory.CreateShape(shapeType), "Unknown shape type.");
+            var shapeType = ShapeType.None;
+            Assert.ThrowsException<Exception>(() => ShapesFactory.CreateShape(shapeType), "None shape type.");
         }
     }
 }

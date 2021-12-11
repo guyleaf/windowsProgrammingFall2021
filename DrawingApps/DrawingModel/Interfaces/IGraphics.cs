@@ -10,11 +10,11 @@
         /// <summary>
         /// 畫橢圓形
         /// </summary>
-        void DrawEllipse(double x1, double y1, double x2, double y2);
+        void DrawEllipse(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY);
 
         /// <summary>
         /// 畫長方形
         /// </summary>
-        void DrawRectangle(double x1, double y1, double x2, double y2);
+        void DrawRectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY);
     }
 }
