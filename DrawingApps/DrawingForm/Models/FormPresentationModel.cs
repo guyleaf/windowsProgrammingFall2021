@@ -78,6 +78,7 @@ namespace DrawingForm.Models
             {
                 _model.ReleasePointer(locationX, locationY);
                 _drawingCount++;
+                NotifyPropertyChanged();
             }
         }
 

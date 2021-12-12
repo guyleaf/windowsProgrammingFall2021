@@ -1,18 +1,23 @@
 ﻿using DrawingModel.Interfaces;
 
-using System.Drawing;
+using Windows.UI;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Shapes;
 
 namespace DrawingForm
 {
     public class AppGraphicsAdapter : IGraphics
     {
-        private readonly Graphics _graphics;
-        private const float DASHED_LINE_WIDTH = 1.8F;
-        private const float DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE = 1.2F;
+        private const int MARGIN_RIGHT_AND_BOTTOM = 0;
+        private readonly Canvas _canvas;
+        private readonly Brush _blackBrush;
 
-        public AppGraphicsAdapter(Graphics graphics)
+        public AppGraphicsAdapter(Canvas canvas)
         {
-            _graphics = graphics;
+            _canvas = canvas;
+            _blackBrush = new SolidColorBrush(Colors.Black);
         }
 
         /// <summary>
@@ -20,7 +25,7 @@ namespace DrawingForm
         /// </summary>
         public void ClearAll()
         {
-            // Winforms 渲染不須移除畫圖物件
+            _canvas.Children.Clear();
         }
 
         /// <summary>
@@ -32,9 +37,14 @@ namespace DrawingForm
         /// <param name="bottomRightY"></param>
         public void DrawEllipse(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY)
         {
-            var width = bottomRightX - topLeftX;
-            var height = bottomRightY - topLeftY;
-            _graphics.DrawEllipse(Pens.Black, (float)topLeftX, (float)topLeftY, (float)width, (float)height);
+            var ellipse = new Ellipse
+            { 
+                Margin = new Thickness(topLeftX, topLeftY, MARGIN_RIGHT_AND_BOTTOM, MARGIN_RIGHT_AND_BOTTOM),
+                Width = bottomRightX - topLeftX,
+                Height = bottomRightY - topLeftY,
+                Stroke = _blackBrush };
+
+            _canvas.Children.Add(ellipse);
         }
 
         /// <summary>
@@ -47,12 +57,7 @@ namespace DrawingForm
         /// <param name="y2"></param>
         public void DrawDashedLine(double x1, double y1, double x2, double y2)
         {
-            var pen = Pens.DarkGray.Clone() as Pen;
-            pen.Width = DASHED_LINE_WIDTH;
-            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            pen.DashPattern = new float[] { DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE, DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE };
-
-            _graphics.DrawLine(pen, (float)x1, (float)y1, (float)x2, (float)y2);
+            // 無解 已知 bug 在 code 建立 Dashed Line 會有問題
         }
 
         /// <summary>
@@ -64,9 +69,14 @@ namespace DrawingForm
         /// <param name="bottomRightY"></param>
         public void DrawRectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY)
         {
-            var width = bottomRightX - topLeftX;
-            var height = bottomRightY - topLeftY;
-            _graphics.DrawRectangle(Pens.Black, (float)topLeftX, (float)topLeftY, (float)width, (float)height);
+            var rectangle = new Rectangle
+            { 
+                Margin = new Thickness(topLeftX, topLeftY, MARGIN_RIGHT_AND_BOTTOM, MARGIN_RIGHT_AND_BOTTOM),
+                Width = bottomRightX - topLeftX,
+                Height = bottomRightY - topLeftY,
+                Stroke = _blackBrush };
+
+            _canvas.Children.Add(rectangle);
         }
     }
 }

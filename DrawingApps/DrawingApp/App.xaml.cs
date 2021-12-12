@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DrawingApp.Models;
+
+using DrawingModel;
+
+using System;
 
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -41,7 +45,9 @@ namespace DrawingApp
 
             if (!args.PrelaunchActivated)
             {
-                NavigateToPage(typeof(MainPage), args);
+                var model = new Model();
+                var appPresentationModel = new AppPresentationModel(model);
+                SetPage(typeof(MainPage), appPresentationModel, model);
             }
         }
 
@@ -66,18 +72,15 @@ namespace DrawingApp
         }
 
         /// <summary>
-        /// 如果該應用程式無內容，則巡覽至指定頁面
+        /// 如果該應用程式無內容，則設定指定頁面
         /// </summary>
         /// <param name="args"></param>
-        private void NavigateToPage(Type typeOfPage, LaunchActivatedEventArgs args)
+        private void SetPage(Type typeOfPage, params object[] parameters)
         {
             var rootFrame = Window.Current.Content as Frame;
             if (rootFrame.Content == null)
             {
-                // 在巡覽堆疊未還原時，巡覽至第一頁，
-                // 設定新的頁面，方式是透過傳遞必要資訊做為巡覽
-                // 參數
-                _ = rootFrame.Navigate(typeOfPage, args.Arguments);
+                rootFrame.Content = Activator.CreateInstance(typeOfPage, parameters);
             }
             // 確定目前視窗是作用中
             Window.Current.Activate();

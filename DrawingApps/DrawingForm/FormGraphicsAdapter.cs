@@ -6,13 +6,18 @@ namespace DrawingForm
 {
     public class FormGraphicsAdapter : IGraphics
     {
-        private readonly Graphics _graphics;
         private const float DASHED_LINE_WIDTH = 1.8F;
         private const float DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE = 1.2F;
+        private readonly Graphics _graphics;
+        private readonly Pen _penForDashedLine;
 
         public FormGraphicsAdapter(Graphics graphics)
         {
             _graphics = graphics;
+            _penForDashedLine = Pens.DarkGray.Clone() as Pen;
+            _penForDashedLine.Width = DASHED_LINE_WIDTH;
+            _penForDashedLine.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            _penForDashedLine.DashPattern = new float[] { DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE, DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE };
         }
 
         /// <summary>
@@ -47,12 +52,7 @@ namespace DrawingForm
         /// <param name="y2"></param>
         public void DrawDashedLine(double x1, double y1, double x2, double y2)
         {
-            var pen = Pens.DarkGray.Clone() as Pen;
-            pen.Width = DASHED_LINE_WIDTH;
-            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            pen.DashPattern = new float[] { DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE, DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE };
-
-            _graphics.DrawLine(pen, (float)x1, (float)y1, (float)x2, (float)y2);
+            _graphics.DrawLine(_penForDashedLine, (float)x1, (float)y1, (float)x2, (float)y2);
         }
 
         /// <summary>

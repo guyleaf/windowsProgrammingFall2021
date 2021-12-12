@@ -50,7 +50,7 @@ namespace DrawingWindowsApp
 
             // Three blue blocks
             var rectangle = new Rectangle();
-            InitializeShape(rectangle, 0, 0, 150, 100, _blueColor);
+            InitializeShape(rectangle, 100, 100, 150, 100, _blueColor);
             _canvas.Children.Insert(0, rectangle);
 
             rectangle = new Rectangle();
@@ -105,7 +105,7 @@ namespace DrawingWindowsApp
         private Shape InitializeShape(
             Shape shape, int left, int top, int width, int height, SolidColorBrush fillColorBrush)
         {
-            shape.Margin = new Thickness(left, top, width, height);
+            shape.Margin = new Thickness(left, top, 0, 0);
             shape.Width = width;
             shape.Height = height;
             shape.Fill = fillColorBrush;
