@@ -59,15 +59,16 @@ namespace DrawingForm
             // _splitContainer.Panel2
             // 
             this._splitContainer.Panel2.Controls.Add(this._canvas);
-            this._splitContainer.Size = new System.Drawing.Size(933, 600);
+            this._splitContainer.Size = new System.Drawing.Size(1142, 611);
             this._splitContainer.SplitterDistance = 86;
             this._splitContainer.SplitterWidth = 1;
             this._splitContainer.TabIndex = 0;
             // 
             // _clearButton
             // 
+            this._clearButton.AccessibleName = "Clear";
             this._clearButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._clearButton.Location = new System.Drawing.Point(752, 25);
+            this._clearButton.Location = new System.Drawing.Point(857, 25);
             this._clearButton.Name = "_clearButton";
             this._clearButton.Size = new System.Drawing.Size(105, 37);
             this._clearButton.TabIndex = 3;
@@ -77,8 +78,9 @@ namespace DrawingForm
             // 
             // _ellipseDrawingButton
             // 
+            this._ellipseDrawingButton.AccessibleName = "Ellipse";
             this._ellipseDrawingButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._ellipseDrawingButton.Location = new System.Drawing.Point(414, 25);
+            this._ellipseDrawingButton.Location = new System.Drawing.Point(519, 25);
             this._ellipseDrawingButton.Name = "_ellipseDrawingButton";
             this._ellipseDrawingButton.Size = new System.Drawing.Size(105, 37);
             this._ellipseDrawingButton.TabIndex = 2;
@@ -88,8 +90,9 @@ namespace DrawingForm
             // 
             // _rectangleDrawingButton
             // 
+            this._rectangleDrawingButton.AccessibleName = "Rectangle";
             this._rectangleDrawingButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._rectangleDrawingButton.Location = new System.Drawing.Point(69, 25);
+            this._rectangleDrawingButton.Location = new System.Drawing.Point(174, 25);
             this._rectangleDrawingButton.Name = "_rectangleDrawingButton";
             this._rectangleDrawingButton.Size = new System.Drawing.Size(105, 37);
             this._rectangleDrawingButton.TabIndex = 1;
@@ -99,11 +102,13 @@ namespace DrawingForm
             // 
             // _canvas
             // 
+            this._canvas.AccessibleName = "Canvas";
             this._canvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this._canvas.Location = new System.Drawing.Point(0, 0);
             this._canvas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this._canvas.MinimumSize = new System.Drawing.Size(1142, 699);
             this._canvas.Name = "_canvas";
-            this._canvas.Size = new System.Drawing.Size(933, 513);
+            this._canvas.Size = new System.Drawing.Size(1142, 699);
             this._canvas.TabIndex = 0;
             // 
             // MainForm
@@ -111,7 +116,7 @@ namespace DrawingForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(933, 600);
+            this.ClientSize = new System.Drawing.Size(1142, 611);
             this.Controls.Add(this._splitContainer);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));

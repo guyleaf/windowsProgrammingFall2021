@@ -118,8 +118,9 @@ namespace DrawingModel
         {
             _shapes.Clear();
             _isPressed = false;
-            _currentDrawingShape = null;
-            _currentDrawingShapeType = ShapeType.None;
+            // 視助教規定
+            // _currentDrawingShape = null;
+            // _currentDrawingShapeType = ShapeType.None;
             NotifyModelChanged();
         }
 

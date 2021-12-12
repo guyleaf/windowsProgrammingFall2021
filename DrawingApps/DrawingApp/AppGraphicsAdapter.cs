@@ -13,11 +13,15 @@ namespace DrawingForm
         private const int MARGIN_RIGHT_AND_BOTTOM = 0;
         private readonly Canvas _canvas;
         private readonly Brush _blackBrush;
+        private readonly Brush _brushForRectangle;
+        private readonly Brush _brushForEllipse;
 
         public AppGraphicsAdapter(Canvas canvas)
         {
             _canvas = canvas;
             _blackBrush = new SolidColorBrush(Colors.Black);
+            _brushForRectangle = new SolidColorBrush(Colors.Yellow);
+            _brushForEllipse = new SolidColorBrush(Colors.Orange);
         }
 
         /// <summary>
@@ -42,7 +46,8 @@ namespace DrawingForm
                 Margin = new Thickness(topLeftX, topLeftY, MARGIN_RIGHT_AND_BOTTOM, MARGIN_RIGHT_AND_BOTTOM),
                 Width = bottomRightX - topLeftX,
                 Height = bottomRightY - topLeftY,
-                Stroke = _blackBrush };
+                Stroke = _blackBrush,
+                Fill = _brushForEllipse };
 
             _canvas.Children.Add(ellipse);
         }
@@ -74,7 +79,8 @@ namespace DrawingForm
                 Margin = new Thickness(topLeftX, topLeftY, MARGIN_RIGHT_AND_BOTTOM, MARGIN_RIGHT_AND_BOTTOM),
                 Width = bottomRightX - topLeftX,
                 Height = bottomRightY - topLeftY,
-                Stroke = _blackBrush };
+                Stroke = _blackBrush,
+                Fill = _brushForRectangle };
 
             _canvas.Children.Add(rectangle);
         }

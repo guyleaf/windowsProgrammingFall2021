@@ -409,11 +409,12 @@ namespace DrawingModelTests
 
             _model.Clear();
 
-            var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
-            var shapeType = (ShapeType)_privateModel.GetField("_currentDrawingShapeType");
+            // var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
+            // var shapeType = (ShapeType)_privateModel.GetField("_currentDrawingShapeType");
             var isPressed = (bool)_privateModel.GetField("_isPressed");
-            Assert.IsNull(shape);
-            Assert.AreEqual(ShapeType.None, shapeType);
+            // 視助教規定
+            // Assert.IsNull(shape);
+            // Assert.AreEqual(ShapeType.None, shapeType);
             Assert.IsFalse(isPressed);
 
             var shapes = _privateModel.GetField("_shapes") as IList<IShape>;

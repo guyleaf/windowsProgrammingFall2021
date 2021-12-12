@@ -10,10 +10,17 @@ namespace DrawingForm
         private const float DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE = 1.2F;
         private readonly Graphics _graphics;
         private readonly Pen _penForDashedLine;
+        private readonly Pen _blackPen;
+        private readonly Brush _brushForRectangle;
+        private readonly Brush _brushForEllipse;
 
         public FormGraphicsAdapter(Graphics graphics)
         {
             _graphics = graphics;
+            _brushForEllipse = new SolidBrush(Color.Orange);
+            _brushForRectangle = new SolidBrush(Color.Yellow);
+            _blackPen = Pens.Black;
+
             _penForDashedLine = Pens.DarkGray.Clone() as Pen;
             _penForDashedLine.Width = DASHED_LINE_WIDTH;
             _penForDashedLine.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
@@ -39,7 +46,10 @@ namespace DrawingForm
         {
             var width = bottomRightX - topLeftX;
             var height = bottomRightY - topLeftY;
-            _graphics.DrawEllipse(Pens.Black, (float)topLeftX, (float)topLeftY, (float)width, (float)height);
+
+            var rectangle = new RectangleF((float)topLeftX, (float)topLeftY, (float)width, (float)height);
+            _graphics.FillEllipse(_brushForEllipse, rectangle);
+            _graphics.DrawEllipse(_blackPen, rectangle);
         }
 
         /// <summary>
@@ -66,7 +76,10 @@ namespace DrawingForm
         {
             var width = bottomRightX - topLeftX;
             var height = bottomRightY - topLeftY;
-            _graphics.DrawRectangle(Pens.Black, (float)topLeftX, (float)topLeftY, (float)width, (float)height);
+            var rectangle = new Rectangle((int)topLeftX, (int)topLeftY, (int)width, (int)height);
+
+            _graphics.FillRectangle(_brushForRectangle, rectangle);
+            _graphics.DrawRectangle(_blackPen, rectangle);
         }
     }
 }
