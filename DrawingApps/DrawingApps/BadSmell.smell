@@ -188,18 +188,18 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>Unresolved warnings(忽視警告)-可以簡化委派引動的過程。</SmellType>
-              <HashCode>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.134</HashCode>
+              <SmellType>Lack of comments(缺乏註解)</SmellType>
+              <HashCode>20 DrawingApp.Program.Main(string[])</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
-              <Project>DrawingModel\DrawingModel</Project>
-              <File>Model.cs</File>
-              <Line>134</Line>
+              <Project>DrawingApp</Project>
+              <File>App.g.i.cs</File>
+              <Line>20</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
               <EndCol>0</EndCol>
-              <Comment />
+              <Comment>DrawingApp.Program.Main(string[])</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
@@ -250,22 +250,6 @@
               <Comment>DrawingApp.MainPage.UnloadObject(Windows.UI.Xaml.DependencyObject)</Comment>
               <Auto>false</Auto>
             </Smell>
-            <Smell>
-              <Id>5</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>20 DrawingApp.Program.Main(string[])</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>DrawingApp</Project>
-              <File>App.g.i.cs</File>
-              <Line>20</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>DrawingApp.Program.Main(string[])</Comment>
-              <Auto>false</Auto>
-            </Smell>
           </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList>
@@ -273,7 +257,6 @@
             <string>44 DrawingApp.MainPage.UnloadObject(Windows.UI.Xaml.DependencyObject)</string>
             <string>134 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByName(string)</string>
             <string>129 DrawingApp.DrawingApp_XamlTypeInfo.XamlTypeInfoProvider.GetXamlTypeByType(System.Type)</string>
-            <string>DrawingModel\DrawingModel.Model.cs.Unresolved warnings(忽視警告)-可以簡化委派引動的過程。.134</string>
           </HashCodeRequestIgnoreList>
           <AnalysisFileManager>
             <AnalysisFiles>
@@ -368,6 +351,16 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Commands\DrawCommand.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Commands\ICommand.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Enums\ShapeType.cs</RelativePath>
                 <ProjectName>DrawingModel</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -394,6 +387,11 @@
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>Shapes\Rectangle.cs</RelativePath>
+                <ProjectName>DrawingModel</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>CommandManager.cs</RelativePath>
                 <ProjectName>DrawingModel</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -449,7 +447,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1803</ProductionLoc>
+          <ProductionLoc>2009</ProductionLoc>
           <TestLoc>1089</TestLoc>
         </CodeReview>
       </Data>

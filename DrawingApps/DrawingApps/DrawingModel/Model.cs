@@ -1,8 +1,10 @@
-﻿using DrawingModel.Enums;
+﻿using DrawingModel.Commands;
+using DrawingModel.Enums;
 using DrawingModel.Interfaces;
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DrawingModel
 {
@@ -17,11 +19,14 @@ namespace DrawingModel
         private IShape _currentDrawingShape;
         private readonly IList<IShape> _shapes;
 
-        public Model()
+        private readonly CommandManager _commandManager;
+
+        public Model(CommandManager commandManager)
         {
             _shapes = new List<IShape>();
             _isPressed = false;
             _currentDrawingShapeType = ShapeType.None;
+            _commandManager = commandManager;
         }
 
         public ShapeType CurrentDrawingShapeType
@@ -35,6 +40,22 @@ namespace DrawingModel
                 _currentDrawingShapeType = value;
                 _currentDrawingShape = ShapesFactory.CreateShape(value);
                 NotifyModelChanged();
+            }
+        }
+
+        public bool IsAnyShapeDisplayed
+        {
+            get
+            {
+                return _commandManager.IsAnyCommandExecuted;
+            }
+        }
+
+        public bool IsAnyShapeRemoved
+        {
+            get
+            {
+                return _commandManager.IsAnyCommandRevoked;
             }
         }
 
@@ -87,7 +108,9 @@ namespace DrawingModel
                 shape.X2 = locationX;
                 shape.Y2 = locationY;
 
-                _shapes.Add(shape);
+                _commandManager.Execute(new DrawCommand(this, shape));
+                // If dont want to use command pattern, remove this comment and comment the code above
+                // _shapes.Add(shape);
                 _isPressed = false;
                 NotifyModelChanged();
             }
@@ -112,6 +135,23 @@ namespace DrawingModel
         }
 
         /// <summary>
+        /// 畫圖形
+        /// </summary>
+        /// <param name="shape"></param>
+        public void DrawShape(IShape shape)
+        {
+            _shapes.Add(shape);
+        }
+
+        /// <summary>
+        /// 移除圖形
+        /// </summary>
+        public void RemoveShape()
+        {
+            _shapes.RemoveAt(_shapes.Count - 1);
+        }
+
+        /// <summary>
         /// 清除所有畫布
         /// </summary>
         public void Clear()
@@ -121,6 +161,24 @@ namespace DrawingModel
             // 視助教規定
             // _currentDrawingShape = null;
             // _currentDrawingShapeType = ShapeType.None;
+            NotifyModelChanged();
+        }
+
+        /// <summary>
+        /// 重作
+        /// </summary>
+        public void Redo()
+        {
+            _commandManager.Redo();
+            NotifyModelChanged();
+        }
+
+        /// <summary>
+        /// 復原
+        /// </summary>
+        public void Undo()
+        {
+            _commandManager.Undo();
             NotifyModelChanged();
         }
 

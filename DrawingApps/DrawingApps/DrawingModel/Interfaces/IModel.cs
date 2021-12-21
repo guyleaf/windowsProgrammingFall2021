@@ -13,6 +13,16 @@ namespace DrawingModel.Interfaces
             get; set;
         }
 
+        bool IsAnyShapeDisplayed
+        {
+            get;
+        }
+
+        bool IsAnyShapeRemoved
+        {
+            get;
+        }
+
         /// <summary>
         /// 常壓滑鼠
         /// </summary>
@@ -45,5 +55,15 @@ namespace DrawingModel.Interfaces
         /// 清除所有畫布
         /// </summary>
         void Clear();
+
+        /// <summary>
+        /// 重作
+        /// </summary>
+        void Redo();
+
+        /// <summary>
+        /// 復原
+        /// </summary>
+        void Undo();
     }
 }

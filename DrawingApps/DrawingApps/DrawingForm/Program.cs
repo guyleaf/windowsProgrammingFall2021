@@ -18,7 +18,8 @@ namespace DrawingForm
         [STAThread]
         static void Main()
         {
-            var model = new Model();
+            var commandManager = new CommandManager();
+            var model = new Model(commandManager);
             var formPresentationModel = new FormPresentationModel(model);
 
             Application.EnableVisualStyles();

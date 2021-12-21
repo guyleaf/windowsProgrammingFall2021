@@ -8,8 +8,8 @@
         void Execute();
 
         /// <summary>
-        /// 復原
+        /// 撤銷
         /// </summary>
-        void Undo();
+        void Revoke();
     }
 }

@@ -45,7 +45,8 @@ namespace DrawingApp
 
             if (!args.PrelaunchActivated)
             {
-                var model = new Model();
+                var commandManager = new CommandManager();
+                var model = new Model(commandManager);
                 var appPresentationModel = new AppPresentationModel(model);
                 SetPage(typeof(MainPage), appPresentationModel, model);
             }
