@@ -9,6 +9,8 @@ namespace DrawingModel.Enums
         [ShapeTarget(typeof(Rectangle))]
         Rectangle,
         [ShapeTarget(typeof(Ellipse))]
-        Ellipse
+        Ellipse,
+        [ShapeTarget(typeof(Line))]
+        Line
     }
 }

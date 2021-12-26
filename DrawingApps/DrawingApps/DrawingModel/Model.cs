@@ -38,7 +38,7 @@ namespace DrawingModel
             set
             {
                 _currentDrawingShapeType = value;
-                _currentDrawingShape = ShapesFactory.CreateShape(value);
+                _currentDrawingShape = ShapesFactory.CreateShape(_currentDrawingShapeType);
                 NotifyModelChanged();
             }
         }
@@ -102,13 +102,12 @@ namespace DrawingModel
             EnsureDrawingShapeTypeIsChosen();
             if (_isPressed)
             {
-                IShape shape = ShapesFactory.CreateShape(_currentDrawingShapeType);
-                shape.X1 = _currentDrawingShape.X1;
-                shape.Y1 = _currentDrawingShape.Y1;
-                shape.X2 = locationX;
-                shape.Y2 = locationY;
+                IShape shape = CreateShape(locationX, locationY);
+                if (shape != null)
+                {
+                    _commandManager.Execute(new DrawCommand(this, shape, _currentDrawingShapeType != ShapeType.Line));
+                }
 
-                _commandManager.Execute(new DrawCommand(this, shape));
                 // If dont want to use command pattern, remove this comment and comment the code above
                 // _shapes.Add(shape);
                 _isPressed = false;
@@ -135,20 +134,37 @@ namespace DrawingModel
         }
 
         /// <summary>
-        /// 畫圖形
+        /// 畫圖形至最上層
         /// </summary>
         /// <param name="shape"></param>
-        public void DrawShape(IShape shape)
+        public void DrawShapeInFront(IShape shape)
         {
             _shapes.Add(shape);
         }
 
         /// <summary>
+        /// 畫圖形至最下層
+        /// </summary>
+        /// <param name="shape"></param>
+        public void DrawShapeInBack(IShape shape)
+        {
+            _shapes.Insert(0, shape);
+        }
+
+        /// <summary>
         /// 移除圖形
         /// </summary>
-        public void RemoveShape()
+        public void RemoveShape(IShape shape)
         {
-            _shapes.RemoveAt(_shapes.Count - 1);
+            _shapes.Remove(shape);
+        }
+
+        /// <summary>
+        /// 移除所有圖形
+        /// </summary>
+        public void RemoveAllShapes()
+        {
+            _shapes.Clear();
         }
 
         /// <summary>
@@ -156,11 +172,11 @@ namespace DrawingModel
         /// </summary>
         public void Clear()
         {
-            _shapes.Clear();
+            _commandManager.Execute(new ClearCommand(this, _shapes));
             _isPressed = false;
-            // 視助教規定
-            // _currentDrawingShape = null;
-            // _currentDrawingShapeType = ShapeType.None;
+
+            _currentDrawingShape = null;
+            _currentDrawingShapeType = ShapeType.None;
             NotifyModelChanged();
         }
 
@@ -218,6 +234,67 @@ namespace DrawingModel
                 _currentDrawingShape.X1, _currentDrawingShape.Y2, _currentDrawingShape.X2, _currentDrawingShape.Y2);
             graphics.DrawDashedLine(
                 _currentDrawingShape.X2, _currentDrawingShape.Y1, _currentDrawingShape.X2, _currentDrawingShape.Y2);
+        }
+
+        /// <summary>
+        /// 建立 Shape
+        /// </summary>
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
+        /// <returns></returns>
+        private IShape CreateShape(double locationX, double locationY)
+        {
+            IShape shape;
+            if (_currentDrawingShapeType == ShapeType.Line)
+            {
+                shape = CreateLine(locationX, locationY);
+            }
+            else
+            {
+                shape = ShapesFactory.CreateShape(_currentDrawingShapeType);
+                shape.X1 = _currentDrawingShape.X1;
+                shape.Y1 = _currentDrawingShape.Y1;
+                shape.X2 = locationX;
+                shape.Y2 = locationY;
+            }
+
+            return shape;
+        }
+
+        /// <summary>
+        /// 建立 Line
+        /// </summary>
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
+        /// <returns></returns>
+        private IShape CreateLine(double locationX, double locationY)
+        {
+            var firstShape = FindShapeByLocation(_currentDrawingShape.X1, _currentDrawingShape.Y1);
+            if (firstShape == null)
+            {
+                return null;
+            }
+            var secondShape = FindShapeByLocation(locationX, locationY);
+            if (secondShape == null)
+            {
+                return null;
+            }
+
+            return ShapesFactory.CreateShape(_currentDrawingShapeType, firstShape, secondShape);
+        }
+
+        /// <summary>
+        /// 尋找目標位置對應的 shape
+        /// </summary>
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
+        /// <returns></returns>
+        private IShape FindShapeByLocation(double locationX, double locationY)
+        {
+            return _shapes.FirstOrDefault(shape =>
+            {
+                return shape.IsLocatedIn(locationX, locationY);
+            });
         }
     }
 }

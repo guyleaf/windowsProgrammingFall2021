@@ -53,7 +53,7 @@ namespace DrawingForm
         }
 
         /// <summary>
-        /// 畫線
+        /// 畫虛線
         /// </summary>
         /// TODO: Change to use Rectangle with dashed format
         /// <param name="x1"></param>
@@ -63,6 +63,18 @@ namespace DrawingForm
         public void DrawDashedLine(double x1, double y1, double x2, double y2)
         {
             _graphics.DrawLine(_penForDashedLine, (float)x1, (float)y1, (float)x2, (float)y2);
+        }
+
+        /// <summary>
+        /// 畫實線
+        /// </summary>
+        /// <param name="x1"></param>
+        /// <param name="y1"></param>
+        /// <param name="x2"></param>
+        /// <param name="y2"></param>
+        public void DrawLine(double x1, double y1, double x2, double y2)
+        {
+            _graphics.DrawLine(_blackPen, (float)x1, (float)y1, (float)x2, (float)y2);
         }
 
         /// <summary>

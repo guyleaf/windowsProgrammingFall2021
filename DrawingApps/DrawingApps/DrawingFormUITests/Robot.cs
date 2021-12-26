@@ -15,7 +15,7 @@ namespace DrawingFormUITests
         private WindowsDriver<WindowsElement> _driver;
         private Dictionary<string, string> _windowHandles;
         private string _root;
-        private const string WIN_APP_DRIVER_URI = "http://127.0.0.1:8999";
+        private const string WIN_APP_DRIVER_URI = "http://127.0.0.1:8000";
         private const double TIME_FOR_MOVING_POINTER = 1;
 
         // constructor

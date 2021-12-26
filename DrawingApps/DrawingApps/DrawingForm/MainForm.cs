@@ -27,13 +27,19 @@ namespace DrawingForm
 
             _rectangleDrawingButton.Click += HandleRectangleButtonOnClick;
             _ellipseDrawingButton.Click += HandleEllipseButtonOnClick;
+            _lineDrawingButton.Click += HandleLineButtonOnClick;
             _clearButton.Click += HandleClearButtonOnClick;
+
+            _undoButton.Click += HandleUndoButtonOnClick;
+            _redoButton.Click += HandleRedoButtonOnClick;
 
             var enabledName = nameof(Enabled);
             _rectangleDrawingButton.DataBindings.Add(
                 enabledName, _formPresentationModel, nameof(_formPresentationModel.IsRectangleButtonEnabled));
             _ellipseDrawingButton.DataBindings.Add(
                 enabledName, _formPresentationModel, nameof(_formPresentationModel.IsEllipseButtonEnabled));
+            _lineDrawingButton.DataBindings.Add(
+                enabledName, _formPresentationModel, nameof(_formPresentationModel.IsLineButtonEnabled));
 
             _canvas.MouseDown += HandleCanvasOnMouseDown;
             _canvas.MouseUp += HandleCanvasOnMouseUp;
@@ -41,6 +47,26 @@ namespace DrawingForm
             _canvas.Paint += HandleCanvasOnPaint;
 
             _model._modelChanged += HandleModelOnModelChanged;
+        }
+
+        /// <summary>
+        /// 處理 Undo Button 的 Click 事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleUndoButtonOnClick(object sender, EventArgs e)
+        {
+            _model.Undo();
+        }
+
+        /// <summary>
+        /// 處理 Redo Button 的 Click 事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleRedoButtonOnClick(object sender, EventArgs e)
+        {
+            _model.Redo();
         }
 
         /// <summary>
@@ -61,6 +87,16 @@ namespace DrawingForm
         private void HandleEllipseButtonOnClick(object sender, EventArgs e)
         {
             _formPresentationModel.ClickEllipseButton();
+        }
+
+        /// <summary>
+        /// 處理 Line Button 的 Click 事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleLineButtonOnClick(object sender, EventArgs e)
+        {
+            _formPresentationModel.ClickLineButton();
         }
 
         /// <summary>
@@ -121,6 +157,8 @@ namespace DrawingForm
         private void HandleModelOnModelChanged()
         {
             _canvas.Invalidate(true);
+            _undoButton.Enabled = _model.IsAnyShapeDisplayed;
+            _redoButton.Enabled = _model.IsAnyShapeRemoved;
         }
     }
 }

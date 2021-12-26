@@ -25,9 +25,7 @@ namespace DrawingForm.Models
         {
             get
             {
-                return IsCurrentDrawingModeEqualTo(DrawingMode.None) ||
-                    !IsCurrentShapeTypeEqualTo(ShapeType.Rectangle) ||
-                    _drawingCount > 0;
+                return IsShapeButtonEnabled(ShapeType.Rectangle);
             }
         }
 
@@ -35,9 +33,15 @@ namespace DrawingForm.Models
         {
             get
             {
-                return IsCurrentDrawingModeEqualTo(DrawingMode.None) ||
-                    !IsCurrentShapeTypeEqualTo(ShapeType.Ellipse) ||
-                    _drawingCount > 0;
+                return IsShapeButtonEnabled(ShapeType.Ellipse);
+            }
+        }
+
+        public bool IsLineButtonEnabled
+        {
+            get
+            {
+                return IsShapeButtonEnabled(ShapeType.Line);
             }
         }
 
@@ -103,6 +107,16 @@ namespace DrawingForm.Models
         }
 
         /// <summary>
+        /// 點選 Line button
+        /// </summary>
+        public void ClickLineButton()
+        {
+            _model.CurrentDrawingShapeType = ShapeType.Line;
+            _drawingCount = 0;
+            NotifyPropertyChanged();
+        }
+
+        /// <summary>
         /// 監聽 Model 的 ModelChanged
         /// </summary>
         private void HandleModelOnModelChanged()
@@ -134,6 +148,17 @@ namespace DrawingForm.Models
         private bool IsCurrentDrawingModeEqualTo(DrawingMode mode)
         {
             return _drawingMode == mode;
+        }
+
+        /// <summary>
+        /// 是否 Shape 相關按鈕為啟用
+        /// </summary>
+        /// <returns></returns>
+        private bool IsShapeButtonEnabled(ShapeType shapeType)
+        {
+            return IsCurrentDrawingModeEqualTo(DrawingMode.None) ||
+                    !IsCurrentShapeTypeEqualTo(shapeType) ||
+                    _drawingCount > 0;
         }
 
         /// <summary>

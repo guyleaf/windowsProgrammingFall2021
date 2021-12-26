@@ -29,7 +29,8 @@ namespace DrawingModelTests
         [TestInitialize]
         public void SetUp()
         {
-            _model = new Model();
+            var commandManager = new CommandManager();
+            _model = new Model(commandManager);
             _privateModel = new PrivateObject(_model);
         }
 

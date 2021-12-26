@@ -41,7 +41,7 @@ namespace DrawingModel
         /// <param name="command"></param>
         public void Execute(ICommand command)
         {
-            _executedCommands.Clear();
+            _revokedCommands.Clear();
             command.Execute();
             _executedCommands.Push(command);
         }

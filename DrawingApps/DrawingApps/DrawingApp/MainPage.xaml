@@ -8,11 +8,23 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <Button x:Name="_rectangleDrawingButton" Content="Rectangle" Margin="66,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.226,0.5" Grid.ColumnSpan="2" Height="40" Width="120" HorizontalAlignment="Left"/>
-        <Button x:Name="_ellipseDrawingButton" Content="Ellipse" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Center" Height="40" Width="120"/>
-        <Button x:Name="_clearButton" Content="Clear" Margin="0,28,66,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="1" Height="40" Width="120" RenderTransformOrigin="0.065,0.625"/>
-        <Canvas x:Name="_canvas" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,100,0,0" RequestedTheme="Default" Background="#FFFCFFBD"/>
-
+    <Grid>
+        <CommandBar IsOpen="True" IsSticky="True" ClosedDisplayMode="Compact" DefaultLabelPosition="Right" HorizontalContentAlignment="Left">
+            <AppBarButton x:Name="_undoButton" Label="Undo" Icon="Undo" IsEnabled="False" />
+            <AppBarButton x:Name="_redoButton" Label="Redo" Icon="Redo" IsEnabled="False" />
+        </CommandBar>
+        <Grid Margin="0,35,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="_rectangleDrawingButton" Content="Rectangle" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="0" HorizontalAlignment="Center" Height="40" Width="120" />
+            <Button x:Name="_ellipseDrawingButton" Content="Ellipse" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Center" Height="40" Width="120"/>
+            <Button x:Name="_lineDrawingButton" Content="Line" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Center" Height="40" Width="120"/>
+            <Button x:Name="_clearButton" Content="Clear" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="3" HorizontalAlignment="Center" Height="40" Width="120" />
+            <Canvas x:Name="_canvas" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,100,0,0" RequestedTheme="Default" Background="#FFFCFFBD"/>
+        </Grid>
     </Grid>
 </Page>

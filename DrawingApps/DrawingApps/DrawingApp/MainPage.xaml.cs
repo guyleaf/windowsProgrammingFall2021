@@ -32,7 +32,11 @@ namespace DrawingApp
 
             _rectangleDrawingButton.Click += HandleRectangleButtonOnClick;
             _ellipseDrawingButton.Click += HandleEllipseButtonOnClick;
+            _lineDrawingButton.Click += HandleLineButtonOnClick;
             _clearButton.Click += HandleClearButtonOnClick;
+
+            _undoButton.Click += HandleUndoButtonOnClick;
+            _redoButton.Click += HandleRedoButtonOnClick;
 
             var dataBinding = new Binding
             { 
@@ -46,11 +50,37 @@ namespace DrawingApp
                 Path = new PropertyPath(nameof(_appPresentationModel.IsEllipseButtonEnabled)) };
             _ellipseDrawingButton.SetBinding(IsEnabledProperty, dataBinding);
 
+            dataBinding = new Binding
+            {
+                Source = _appPresentationModel,
+                Path = new PropertyPath(nameof(_appPresentationModel.IsLineButtonEnabled)) };
+            _lineDrawingButton.SetBinding(IsEnabledProperty, dataBinding);
+
             _canvas.PointerPressed += HandleCanvasOnMouseDown;
             _canvas.PointerMoved += HandleCanvasOnMouseMove;
             _canvas.PointerReleased += HandleCanvasOnMouseUp;
 
             _model._modelChanged += HandleModelOnModelChanged;
+        }
+
+        /// <summary>
+        /// 處理 Undo Button 的 Click 事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleUndoButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            _model.Undo();
+        }
+
+        /// <summary>
+        /// 處理 Redo Button 的 Click 事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleRedoButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            _model.Redo();
         }
 
         /// <summary>
@@ -71,6 +101,16 @@ namespace DrawingApp
         private void HandleEllipseButtonOnClick(object sender, RoutedEventArgs e)
         {
             _appPresentationModel.ClickEllipseButton();
+        }
+
+        /// <summary>
+        /// 處理 Line Button 的 Click 事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleLineButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            _appPresentationModel.ClickLineButton();
         }
 
         /// <summary>
@@ -124,6 +164,8 @@ namespace DrawingApp
         private void HandleModelOnModelChanged()
         {
             _model.Draw(_graphics);
+            _undoButton.IsEnabled = _model.IsAnyShapeDisplayed;
+            _redoButton.IsEnabled = _model.IsAnyShapeRemoved;
         }
 
         /// <summary>

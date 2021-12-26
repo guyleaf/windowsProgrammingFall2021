@@ -29,15 +29,21 @@ namespace DrawingForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this._splitContainer = new System.Windows.Forms.SplitContainer();
+            this._toolStrip = new System.Windows.Forms.ToolStrip();
             this._clearButton = new System.Windows.Forms.Button();
             this._ellipseDrawingButton = new System.Windows.Forms.Button();
             this._rectangleDrawingButton = new System.Windows.Forms.Button();
+            this._undoButton = new System.Windows.Forms.ToolStripButton();
+            this._redoButton = new System.Windows.Forms.ToolStripButton();
+            this._lineDrawingButton = new System.Windows.Forms.Button();
             this._canvas = new DrawingForm.Canvas();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
             this._splitContainer.SuspendLayout();
+            this._toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // _splitContainer
@@ -52,6 +58,8 @@ namespace DrawingForm
             // 
             // _splitContainer.Panel1
             // 
+            this._splitContainer.Panel1.Controls.Add(this._lineDrawingButton);
+            this._splitContainer.Panel1.Controls.Add(this._toolStrip);
             this._splitContainer.Panel1.Controls.Add(this._clearButton);
             this._splitContainer.Panel1.Controls.Add(this._ellipseDrawingButton);
             this._splitContainer.Panel1.Controls.Add(this._rectangleDrawingButton);
@@ -64,11 +72,21 @@ namespace DrawingForm
             this._splitContainer.SplitterWidth = 1;
             this._splitContainer.TabIndex = 0;
             // 
+            // _toolStrip
+            // 
+            this._toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._undoButton,
+            this._redoButton});
+            this._toolStrip.Location = new System.Drawing.Point(0, 0);
+            this._toolStrip.Name = "_toolStrip";
+            this._toolStrip.Size = new System.Drawing.Size(1142, 25);
+            this._toolStrip.TabIndex = 4;
+            // 
             // _clearButton
             // 
             this._clearButton.AccessibleName = "Clear";
             this._clearButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._clearButton.Location = new System.Drawing.Point(857, 25);
+            this._clearButton.Location = new System.Drawing.Point(857, 34);
             this._clearButton.Name = "_clearButton";
             this._clearButton.Size = new System.Drawing.Size(105, 37);
             this._clearButton.TabIndex = 3;
@@ -80,7 +98,7 @@ namespace DrawingForm
             // 
             this._ellipseDrawingButton.AccessibleName = "Ellipse";
             this._ellipseDrawingButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._ellipseDrawingButton.Location = new System.Drawing.Point(519, 25);
+            this._ellipseDrawingButton.Location = new System.Drawing.Point(403, 34);
             this._ellipseDrawingButton.Name = "_ellipseDrawingButton";
             this._ellipseDrawingButton.Size = new System.Drawing.Size(105, 37);
             this._ellipseDrawingButton.TabIndex = 2;
@@ -92,13 +110,47 @@ namespace DrawingForm
             // 
             this._rectangleDrawingButton.AccessibleName = "Rectangle";
             this._rectangleDrawingButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._rectangleDrawingButton.Location = new System.Drawing.Point(174, 25);
+            this._rectangleDrawingButton.Location = new System.Drawing.Point(174, 34);
             this._rectangleDrawingButton.Name = "_rectangleDrawingButton";
             this._rectangleDrawingButton.Size = new System.Drawing.Size(105, 37);
             this._rectangleDrawingButton.TabIndex = 1;
             this._rectangleDrawingButton.TabStop = false;
             this._rectangleDrawingButton.Text = "Rectangle";
             this._rectangleDrawingButton.UseVisualStyleBackColor = true;
+            // 
+            // _undoButton
+            // 
+            this._undoButton.AccessibleName = "Undo";
+            this._undoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this._undoButton.Enabled = false;
+            this._undoButton.Image = ((System.Drawing.Image)(resources.GetObject("_undoButton.Image")));
+            this._undoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._undoButton.Name = "_undoButton";
+            this._undoButton.Size = new System.Drawing.Size(43, 22);
+            this._undoButton.Text = "Undo";
+            // 
+            // _redoButton
+            // 
+            this._redoButton.AccessibleName = "Redo";
+            this._redoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this._redoButton.Enabled = false;
+            this._redoButton.Image = ((System.Drawing.Image)(resources.GetObject("_redoButton.Image")));
+            this._redoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._redoButton.Name = "_redoButton";
+            this._redoButton.Size = new System.Drawing.Size(42, 22);
+            this._redoButton.Text = "Redo";
+            // 
+            // _lineDrawingButton
+            // 
+            this._lineDrawingButton.AccessibleName = "Line";
+            this._lineDrawingButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._lineDrawingButton.Location = new System.Drawing.Point(632, 34);
+            this._lineDrawingButton.Name = "_lineDrawingButton";
+            this._lineDrawingButton.Size = new System.Drawing.Size(105, 37);
+            this._lineDrawingButton.TabIndex = 5;
+            this._lineDrawingButton.TabStop = false;
+            this._lineDrawingButton.Text = "Line";
+            this._lineDrawingButton.UseVisualStyleBackColor = true;
             // 
             // _canvas
             // 
@@ -124,9 +176,12 @@ namespace DrawingForm
             this.Name = "MainForm";
             this.Text = "Drawing";
             this._splitContainer.Panel1.ResumeLayout(false);
+            this._splitContainer.Panel1.PerformLayout();
             this._splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
             this._splitContainer.ResumeLayout(false);
+            this._toolStrip.ResumeLayout(false);
+            this._toolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -138,5 +193,9 @@ namespace DrawingForm
         private System.Windows.Forms.Button _clearButton;
         private System.Windows.Forms.Button _ellipseDrawingButton;
         private DrawingForm.Canvas _canvas;
+        private System.Windows.Forms.ToolStrip _toolStrip;
+        private System.Windows.Forms.ToolStripButton _undoButton;
+        private System.Windows.Forms.ToolStripButton _redoButton;
+        private System.Windows.Forms.Button _lineDrawingButton;
     }
 }

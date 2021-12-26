@@ -27,5 +27,13 @@
         /// </summary>
         /// <param name="graphics"></param>
         void Draw(IGraphics graphics);
+
+        /// <summary>
+        /// 是否位於目標座標
+        /// </summary>
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
+        /// <returns></returns>
+        bool IsLocatedIn(double locationX, double locationY);
     }
 }

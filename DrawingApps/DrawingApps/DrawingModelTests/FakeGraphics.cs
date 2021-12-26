@@ -24,6 +24,11 @@ namespace DrawingModelTests
             get; private set;
         }
 
+        public int CountForDrawLine
+        {
+            get; private set;
+        }
+
         public bool IsClearAllTriggered
         {
             get
@@ -53,6 +58,14 @@ namespace DrawingModelTests
             get
             {
                 return CountForDrawDashedLine > 0;
+            }
+        }
+
+        public bool IsDrawLineTriggered
+        {
+            get
+            {
+                return CountForDrawLine > 0;
             }
         }
 
@@ -97,11 +110,23 @@ namespace DrawingModelTests
         }
 
         /// <summary>
-        /// 畫線
+        /// 畫虛線
         /// </summary>
         public void DrawDashedLine(double x1, double y1, double x2, double y2)
         {
             CountForDrawDashedLine++;
+            X1 = x1;
+            Y1 = y1;
+            X2 = x2;
+            Y2 = y2;
+        }
+
+        /// <summary>
+        /// 畫實線
+        /// </summary>
+        public void DrawLine(double x1, double y1, double x2, double y2)
+        {
+            CountForDrawLine++;
             X1 = x1;
             Y1 = y1;
             X2 = x2;

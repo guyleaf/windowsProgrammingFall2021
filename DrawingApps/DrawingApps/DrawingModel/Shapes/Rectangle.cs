@@ -1,10 +1,6 @@
 ﻿using DrawingModel.Interfaces;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DrawingModel.Shapes
 {
@@ -41,33 +37,31 @@ namespace DrawingModel.Shapes
         /// <param name="graphics"></param>
         public void Draw(IGraphics graphics)
         {
-            var topLeftX = X1;
-            var topLeftY = Y1;
-            var rightBottomX = X2;
-            var rightBottomY = Y2;
-
-            if (X1 > X2)
-            {
-                Swap(ref topLeftX, ref rightBottomX);
-            }
-            if (Y1 > Y2)
-            {
-                Swap(ref topLeftY, ref rightBottomY);
-            }
+            var topLeftX = Math.Min(X1, X2);
+            var topLeftY = Math.Min(Y1, Y2);
+            var rightBottomX = Math.Max(X1, X2);
+            var rightBottomY = Math.Max(Y1, Y2);
 
             graphics.DrawRectangle(topLeftX, topLeftY, rightBottomX, rightBottomY);
         }
-        
+
         /// <summary>
-        /// 交換數值
+        /// 是否位於目標座標
         /// </summary>
-        /// <param name="value1"></param>
-        /// <param name="value2"></param>
-        private void Swap(ref double value1, ref double value2)
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
+        /// <returns></returns>
+        public bool IsLocatedIn(double locationX, double locationY)
         {
-            double value = value1;
-            value1 = value2;
-            value2 = value;
+            var topLeftX = Math.Min(X1, X2);
+            var topLeftY = Math.Min(Y1, Y2);
+            var rightBottomX = Math.Max(X1, X2);
+            var rightBottomY = Math.Max(Y1, Y2);
+
+            return topLeftX <= locationX &&
+                locationX <= rightBottomX &&
+                topLeftY <= locationY &&
+                locationY <= rightBottomY;
         }
     }
 }
