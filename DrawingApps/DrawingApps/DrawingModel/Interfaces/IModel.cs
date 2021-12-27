@@ -23,6 +23,16 @@ namespace DrawingModel.Interfaces
             get;
         }
 
+        bool IsAnyShapeSelected
+        {
+            get;
+        }
+
+        string SelectedShapeInfo
+        {
+            get;
+        }
+
         /// <summary>
         /// 常壓滑鼠
         /// </summary>

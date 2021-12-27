@@ -31,13 +31,14 @@ namespace DrawingForm
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this._splitContainer = new System.Windows.Forms.SplitContainer();
+            this._lineDrawingButton = new System.Windows.Forms.Button();
             this._toolStrip = new System.Windows.Forms.ToolStrip();
+            this._undoButton = new System.Windows.Forms.ToolStripButton();
+            this._redoButton = new System.Windows.Forms.ToolStripButton();
             this._clearButton = new System.Windows.Forms.Button();
             this._ellipseDrawingButton = new System.Windows.Forms.Button();
             this._rectangleDrawingButton = new System.Windows.Forms.Button();
-            this._undoButton = new System.Windows.Forms.ToolStripButton();
-            this._redoButton = new System.Windows.Forms.ToolStripButton();
-            this._lineDrawingButton = new System.Windows.Forms.Button();
+            this._selectedShapeMessage = new System.Windows.Forms.Label();
             this._canvas = new DrawingForm.Canvas();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
@@ -66,11 +67,24 @@ namespace DrawingForm
             // 
             // _splitContainer.Panel2
             // 
+            this._splitContainer.Panel2.Controls.Add(this._selectedShapeMessage);
             this._splitContainer.Panel2.Controls.Add(this._canvas);
             this._splitContainer.Size = new System.Drawing.Size(1142, 611);
             this._splitContainer.SplitterDistance = 86;
             this._splitContainer.SplitterWidth = 1;
             this._splitContainer.TabIndex = 0;
+            // 
+            // _lineDrawingButton
+            // 
+            this._lineDrawingButton.AccessibleName = "Line";
+            this._lineDrawingButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._lineDrawingButton.Location = new System.Drawing.Point(632, 34);
+            this._lineDrawingButton.Name = "_lineDrawingButton";
+            this._lineDrawingButton.Size = new System.Drawing.Size(105, 37);
+            this._lineDrawingButton.TabIndex = 5;
+            this._lineDrawingButton.TabStop = false;
+            this._lineDrawingButton.Text = "Line";
+            this._lineDrawingButton.UseVisualStyleBackColor = true;
             // 
             // _toolStrip
             // 
@@ -81,6 +95,28 @@ namespace DrawingForm
             this._toolStrip.Name = "_toolStrip";
             this._toolStrip.Size = new System.Drawing.Size(1142, 25);
             this._toolStrip.TabIndex = 4;
+            // 
+            // _undoButton
+            // 
+            this._undoButton.AccessibleName = "Undo";
+            this._undoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this._undoButton.Enabled = false;
+            this._undoButton.Image = ((System.Drawing.Image)(resources.GetObject("_undoButton.Image")));
+            this._undoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._undoButton.Name = "_undoButton";
+            this._undoButton.Size = new System.Drawing.Size(43, 22);
+            this._undoButton.Text = "Undo";
+            // 
+            // _redoButton
+            // 
+            this._redoButton.AccessibleName = "Redo";
+            this._redoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this._redoButton.Enabled = false;
+            this._redoButton.Image = ((System.Drawing.Image)(resources.GetObject("_redoButton.Image")));
+            this._redoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._redoButton.Name = "_redoButton";
+            this._redoButton.Size = new System.Drawing.Size(42, 22);
+            this._redoButton.Text = "Redo";
             // 
             // _clearButton
             // 
@@ -118,39 +154,15 @@ namespace DrawingForm
             this._rectangleDrawingButton.Text = "Rectangle";
             this._rectangleDrawingButton.UseVisualStyleBackColor = true;
             // 
-            // _undoButton
+            // _selectedShapeMessage
             // 
-            this._undoButton.AccessibleName = "Undo";
-            this._undoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this._undoButton.Enabled = false;
-            this._undoButton.Image = ((System.Drawing.Image)(resources.GetObject("_undoButton.Image")));
-            this._undoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._undoButton.Name = "_undoButton";
-            this._undoButton.Size = new System.Drawing.Size(43, 22);
-            this._undoButton.Text = "Undo";
-            // 
-            // _redoButton
-            // 
-            this._redoButton.AccessibleName = "Redo";
-            this._redoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this._redoButton.Enabled = false;
-            this._redoButton.Image = ((System.Drawing.Image)(resources.GetObject("_redoButton.Image")));
-            this._redoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._redoButton.Name = "_redoButton";
-            this._redoButton.Size = new System.Drawing.Size(42, 22);
-            this._redoButton.Text = "Redo";
-            // 
-            // _lineDrawingButton
-            // 
-            this._lineDrawingButton.AccessibleName = "Line";
-            this._lineDrawingButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._lineDrawingButton.Location = new System.Drawing.Point(632, 34);
-            this._lineDrawingButton.Name = "_lineDrawingButton";
-            this._lineDrawingButton.Size = new System.Drawing.Size(105, 37);
-            this._lineDrawingButton.TabIndex = 5;
-            this._lineDrawingButton.TabStop = false;
-            this._lineDrawingButton.Text = "Line";
-            this._lineDrawingButton.UseVisualStyleBackColor = true;
+            this._selectedShapeMessage.AutoSize = true;
+            this._selectedShapeMessage.Location = new System.Drawing.Point(902, 486);
+            this._selectedShapeMessage.Name = "_selectedShapeMessage";
+            this._selectedShapeMessage.Size = new System.Drawing.Size(66, 16);
+            this._selectedShapeMessage.TabIndex = 1;
+            this._selectedShapeMessage.Text = "Selected : ";
+            this._selectedShapeMessage.Visible = false;
             // 
             // _canvas
             // 
@@ -178,6 +190,7 @@ namespace DrawingForm
             this._splitContainer.Panel1.ResumeLayout(false);
             this._splitContainer.Panel1.PerformLayout();
             this._splitContainer.Panel2.ResumeLayout(false);
+            this._splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
             this._splitContainer.ResumeLayout(false);
             this._toolStrip.ResumeLayout(false);
@@ -197,5 +210,6 @@ namespace DrawingForm
         private System.Windows.Forms.ToolStripButton _undoButton;
         private System.Windows.Forms.ToolStripButton _redoButton;
         private System.Windows.Forms.Button _lineDrawingButton;
+        private System.Windows.Forms.Label _selectedShapeMessage;
     }
 }

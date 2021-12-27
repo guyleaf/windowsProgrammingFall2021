@@ -3,19 +3,13 @@
 using DrawingModel.Interfaces;
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DrawingForm
 {
     public partial class MainForm : Form
     {
+        private const string FORMATTED_SELECTED_INFO = "Selected : {0}";
         private readonly FormPresentationModel _formPresentationModel;
         private readonly IModel _model;
 
@@ -25,13 +19,7 @@ namespace DrawingForm
             _formPresentationModel = formPresentationModel;
             _model = model;
 
-            _rectangleDrawingButton.Click += HandleRectangleButtonOnClick;
-            _ellipseDrawingButton.Click += HandleEllipseButtonOnClick;
-            _lineDrawingButton.Click += HandleLineButtonOnClick;
-            _clearButton.Click += HandleClearButtonOnClick;
-
-            _undoButton.Click += HandleUndoButtonOnClick;
-            _redoButton.Click += HandleRedoButtonOnClick;
+            InitializeButtons();
 
             var enabledName = nameof(Enabled);
             _rectangleDrawingButton.DataBindings.Add(
@@ -47,6 +35,20 @@ namespace DrawingForm
             _canvas.Paint += HandleCanvasOnPaint;
 
             _model._modelChanged += HandleModelOnModelChanged;
+        }
+
+        /// <summary>
+        /// 初始化按鈕
+        /// </summary>
+        private void InitializeButtons()
+        {
+            _rectangleDrawingButton.Click += HandleRectangleButtonOnClick;
+            _ellipseDrawingButton.Click += HandleEllipseButtonOnClick;
+            _lineDrawingButton.Click += HandleLineButtonOnClick;
+            _clearButton.Click += HandleClearButtonOnClick;
+
+            _undoButton.Click += HandleUndoButtonOnClick;
+            _redoButton.Click += HandleRedoButtonOnClick;
         }
 
         /// <summary>
@@ -159,6 +161,8 @@ namespace DrawingForm
             _canvas.Invalidate(true);
             _undoButton.Enabled = _model.IsAnyShapeDisplayed;
             _redoButton.Enabled = _model.IsAnyShapeRemoved;
+            _selectedShapeMessage.Visible = _model.IsAnyShapeSelected;
+            _selectedShapeMessage.Text = string.Format(FORMATTED_SELECTED_INFO, _model.SelectedShapeInfo);
         }
     }
 }

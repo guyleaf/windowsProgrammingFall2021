@@ -19,12 +19,17 @@ namespace DrawingModelTests
             get; private set;
         }
 
-        public int CountForDrawDashedLine
+        public int CountForDrawDashedRectangle
         {
             get; private set;
         }
 
         public int CountForDrawLine
+        {
+            get; private set;
+        }
+
+        public int CountForDrawDot
         {
             get; private set;
         }
@@ -53,11 +58,11 @@ namespace DrawingModelTests
             }
         }
 
-        public bool IsDrawDashedLineTriggered
+        public bool IsDrawDashedRectangleTriggered
         {
             get
             {
-                return CountForDrawDashedLine > 0;
+                return CountForDrawDashedRectangle > 0;
             }
         }
 
@@ -66,6 +71,14 @@ namespace DrawingModelTests
             get
             {
                 return CountForDrawLine > 0;
+            }
+        }
+
+        public bool IsDrawDotTriggered
+        {
+            get
+            {
+                return CountForDrawDot > 0;
             }
         }
 
@@ -85,6 +98,16 @@ namespace DrawingModelTests
         }
 
         public double Y2
+        {
+            get; private set;
+        }
+
+        public double MiddleX
+        {
+            get; private set;
+        }
+
+        public double MiddleY
         {
             get; private set;
         }
@@ -112,9 +135,9 @@ namespace DrawingModelTests
         /// <summary>
         /// 畫虛線
         /// </summary>
-        public void DrawDashedLine(double x1, double y1, double x2, double y2)
+        public void DrawDashedRectangle(double x1, double y1, double x2, double y2)
         {
-            CountForDrawDashedLine++;
+            CountForDrawDashedRectangle++;
             X1 = x1;
             Y1 = y1;
             X2 = x2;
@@ -143,6 +166,18 @@ namespace DrawingModelTests
             Y1 = topLeftY;
             X2 = bottomRightX;
             Y2 = bottomRightY;
+        }
+
+        /// <summary>
+        /// 畫圓點
+        /// </summary>
+        /// <param name="middleX"></param>
+        /// <param name="middleY"></param>
+        public void DrawDot(double middleX, double middleY)
+        {
+            CountForDrawDot++;
+            MiddleX = middleX;
+            MiddleY = middleY;
         }
     }
 }

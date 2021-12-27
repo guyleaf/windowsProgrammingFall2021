@@ -8,9 +8,16 @@
         void ClearAll();
 
         /// <summary>
-        /// 畫虛線
+        /// 畫虛線樣式的長方形
         /// </summary>
-        void DrawDashedLine(double x1, double y1, double x2, double y2);
+        void DrawDashedRectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY);
+
+        /// <summary>
+        /// 畫圓點
+        /// </summary>
+        /// <param name="middleX"></param>
+        /// <param name="middleY"></param>
+        void DrawDot(double middleX, double middleY);
 
         /// <summary>
         /// 畫實線

@@ -22,6 +22,11 @@
             get; set;
         }
 
+        string Info
+        {
+            get;
+        }
+
         /// <summary>
         /// 畫圖
         /// </summary>

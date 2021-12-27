@@ -4,19 +4,19 @@ using DrawingModel.Interfaces;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace DrawingModel
 {
-    public class Model : IModel
+    public partial class Model : IModel
     {
         public event Action _modelChanged;
-        private const string DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE = "Drawing Shape Type should be chosen before drawing.";
 
         private bool _isPressed;
+        private bool _isSelected;
         private ShapeType _currentDrawingShapeType;
 
         private IShape _currentDrawingShape;
+        private IShape _selectedShape;
         private readonly IList<IShape> _shapes;
 
         private readonly CommandManager _commandManager;
@@ -24,7 +24,7 @@ namespace DrawingModel
         public Model(CommandManager commandManager)
         {
             _shapes = new List<IShape>();
-            _isPressed = false;
+            _isPressed = _isSelected = false;
             _currentDrawingShapeType = ShapeType.None;
             _commandManager = commandManager;
         }
@@ -39,6 +39,7 @@ namespace DrawingModel
             {
                 _currentDrawingShapeType = value;
                 _currentDrawingShape = ShapesFactory.CreateShape(_currentDrawingShapeType);
+                _isSelected = false;
                 NotifyModelChanged();
             }
         }
@@ -59,6 +60,22 @@ namespace DrawingModel
             }
         }
 
+        public bool IsAnyShapeSelected
+        {
+            get
+            {
+                return _isSelected;
+            }
+        }
+
+        public string SelectedShapeInfo
+        {
+            get
+            {
+                return _selectedShape != null ? _selectedShape.Info : string.Empty;
+            }
+        }
+
         /// <summary>
         /// 常壓滑鼠
         /// </summary>
@@ -66,12 +83,20 @@ namespace DrawingModel
         /// <param name="locationY"></param>
         public void PressPointer(double locationX, double locationY)
         {
-            EnsureDrawingShapeTypeIsChosen();
             if (locationX > 0 && locationY > 0)
             {
-                _currentDrawingShape.X1 = locationX;
-                _currentDrawingShape.Y1 = locationY;
-                _isPressed = true;
+                if (_currentDrawingShapeType != ShapeType.None)
+                {
+                    _currentDrawingShape.X1 = locationX;
+                    _currentDrawingShape.Y1 = locationY;
+                    _isPressed = true;
+                }
+                else
+                {
+                    _selectedShape = FindShapeByLocation(locationX, locationY);
+                    _isSelected = _selectedShape != null;
+                    NotifyModelChanged();
+                }
             }
         }
 
@@ -82,7 +107,6 @@ namespace DrawingModel
         /// <param name="locationY"></param>
         public void MovePointer(double locationX, double locationY)
         {
-            EnsureDrawingShapeTypeIsChosen();
             if (_isPressed)
             {
                 _currentDrawingShape.X2 = locationX;
@@ -99,17 +123,17 @@ namespace DrawingModel
         /// <param name="mode"></param>
         public void ReleasePointer(double locationX, double locationY)
         {
-            EnsureDrawingShapeTypeIsChosen();
             if (_isPressed)
             {
                 IShape shape = CreateShape(locationX, locationY);
                 if (shape != null)
                 {
                     _commandManager.Execute(new DrawCommand(this, shape, _currentDrawingShapeType != ShapeType.Line));
+                    // If dont want to use command pattern, remove this comment and comment the code above
+                    // _shapes.Add(shape);
+                    ResetDrawingShape();
                 }
 
-                // If dont want to use command pattern, remove this comment and comment the code above
-                // _shapes.Add(shape);
                 _isPressed = false;
                 NotifyModelChanged();
             }
@@ -129,42 +153,13 @@ namespace DrawingModel
             if (_isPressed)
             {
                 _currentDrawingShape.Draw(graphics);
-                DrawDashedLines(graphics);
+                DrawDashedLines(graphics, _currentDrawingShape);
             }
-        }
-
-        /// <summary>
-        /// 畫圖形至最上層
-        /// </summary>
-        /// <param name="shape"></param>
-        public void DrawShapeInFront(IShape shape)
-        {
-            _shapes.Add(shape);
-        }
-
-        /// <summary>
-        /// 畫圖形至最下層
-        /// </summary>
-        /// <param name="shape"></param>
-        public void DrawShapeInBack(IShape shape)
-        {
-            _shapes.Insert(0, shape);
-        }
-
-        /// <summary>
-        /// 移除圖形
-        /// </summary>
-        public void RemoveShape(IShape shape)
-        {
-            _shapes.Remove(shape);
-        }
-
-        /// <summary>
-        /// 移除所有圖形
-        /// </summary>
-        public void RemoveAllShapes()
-        {
-            _shapes.Clear();
+            if (_isSelected)
+            {
+                DrawDashedLines(graphics, _selectedShape);
+                DrawDots(graphics, _selectedShape);
+            }
         }
 
         /// <summary>
@@ -174,9 +169,7 @@ namespace DrawingModel
         {
             _commandManager.Execute(new ClearCommand(this, _shapes));
             _isPressed = false;
-
-            _currentDrawingShape = null;
-            _currentDrawingShapeType = ShapeType.None;
+            ResetDrawingShape();
             NotifyModelChanged();
         }
 
@@ -186,6 +179,7 @@ namespace DrawingModel
         public void Redo()
         {
             _commandManager.Redo();
+            _isSelected = false;
             NotifyModelChanged();
         }
 
@@ -195,106 +189,8 @@ namespace DrawingModel
         public void Undo()
         {
             _commandManager.Undo();
+            _isSelected = false;
             NotifyModelChanged();
-        }
-
-        /// <summary>
-        /// 通知訂閱者
-        /// </summary>
-        private void NotifyModelChanged()
-        {
-            if (_modelChanged != null)
-            {
-                _modelChanged();
-            }
-        }
-
-        /// <summary>
-        /// 檢查 _currentDrawingShapeType 是否已設置
-        /// </summary>
-        private void EnsureDrawingShapeTypeIsChosen()
-        {
-            if (_currentDrawingShapeType == ShapeType.None)
-            {
-                throw new Exception(DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
-            }
-        }
-
-        /// <summary>
-        /// 畫虛線
-        /// </summary>
-        /// TODO: Consider moving to seperated Object
-        private void DrawDashedLines(IGraphics graphics)
-        {
-            graphics.DrawDashedLine(
-                _currentDrawingShape.X1, _currentDrawingShape.Y1, _currentDrawingShape.X2, _currentDrawingShape.Y1);
-            graphics.DrawDashedLine(
-                _currentDrawingShape.X1, _currentDrawingShape.Y1, _currentDrawingShape.X1, _currentDrawingShape.Y2);
-            graphics.DrawDashedLine(
-                _currentDrawingShape.X1, _currentDrawingShape.Y2, _currentDrawingShape.X2, _currentDrawingShape.Y2);
-            graphics.DrawDashedLine(
-                _currentDrawingShape.X2, _currentDrawingShape.Y1, _currentDrawingShape.X2, _currentDrawingShape.Y2);
-        }
-
-        /// <summary>
-        /// 建立 Shape
-        /// </summary>
-        /// <param name="locationX"></param>
-        /// <param name="locationY"></param>
-        /// <returns></returns>
-        private IShape CreateShape(double locationX, double locationY)
-        {
-            IShape shape;
-            if (_currentDrawingShapeType == ShapeType.Line)
-            {
-                shape = CreateLine(locationX, locationY);
-            }
-            else
-            {
-                shape = ShapesFactory.CreateShape(_currentDrawingShapeType);
-                shape.X1 = _currentDrawingShape.X1;
-                shape.Y1 = _currentDrawingShape.Y1;
-                shape.X2 = locationX;
-                shape.Y2 = locationY;
-            }
-
-            return shape;
-        }
-
-        /// <summary>
-        /// 建立 Line
-        /// </summary>
-        /// <param name="locationX"></param>
-        /// <param name="locationY"></param>
-        /// <returns></returns>
-        private IShape CreateLine(double locationX, double locationY)
-        {
-            var firstShape = FindShapeByLocation(_currentDrawingShape.X1, _currentDrawingShape.Y1);
-            if (firstShape == null)
-            {
-                return null;
-            }
-            var secondShape = FindShapeByLocation(locationX, locationY);
-            if (secondShape == null)
-            {
-                return null;
-            }
-
-            return ShapesFactory.CreateShape(_currentDrawingShapeType, firstShape, secondShape);
-        }
-
-        /// <summary>
-        /// 尋找目標位置對應的 shape
-        /// </summary>
-        /// <param name="locationX"></param>
-        /// <param name="locationY"></param>
-        /// <returns></returns>
-        private IShape FindShapeByLocation(double locationX, double locationY)
-        {
-            return _shapes.FirstOrDefault(shape =>
-            {
-                return shape.IsLocatedIn(locationX, locationY);
-            });
         }
     }
 }

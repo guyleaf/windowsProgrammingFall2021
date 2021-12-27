@@ -16,7 +16,7 @@ namespace DrawingModel
         /// </summary>
         /// <param name="shapeType"></param>
         /// <returns></returns>
-        public static IShape CreateShape(ShapeType shapeType, params object[] args)
+        public static IShape CreateShape(ShapeType shapeType, params object[] arguments)
         {
             var attribute = GetShapeTargetAttribute(shapeType);
 
@@ -25,7 +25,7 @@ namespace DrawingModel
                 throw new Exception(ERROR_MESSAGE);
             }
 
-            return Activator.CreateInstance(attribute.ShapeClassType, args) as IShape;
+            return Activator.CreateInstance(attribute.ShapeClassType, arguments) as IShape;
         }
 
         /// <summary>

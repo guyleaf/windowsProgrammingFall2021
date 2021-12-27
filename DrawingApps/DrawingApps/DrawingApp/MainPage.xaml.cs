@@ -30,13 +30,7 @@ namespace DrawingApp
             _model = model;
             _graphics = new AppGraphicsAdapter(_canvas);
 
-            _rectangleDrawingButton.Click += HandleRectangleButtonOnClick;
-            _ellipseDrawingButton.Click += HandleEllipseButtonOnClick;
-            _lineDrawingButton.Click += HandleLineButtonOnClick;
-            _clearButton.Click += HandleClearButtonOnClick;
-
-            _undoButton.Click += HandleUndoButtonOnClick;
-            _redoButton.Click += HandleRedoButtonOnClick;
+            InitializeButtons();
 
             var dataBinding = new Binding
             { 
@@ -61,6 +55,20 @@ namespace DrawingApp
             _canvas.PointerReleased += HandleCanvasOnMouseUp;
 
             _model._modelChanged += HandleModelOnModelChanged;
+        }
+
+        /// <summary>
+        /// 初始化按鈕
+        /// </summary>
+        private void InitializeButtons()
+        {
+            _rectangleDrawingButton.Click += HandleRectangleButtonOnClick;
+            _ellipseDrawingButton.Click += HandleEllipseButtonOnClick;
+            _lineDrawingButton.Click += HandleLineButtonOnClick;
+            _clearButton.Click += HandleClearButtonOnClick;
+
+            _undoButton.Click += HandleUndoButtonOnClick;
+            _redoButton.Click += HandleRedoButtonOnClick;
         }
 
         /// <summary>
@@ -166,6 +174,8 @@ namespace DrawingApp
             _model.Draw(_graphics);
             _undoButton.IsEnabled = _model.IsAnyShapeDisplayed;
             _redoButton.IsEnabled = _model.IsAnyShapeRemoved;
+            _selectedShapeMessage.Visibility = _model.IsAnyShapeSelected ? Visibility.Visible : Visibility.Collapsed;
+            _selectedShapeMessage.Text = _model.SelectedShapeInfo;
         }
 
         /// <summary>

@@ -6,22 +6,25 @@ namespace DrawingForm
 {
     public class FormGraphicsAdapter : IGraphics
     {
-        private const float DASHED_LINE_WIDTH = 1.8F;
-        private const float DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE = 1.2F;
+        private const float RADIUS_OF_DOT = 3.0F;
+        private const float DASHED_LINE_WIDTH = 2.5F;
+        private const float DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE = 3.0F;
         private readonly Graphics _graphics;
         private readonly Pen _penForDashedLine;
         private readonly Pen _blackPen;
         private readonly Brush _brushForRectangle;
         private readonly Brush _brushForEllipse;
+        private readonly Brush _brushForDot;
 
         public FormGraphicsAdapter(Graphics graphics)
         {
             _graphics = graphics;
             _brushForEllipse = new SolidBrush(Color.Orange);
+            _brushForDot = new SolidBrush(Color.White);
             _brushForRectangle = new SolidBrush(Color.Yellow);
             _blackPen = Pens.Black;
 
-            _penForDashedLine = Pens.DarkGray.Clone() as Pen;
+            _penForDashedLine = Pens.Red.Clone() as Pen;
             _penForDashedLine.Width = DASHED_LINE_WIDTH;
             _penForDashedLine.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             _penForDashedLine.DashPattern = new float[] { DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE, DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE };
@@ -48,8 +51,7 @@ namespace DrawingForm
             var height = bottomRightY - topLeftY;
 
             var rectangle = new RectangleF((float)topLeftX, (float)topLeftY, (float)width, (float)height);
-            _graphics.FillEllipse(_brushForEllipse, rectangle);
-            _graphics.DrawEllipse(_blackPen, rectangle);
+            DrawEllipse(rectangle, _brushForEllipse, _blackPen);
         }
 
         /// <summary>
@@ -60,9 +62,13 @@ namespace DrawingForm
         /// <param name="y1"></param>
         /// <param name="x2"></param>
         /// <param name="y2"></param>
-        public void DrawDashedLine(double x1, double y1, double x2, double y2)
+        public void DrawDashedRectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY)
         {
-            _graphics.DrawLine(_penForDashedLine, (float)x1, (float)y1, (float)x2, (float)y2);
+            var width = bottomRightX - topLeftX;
+            var height = bottomRightY - topLeftY;
+            var rectangle = new Rectangle((int)topLeftX, (int)topLeftY, (int)width, (int)height);
+
+            _graphics.DrawRectangle(_penForDashedLine, rectangle);
         }
 
         /// <summary>
@@ -92,6 +98,30 @@ namespace DrawingForm
 
             _graphics.FillRectangle(_brushForRectangle, rectangle);
             _graphics.DrawRectangle(_blackPen, rectangle);
+        }
+
+        /// <summary>
+        /// 畫圓點
+        /// </summary>
+        /// <param name="middleX"></param>
+        /// <param name="middleY"></param>
+        public void DrawDot(double middleX, double middleY)
+        {
+            var diameter = RADIUS_OF_DOT + RADIUS_OF_DOT;
+            var rectangle = new RectangleF((float)middleX - RADIUS_OF_DOT, (float)middleY - RADIUS_OF_DOT, diameter, diameter);
+            DrawEllipse(rectangle, _brushForDot, _blackPen);
+        }
+
+        /// <summary>
+        /// 畫橢圓形
+        /// </summary>
+        /// <param name="rectangle"></param>
+        /// <param name="brush"></param>
+        /// <param name="pen"></param>
+        private void DrawEllipse(RectangleF rectangle, Brush brush, Pen pen)
+        {
+            _graphics.FillEllipse(brush, rectangle);
+            _graphics.DrawEllipse(pen, rectangle);
         }
     }
 }

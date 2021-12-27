@@ -11,14 +11,11 @@ namespace DrawingApp.Models
         private DrawingMode _drawingMode;
         private readonly IModel _model;
 
-        private int _drawingCount;
-
         public AppPresentationModel(IModel model)
         {
             _drawingMode = DrawingMode.None;
             _model = model;
             _model._modelChanged += HandleModelOnModelChanged;
-            _drawingCount = 0;
         }
 
         public bool IsRectangleButtonEnabled
@@ -52,10 +49,7 @@ namespace DrawingApp.Models
         /// <param name="locationY"></param>
         public void PressPointer(double locationX, double locationY)
         {
-            if (IsCurrentDrawingModeEqualTo(DrawingMode.Drawing))
-            {
-                _model.PressPointer(locationX, locationY);
-            }
+            _model.PressPointer(locationX, locationY);
         }
 
         /// <summary>
@@ -65,10 +59,7 @@ namespace DrawingApp.Models
         /// <param name="locationY"></param>
         public void MovePointer(double locationX, double locationY)
         {
-            if (IsCurrentDrawingModeEqualTo(DrawingMode.Drawing))
-            {
-                _model.MovePointer(locationX, locationY);
-            }
+            _model.MovePointer(locationX, locationY);
         }
 
         /// <summary>
@@ -78,12 +69,7 @@ namespace DrawingApp.Models
         /// <param name="locationY"></param>
         public void ReleasePointer(double locationX, double locationY)
         {
-            if (IsCurrentDrawingModeEqualTo(DrawingMode.Drawing))
-            {
-                _model.ReleasePointer(locationX, locationY);
-                _drawingCount++;
-                NotifyPropertyChanged();
-            }
+            _model.ReleasePointer(locationX, locationY);
         }
 
         /// <summary>
@@ -92,7 +78,6 @@ namespace DrawingApp.Models
         public void ClickRectangleButton()
         {
             _model.CurrentDrawingShapeType = ShapeType.Rectangle;
-            _drawingCount = 0;
             NotifyPropertyChanged();
         }
 
@@ -102,7 +87,6 @@ namespace DrawingApp.Models
         public void ClickEllipseButton()
         {
             _model.CurrentDrawingShapeType = ShapeType.Ellipse;
-            _drawingCount = 0;
             NotifyPropertyChanged();
         }
 
@@ -112,7 +96,6 @@ namespace DrawingApp.Models
         public void ClickLineButton()
         {
             _model.CurrentDrawingShapeType = ShapeType.Line;
-            _drawingCount = 0;
             NotifyPropertyChanged();
         }
 
@@ -157,8 +140,7 @@ namespace DrawingApp.Models
         private bool IsShapeButtonEnabled(ShapeType shapeType)
         {
             return IsCurrentDrawingModeEqualTo(DrawingMode.None) ||
-                    !IsCurrentShapeTypeEqualTo(shapeType) ||
-                    _drawingCount > 0;
+                    !IsCurrentShapeTypeEqualTo(shapeType);
         }
 
         /// <summary>

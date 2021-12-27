@@ -15,7 +15,6 @@ namespace DrawingModelTests
     [TestClass]
     public class ModelTest
     {
-        private const string DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE = "Drawing Shape Type should be chosen before drawing.";
         private IModel _model;
         private PrivateObject _privateModel;
 
@@ -144,15 +143,6 @@ namespace DrawingModelTests
         }
 
         /// <summary>
-        /// 測試 PressPointer 當未設定 ShapeType 時應發生 Exception
-        /// </summary>
-        [TestMethod]
-        public void RaiseExceptionWhenCallingPressPointerBeforeSettingShapeType()
-        {
-            Assert.ThrowsException<Exception>(() => _model.PressPointer(100, 100), DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
-        }
-
-        /// <summary>
         /// 測試 PressPointer 不應觸發 model changed 事件
         /// </summary>
         [DataTestMethod]
@@ -221,15 +211,6 @@ namespace DrawingModelTests
             var shape = _privateModel.GetField("_currentDrawingShape") as IShape;
             Assert.AreEqual(0, shape.X2, 0.0001);
             Assert.AreEqual(0, shape.Y2, 0.0001);
-        }
-
-        /// <summary>
-        /// 測試 MovePointer 當未設定 ShapeType 時應發生 Exception
-        /// </summary>
-        [TestMethod]
-        public void RaiseExceptionWhenCallingMovePointerBeforeSettingShapeType()
-        {
-            Assert.ThrowsException<Exception>(() => _model.MovePointer(100, 100), DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
         }
 
         /// <summary>
@@ -308,15 +289,6 @@ namespace DrawingModelTests
 
             var shapes = _privateModel.GetField("_shapes") as IList<IShape>;
             Assert.AreEqual(0, shapes.Count);
-        }
-
-        /// <summary>
-        /// 測試 ReleasePointer 當未設定 ShapeType 時應發生 Exception
-        /// </summary>
-        [TestMethod]
-        public void RaiseExceptionWhenCallingReleasePointerBeforeSettingShapeType()
-        {
-            Assert.ThrowsException<Exception>(() => _model.ReleasePointer(100, 100), DRAWING_SHAPE_TYPE_NOT_SPECIFIED_MESSAGE);
         }
 
         /// <summary>
@@ -507,7 +479,7 @@ namespace DrawingModelTests
         }
 
         /// <summary>
-        /// 測試 Draw 當 IsPressed 為 true 時，應該呼叫 Dashed Line
+        /// 測試 Draw 當 IsPressed 為 true 時，應該呼叫 DrawDashedRectangle
         /// </summary>
         [TestMethod]
         public void TestDrawShouldTriggerDrawDashedLineIfIsPressedIsTrue()
@@ -518,7 +490,7 @@ namespace DrawingModelTests
 
             _model.Draw(graphics);
 
-            Assert.IsTrue(graphics.IsDrawDashedLineTriggered);
+            Assert.IsTrue(graphics.IsDrawDashedRectangleTriggered);
         }
         #endregion
     }

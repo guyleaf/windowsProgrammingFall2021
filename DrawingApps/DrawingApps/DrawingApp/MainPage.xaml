@@ -20,11 +20,17 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5 *"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Button x:Name="_rectangleDrawingButton" Content="Rectangle" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="0" HorizontalAlignment="Center" Height="40" Width="120" />
             <Button x:Name="_ellipseDrawingButton" Content="Ellipse" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Center" Height="40" Width="120"/>
             <Button x:Name="_lineDrawingButton" Content="Line" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Center" Height="40" Width="120"/>
             <Button x:Name="_clearButton" Content="Clear" Margin="0,28,0,0" VerticalAlignment="Top" Grid.Column="3" HorizontalAlignment="Center" Height="40" Width="120" />
-            <Canvas x:Name="_canvas" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,100,0,0" RequestedTheme="Default" Background="#FFFCFFBD"/>
+            <Canvas x:Name="_canvas" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Stretch" Margin="0,100,0,0" RequestedTheme="Default" Background="#FFFCFFBD">
+                <TextBlock x:Name="_selectedShapeMessage" Canvas.Left="866" Canvas.Top="598" Text="Selected : " Visibility="Collapsed" Foreground="Black" TextWrapping="Wrap"/>
+            </Canvas>
         </Grid>
     </Grid>
 </Page>

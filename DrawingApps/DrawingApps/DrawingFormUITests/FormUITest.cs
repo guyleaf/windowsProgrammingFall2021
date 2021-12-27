@@ -1,11 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DrawingFormUITests
 {
@@ -84,17 +79,13 @@ namespace DrawingFormUITests
         /// <param name="canvasHalfHeight"></param>
         private void DrawEllipsesForSnowMan(int canvasHalfWidth, int canvasHalfHeight)
         {
-            _robot.ClickButton(ELLIPSE_BUTTON_NAME);
-
             var diameter = 300;
             var topLeftX = canvasHalfWidth - diameter / 2;
             var topLeftY = canvasHalfHeight - diameter / 2;
             var bottomRightX = topLeftX + diameter;
             var bottomRightY = topLeftY + diameter;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(ELLIPSE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
 
             topLeftX += diameter / 2;
             topLeftY += diameter / 2;
@@ -104,16 +95,12 @@ namespace DrawingFormUITests
             bottomRightX = topLeftX + diameter;
             bottomRightY = topLeftY + diameter;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(ELLIPSE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
 
             topLeftY -= (int)(diameter * 1.5);
             bottomRightY = topLeftY + diameter;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(ELLIPSE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
 
             topLeftX += diameter / 2;
             topLeftY -= diameter / 2;
@@ -123,9 +110,7 @@ namespace DrawingFormUITests
             bottomRightX = topLeftX + diameter;
             bottomRightY = topLeftY + diameter;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(ELLIPSE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
 
             topLeftX += diameter / 2;
             topLeftY += diameter / 5;
@@ -145,9 +130,7 @@ namespace DrawingFormUITests
             var bottomRightX = topLeftX + diameter;
             var bottomRightY = topLeftY + diameter;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(ELLIPSE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
         }
 
         /// <summary>
@@ -157,25 +140,19 @@ namespace DrawingFormUITests
         /// <param name="canvasHalfHeight"></param>
         private void DrawRectanglesForSnowMan(int canvasHalfWidth, int canvasHalfHeight)
         {
-            _robot.ClickButton(RECTANGLE_BUTTON_NAME);
-
             var topLeftX = canvasHalfWidth - 80;
             var topLeftY = 30;
             var bottomRightX = topLeftX + 160;
             var bottomRightY = topLeftY + 50;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(RECTANGLE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
 
             topLeftX -= 30;
             topLeftY = bottomRightY;
             bottomRightX += 30;
             bottomRightY += 20;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(RECTANGLE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
 
             var squareWidth = 32;
             topLeftX = canvasHalfWidth - squareWidth / 2;
@@ -183,9 +160,7 @@ namespace DrawingFormUITests
             bottomRightX = topLeftX + squareWidth;
             bottomRightY = topLeftY + squareWidth;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(RECTANGLE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
 
             var handWidth = 15;
             var handHeight = 200;
@@ -194,13 +169,20 @@ namespace DrawingFormUITests
             bottomRightX = topLeftX + handWidth;
             bottomRightY = canvasHalfHeight;
 
-            _robot.DragAndDrop(
-                CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
-            _robot.Sleep(0.3);
+            DrawShape(RECTANGLE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
 
             topLeftX = canvasHalfWidth + 150;
             bottomRightX = topLeftX + handWidth;
 
+            DrawShape(RECTANGLE_BUTTON_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
+        }
+
+        /// <summary>
+        /// 畫圖形
+        /// </summary>
+        private void DrawShape(string shapeButtonName, int topLeftX, int topLeftY, int bottomRightX, int bottomRightY)
+        {
+            _robot.ClickButton(shapeButtonName);
             _robot.DragAndDrop(
                 CANVAS_NAME, topLeftX, topLeftY, bottomRightX, bottomRightY);
             _robot.Sleep(0.3);

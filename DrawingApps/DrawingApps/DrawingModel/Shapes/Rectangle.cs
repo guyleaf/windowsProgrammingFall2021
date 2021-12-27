@@ -6,6 +6,7 @@ namespace DrawingModel.Shapes
 {
     public class Rectangle : IShape
     {
+        private const string FORMATTED_INFO_MESSAGE = "Rectangle({0}, {1}, {2}, {3})";
         public Rectangle()
         {
 
@@ -29,6 +30,19 @@ namespace DrawingModel.Shapes
         public double Y2
         {
             get; set;
+        }
+
+        public string Info
+        {
+            get
+            {
+                var topLeftX = Math.Min(X1, X2);
+                var topLeftY = Math.Min(Y1, Y2);
+                var rightBottomX = Math.Max(X1, X2);
+                var rightBottomY = Math.Max(Y1, Y2);
+
+                return string.Format(FORMATTED_INFO_MESSAGE, topLeftX, topLeftY, rightBottomX, rightBottomY);
+            }
         }
 
         /// <summary>
