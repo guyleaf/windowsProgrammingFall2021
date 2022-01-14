@@ -6,13 +6,13 @@ namespace DrawingModel.Commands
     {
         private readonly Model _model;
         private readonly IShape _shape;
-        private readonly bool _drawInFront;
+        private readonly bool _drawInBack;
 
-        public DrawCommand(Model model, IShape shape, bool drawInFront)
+        public DrawCommand(Model model, IShape shape, bool drawInBack = false)
         {
             _model = model;
             _shape = shape;
-            _drawInFront = drawInFront;
+            _drawInBack = drawInBack;
         }
 
         /// <summary>
@@ -20,14 +20,14 @@ namespace DrawingModel.Commands
         /// </summary>
         public void Execute()
         {
-            if (_drawInFront)
+            if (_drawInBack)
             {
-                _model.DrawShapeInFront(_shape);
+                _model.DrawShapeInBack(_shape);
             }
             else
             {
-                _model.DrawShapeInBack(_shape);
-            }    
+                _model.DrawShapeInFront(_shape);
+            }
         }
 
         /// <summary>

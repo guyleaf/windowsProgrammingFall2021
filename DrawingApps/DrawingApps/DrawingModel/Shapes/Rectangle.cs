@@ -46,7 +46,7 @@ namespace DrawingModel.Shapes
         }
 
         /// <summary>
-        /// 畫圖
+        /// 繪製圖
         /// </summary>
         /// <param name="graphics"></param>
         public void Draw(IGraphics graphics)
@@ -76,6 +76,37 @@ namespace DrawingModel.Shapes
                 locationX <= rightBottomX &&
                 topLeftY <= locationY &&
                 locationY <= rightBottomY;
+        }
+
+        /// <summary>
+        /// 移動至
+        /// </summary>
+        /// <param name="topLeftX"></param>
+        /// <param name="topLeftY"></param>
+        public void MoveTo(double topLeftX, double topLeftY)
+        {
+            var length = topLeftX - X1;
+            var height = topLeftY - Y1;
+
+            X1 = topLeftX;
+            Y1 = topLeftY;
+            X2 += length;
+            Y2 += height;
+        }
+
+        /// <summary>
+        /// 複製圖形
+        /// </summary>
+        /// <returns></returns>
+        public IShape Clone()
+        {
+            return new Rectangle
+            {
+                X1 = X1,
+                Y1 = Y1,
+                X2 = X2,
+                Y2 = Y2
+            };
         }
     }
 }

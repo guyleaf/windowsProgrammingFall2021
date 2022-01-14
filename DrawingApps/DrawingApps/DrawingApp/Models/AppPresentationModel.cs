@@ -8,21 +8,24 @@ namespace DrawingApp.Models
     public class AppPresentationModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private DrawingMode _drawingMode;
         private readonly IModel _model;
+
+        private bool _isRectangleButtonEnabled;
+        private bool _isEllipseButtonEnabled;
+        private bool _isLineButtonEnabled;
 
         public AppPresentationModel(IModel model)
         {
-            _drawingMode = DrawingMode.None;
             _model = model;
             _model._modelChanged += HandleModelOnModelChanged;
+            _isRectangleButtonEnabled = _isEllipseButtonEnabled = _isLineButtonEnabled = true;
         }
 
         public bool IsRectangleButtonEnabled
         {
             get
             {
-                return IsShapeButtonEnabled(ShapeType.Rectangle);
+                return _isRectangleButtonEnabled;
             }
         }
 
@@ -30,7 +33,7 @@ namespace DrawingApp.Models
         {
             get
             {
-                return IsShapeButtonEnabled(ShapeType.Ellipse);
+                return _isEllipseButtonEnabled;
             }
         }
 
@@ -38,7 +41,7 @@ namespace DrawingApp.Models
         {
             get
             {
-                return IsShapeButtonEnabled(ShapeType.Line);
+                return _isLineButtonEnabled;
             }
         }
 
@@ -77,7 +80,8 @@ namespace DrawingApp.Models
         /// </summary>
         public void ClickRectangleButton()
         {
-            _model.CurrentDrawingShapeType = ShapeType.Rectangle;
+            _model.ChooseShape(ShapeType.Rectangle);
+            _isRectangleButtonEnabled = false;
             NotifyPropertyChanged();
         }
 
@@ -86,7 +90,8 @@ namespace DrawingApp.Models
         /// </summary>
         public void ClickEllipseButton()
         {
-            _model.CurrentDrawingShapeType = ShapeType.Ellipse;
+            _model.ChooseShape(ShapeType.Ellipse);
+            _isEllipseButtonEnabled = false;
             NotifyPropertyChanged();
         }
 
@@ -95,7 +100,8 @@ namespace DrawingApp.Models
         /// </summary>
         public void ClickLineButton()
         {
-            _model.CurrentDrawingShapeType = ShapeType.Line;
+            _model.ChooseLine();
+            _isLineButtonEnabled = false;
             NotifyPropertyChanged();
         }
 
@@ -104,43 +110,11 @@ namespace DrawingApp.Models
         /// </summary>
         private void HandleModelOnModelChanged()
         {
-            var newDrawingMode = IsCurrentShapeTypeEqualTo(ShapeType.None) ? DrawingMode.None : DrawingMode.Drawing;
-
-            if (newDrawingMode != _drawingMode)
+            if (!_model.IsDrawing)
             {
-                _drawingMode = newDrawingMode;
+                _isRectangleButtonEnabled = _isEllipseButtonEnabled = _isLineButtonEnabled = true;
                 NotifyPropertyChanged();
             }
-        }
-
-        /// <summary>
-        /// 是否目前 shape type 與參數一樣
-        /// </summary>
-        /// <param name="shapeType"></param>
-        /// <returns></returns>
-        private bool IsCurrentShapeTypeEqualTo(ShapeType shapeType)
-        {
-            return _model.CurrentDrawingShapeType == shapeType;
-        }
-
-        /// <summary>
-        /// 是否目前 drawing mode 與參數一樣
-        /// </summary>
-        /// <param name="shapeType"></param>
-        /// <returns></returns>
-        private bool IsCurrentDrawingModeEqualTo(DrawingMode mode)
-        {
-            return _drawingMode == mode;
-        }
-
-        /// <summary>
-        /// 是否 Shape 相關按鈕為啟用
-        /// </summary>
-        /// <returns></returns>
-        private bool IsShapeButtonEnabled(ShapeType shapeType)
-        {
-            return IsCurrentDrawingModeEqualTo(DrawingMode.None) ||
-                    !IsCurrentShapeTypeEqualTo(shapeType);
         }
 
         /// <summary>

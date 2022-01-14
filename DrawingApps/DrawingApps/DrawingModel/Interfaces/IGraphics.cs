@@ -8,19 +8,19 @@
         void ClearAll();
 
         /// <summary>
-        /// 畫虛線樣式的長方形
+        /// 繪製虛線樣式的長方形
         /// </summary>
         void DrawDashedRectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY);
 
         /// <summary>
-        /// 畫圓點
+        /// 繪製圓點
         /// </summary>
         /// <param name="middleX"></param>
         /// <param name="middleY"></param>
         void DrawDot(double middleX, double middleY);
 
         /// <summary>
-        /// 畫實線
+        /// 繪製實線
         /// </summary>
         /// <param name="x1"></param>
         /// <param name="y1"></param>
@@ -29,13 +29,20 @@
         void DrawLine(double x1, double y1, double x2, double y2);
 
         /// <summary>
-        /// 畫橢圓形
+        /// 繪製橢圓形
         /// </summary>
         void DrawEllipse(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY);
 
         /// <summary>
-        /// 畫長方形
+        /// 繪製長方形
         /// </summary>
         void DrawRectangle(double topLeftX, double topLeftY, double bottomRightX, double bottomRightY);
+
+        /// <summary>
+        /// 繪製文字
+        /// </summary>
+        /// <param name="topLeftX"></param>
+        /// <param name="topLeftY"></param>
+        void DrawString(double topLeftX, double topLeftY, string text);
     }
 }

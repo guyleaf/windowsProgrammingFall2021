@@ -6,6 +6,8 @@ namespace DrawingForm
 {
     public class FormGraphicsAdapter : IGraphics
     {
+        private const float FONT_SIZE = 16F;
+        private const string FONT_NAME = "Arial";
         private const float RADIUS_OF_DOT = 3.0F;
         private const float DASHED_LINE_WIDTH = 2.5F;
         private const float DASHED_LINE_LENGTH_BETWEEN_DASHED_LINE = 3.0F;
@@ -15,14 +17,19 @@ namespace DrawingForm
         private readonly Brush _brushForRectangle;
         private readonly Brush _brushForEllipse;
         private readonly Brush _brushForDot;
+        private readonly Brush _brushForText;
+        private readonly Font _fontForText;
 
         public FormGraphicsAdapter(Graphics graphics)
         {
             _graphics = graphics;
-            _brushForEllipse = new SolidBrush(Color.Orange);
-            _brushForDot = new SolidBrush(Color.White);
-            _brushForRectangle = new SolidBrush(Color.Yellow);
+            _brushForEllipse = Brushes.Orange;
+            _brushForDot = Brushes.White;
+            _brushForRectangle = Brushes.Yellow;
             _blackPen = Pens.Black;
+
+            _fontForText = new Font(FONT_NAME, FONT_SIZE);
+            _brushForText = Brushes.Black;
 
             _penForDashedLine = Pens.Red.Clone() as Pen;
             _penForDashedLine.Width = DASHED_LINE_WIDTH;
@@ -110,6 +117,16 @@ namespace DrawingForm
             var diameter = RADIUS_OF_DOT + RADIUS_OF_DOT;
             var rectangle = new RectangleF((float)middleX - RADIUS_OF_DOT, (float)middleY - RADIUS_OF_DOT, diameter, diameter);
             DrawEllipse(rectangle, _brushForDot, _blackPen);
+        }
+
+        /// <summary>
+        /// 繪製文字
+        /// </summary>
+        /// <param name="topLeftX"></param>
+        /// <param name="topLeftY"></param>
+        public void DrawString(double topLeftX, double topLeftY, string text)
+        {
+            _graphics.DrawString(text, _fontForText, _brushForText, (float)topLeftX, (float)topLeftY);
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using DrawingModel.Commands;
 using DrawingModel.Enums;
 using DrawingModel.Interfaces;
+using DrawingModel.States;
 
 using System;
 using System.Collections.Generic;
@@ -12,36 +13,17 @@ namespace DrawingModel
         public event Action _modelChanged;
 
         private bool _isPressed;
-        private bool _isSelected;
-        private ShapeType _currentDrawingShapeType;
-
-        private IShape _currentDrawingShape;
-        private IShape _selectedShape;
         private readonly IList<IShape> _shapes;
 
         private readonly CommandManager _commandManager;
+        private IState _state;
 
         public Model(CommandManager commandManager)
         {
             _shapes = new List<IShape>();
-            _isPressed = _isSelected = false;
-            _currentDrawingShapeType = ShapeType.None;
+            _isPressed = false;
             _commandManager = commandManager;
-        }
-
-        public ShapeType CurrentDrawingShapeType
-        {
-            get
-            {
-                return _currentDrawingShapeType;
-            }
-            set
-            {
-                _currentDrawingShapeType = value;
-                _currentDrawingShape = ShapesFactory.CreateShape(_currentDrawingShapeType);
-                _isSelected = false;
-                NotifyModelChanged();
-            }
+            _state = new PointerState(commandManager, this);
         }
 
         public bool IsAnyShapeDisplayed
@@ -60,20 +42,29 @@ namespace DrawingModel
             }
         }
 
-        public bool IsAnyShapeSelected
+        public bool IsDrawing
         {
             get
             {
-                return _isSelected;
+                return _state is DrawingState || _state is DrawingLineState;
             }
         }
 
-        public string SelectedShapeInfo
+        /// <summary>
+        /// 選擇畫圖形
+        /// </summary>
+        /// <param name="shapeType"></param>
+        public void ChooseShape(ShapeType shapeType)
         {
-            get
-            {
-                return _selectedShape != null ? _selectedShape.Info : string.Empty;
-            }
+            _state = new DrawingState(_commandManager, this, ShapesFactory.CreateShape(shapeType));
+        }
+
+        /// <summary>
+        /// 選擇畫線
+        /// </summary>
+        public void ChooseLine()
+        {
+            _state = new DrawingLineState(_commandManager, this);
         }
 
         /// <summary>
@@ -85,18 +76,9 @@ namespace DrawingModel
         {
             if (locationX > 0 && locationY > 0)
             {
-                if (_currentDrawingShapeType != ShapeType.None)
-                {
-                    _currentDrawingShape.X1 = locationX;
-                    _currentDrawingShape.Y1 = locationY;
-                    _isPressed = true;
-                }
-                else
-                {
-                    _selectedShape = FindShapeByLocation(locationX, locationY);
-                    _isSelected = _selectedShape != null;
-                    NotifyModelChanged();
-                }
+                _state.PressPointer(locationX, locationY);
+                _isPressed = true;
+                NotifyModelChanged();
             }
         }
 
@@ -109,8 +91,7 @@ namespace DrawingModel
         {
             if (_isPressed)
             {
-                _currentDrawingShape.X2 = locationX;
-                _currentDrawingShape.Y2 = locationY;
+                _state.MovePointer(locationX, locationY);
                 NotifyModelChanged();
             }
         }
@@ -125,15 +106,7 @@ namespace DrawingModel
         {
             if (_isPressed)
             {
-                IShape shape = CreateShape(locationX, locationY);
-                if (shape != null)
-                {
-                    _commandManager.Execute(new DrawCommand(this, shape, _currentDrawingShapeType != ShapeType.Line));
-                    // If dont want to use command pattern, remove this comment and comment the code above
-                    // _shapes.Add(shape);
-                    ResetDrawingShape();
-                }
-
+                _state.ReleasePointer(locationX, locationY);
                 _isPressed = false;
                 NotifyModelChanged();
             }
@@ -152,24 +125,17 @@ namespace DrawingModel
             }
             if (_isPressed)
             {
-                _currentDrawingShape.Draw(graphics);
-                DrawDashedLines(graphics, _currentDrawingShape);
-            }
-            if (_isSelected)
-            {
-                DrawDashedLines(graphics, _selectedShape);
-                DrawDots(graphics, _selectedShape);
+                _state.Draw(graphics);
             }
         }
 
         /// <summary>
-        /// 清除所有畫布
+        /// 清除所有繪製布
         /// </summary>
         public void Clear()
         {
             _commandManager.Execute(new ClearCommand(this, _shapes));
             _isPressed = false;
-            ResetDrawingShape();
             NotifyModelChanged();
         }
 
@@ -179,7 +145,6 @@ namespace DrawingModel
         public void Redo()
         {
             _commandManager.Redo();
-            _isSelected = false;
             NotifyModelChanged();
         }
 
@@ -189,7 +154,6 @@ namespace DrawingModel
         public void Undo()
         {
             _commandManager.Undo();
-            _isSelected = false;
             NotifyModelChanged();
         }
     }

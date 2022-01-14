@@ -105,7 +105,7 @@ namespace DrawingModel.Shapes
         }
 
         /// <summary>
-        /// 畫圖
+        /// 繪製圖
         /// </summary>
         /// <param name="graphics"></param>
         public void Draw(IGraphics graphics)
@@ -122,6 +122,25 @@ namespace DrawingModel.Shapes
         public bool IsLocatedIn(double locationX, double locationY)
         {
             return false;
+        }
+
+        /// <summary>
+        /// 移動至
+        /// </summary>
+        /// <param name="topLeftX"></param>
+        /// <param name="topLeftY"></param>
+        public void MoveTo(double topLeftX, double topLeftY)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 複製圖形
+        /// </summary>
+        /// <returns></returns>
+        public IShape Clone()
+        {
+            throw new NotImplementedException();
         }
     }
 }

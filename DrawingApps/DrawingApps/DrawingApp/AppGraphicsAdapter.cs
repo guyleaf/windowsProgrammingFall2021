@@ -141,5 +141,22 @@ namespace DrawingForm
 
             _canvas.Children.Add(ellipse);
         }
+
+        /// <summary>
+        /// 繪製文字
+        /// </summary>
+        /// <param name="topLeftX"></param>
+        /// <param name="topLeftY"></param>
+        public void DrawString(double topLeftX, double topLeftY, string text)
+        {
+            var textBlock = new TextBlock
+            { 
+                Text = text,
+                Margin = new Thickness(topLeftX, topLeftY, MARGIN_RIGHT_AND_BOTTOM, MARGIN_RIGHT_AND_BOTTOM),
+                Foreground = _blackBrush,
+                TextWrapping = TextWrapping.Wrap };
+
+            _canvas.Children.Add(textBlock);
+        }
     }
 }

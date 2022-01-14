@@ -9,7 +9,6 @@ namespace DrawingForm
 {
     public partial class MainForm : Form
     {
-        private const string FORMATTED_SELECTED_INFO = "Selected : {0}";
         private readonly FormPresentationModel _formPresentationModel;
         private readonly IModel _model;
 
@@ -161,8 +160,6 @@ namespace DrawingForm
             _canvas.Invalidate(true);
             _undoButton.Enabled = _model.IsAnyShapeDisplayed;
             _redoButton.Enabled = _model.IsAnyShapeRemoved;
-            _selectedShapeMessage.Visible = _model.IsAnyShapeSelected;
-            _selectedShapeMessage.Text = string.Format(FORMATTED_SELECTED_INFO, _model.SelectedShapeInfo);
         }
     }
 }

@@ -12,6 +12,16 @@ namespace DrawingModel
         private const string ERROR_MESSAGE = "Unknown shape type.";
 
         /// <summary>
+        /// 依 IShape 複製對應 Shape 物件
+        /// </summary>
+        /// <param name="shape"></param>
+        /// <returns></returns>
+        public static IShape CreateShape(IShape shape)
+        {
+            return shape.Clone();
+        }
+
+        /// <summary>
         /// 依 ShapeType 建構對應 Shape 物件
         /// </summary>
         /// <param name="shapeType"></param>

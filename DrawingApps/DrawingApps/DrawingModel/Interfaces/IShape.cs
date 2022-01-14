@@ -28,7 +28,7 @@
         }
 
         /// <summary>
-        /// 畫圖
+        /// 繪製圖
         /// </summary>
         /// <param name="graphics"></param>
         void Draw(IGraphics graphics);
@@ -40,5 +40,18 @@
         /// <param name="locationY"></param>
         /// <returns></returns>
         bool IsLocatedIn(double locationX, double locationY);
+
+        /// <summary>
+        /// 移動圖形
+        /// </summary>
+        /// <param name="locationX"></param>
+        /// <param name="locationY"></param>
+        void MoveTo(double topLeftX, double topLeftY);
+
+        /// <summary>
+        /// 複製圖形
+        /// </summary>
+        /// <returns></returns>
+        IShape Clone();
     }
 }
